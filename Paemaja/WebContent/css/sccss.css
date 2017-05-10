@@ -70,7 +70,7 @@
 }
 
 .mom {
-	float: bottom;
+	vertical-align: bottom;
 	border: 1px solid #dddddd;
 	border-radius: 5px;
 }
@@ -90,23 +90,21 @@
 	display: inline;
 	padding: 20px;
 }
-
+.hair{
+	width:80%;
+}
+/* 
 .hair_face {
 	border: 1px solid #dddddd;
 	border-radius: 5px;
-	float: left;
 	display: inline-block;
 	height: 250px;
-	padding: 0 10px;
-	width: 25%;
 }
 
 .hair_yeopguri {
 	border: 1px solid #dddddd;
 	border-radius: 5px;
-	float: center;
 	display: inline-block;
 	height: 250px;
-	padding: 0 10px;
-	width: auto;
 }
+*/
