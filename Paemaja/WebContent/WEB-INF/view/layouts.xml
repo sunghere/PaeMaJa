@@ -13,5 +13,9 @@
         <put-attribute name="main" value="/WEB-INF/view/main/main.jsp"/>
         <put-attribute name="bottom_inc" value="/WEB-INF/view/common/bottom.jsp"/>
     </definition>
+	
+	<definition name="shopdetail.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/shop/detail.jsp"/>
+    </definition>
 
 </tiles-definitions>

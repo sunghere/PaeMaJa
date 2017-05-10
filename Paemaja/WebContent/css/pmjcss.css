@@ -12,6 +12,11 @@
 	cursor: default;
 }
 
+body div { 
+	color : #000;
+}
+
+
 .help-tip:before {
 	content: '!';
 	font-weight: bold;

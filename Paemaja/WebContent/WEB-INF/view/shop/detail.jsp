@@ -82,8 +82,7 @@
 			id="pyeong">핑까&nbsp;:</span>&nbsp;&nbsp;
 		<textarea id="point_average_content" rows="10" cols="50"></textarea>
 		<br>
-		<button id="OK" name="OK" value="">확인</button>
-		<button id="cancle" name="cancle">취소</button>
+		<button class="btn btn-primary" id="OK" name="OK" value="">확인</button>
 	</div>
 
 </div>
