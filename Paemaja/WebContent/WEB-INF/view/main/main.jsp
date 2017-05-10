@@ -6,15 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/yscss.css"/>
-
-
 <div class="row">
-
 	<div class="col-md-3 col-lg-3 col-sm-3 containerys">
 		<div>
-			<img class="thumnail" src="images/c1.jpg" class="content_img" /> <!-- 이미지 -->
+			<a href="detail.do"><img class="thumnail" src="images/c1.jpg" class="content_img" /></a> <!-- 이미지 -->
 		</div>
 		<div>
 			<p  class="shop_name">#상호명</p> <!-- 상호명 -->

@@ -42,15 +42,17 @@
 			<li class="sc_li">li_2</li>
 		</ul>
 	</div>
-</div>
-<div class="hair">
-	<div class="hair_face">영정사진</div>
-	<div class="hair_yeopguri">
-		<div class="hair_yeopguri_daegari1">대가리1</div>
-		<div class="hair_yeopguri_daegari2">대가리2</div>
-		<div class="hair_yeopguri_daegari3">대가리3</div>
+</div><br>
+<div class="row">
+<div class="hair container">
+	<div class="col-md-6 "><img src="<%=request.getContextPath()%>/images/c1.jpg" class="img-rounded"></div>
+	<div class="col-md-6 ">
+		<div class="hair_yeopguri_daegari1">텍스트1</div>
+		<div class="hair_yeopguri_daegari2">텍스트2</div>
+		<div class="hair_yeopguri_daegari3">텍스트3</div>
 	</div>
 </div>
+</div><br>
 <div class="mom">댓글</div>
 
 
@@ -77,9 +79,8 @@
 			</button>
 			<span id="skull_score">0 점</span>
 		</div>
-		<br> 그림&nbsp;:&nbsp;&nbsp;<input type="text"
-			id="point_average_title"> <br> <br> <span
-			id="pyeong">핑까&nbsp;:</span>&nbsp;&nbsp;
+		<br> 그림&nbsp;:&nbsp;&nbsp;<input type="text" id="point_average_title"> <br> <br> 
+		<span id="pyeong">핑까&nbsp;:</span>&nbsp;&nbsp;
 		<textarea id="point_average_content" rows="10" cols="50"></textarea>
 		<br>
 		<button class="btn btn-primary" id="OK" name="OK" value="">확인</button>
