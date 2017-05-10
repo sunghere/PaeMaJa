@@ -139,6 +139,7 @@ fabric.properties
 *.war
 *.ear
 *.zip
+*.jar
 *.tar.gz
 *.rar
 
