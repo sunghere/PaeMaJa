@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PMAShopDTO"> 
+
+	<insert id="writeShop"  
+	parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
+		INSERT INTO PMA_SHOP(SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL) 
+		VALUES(SEQ_PMA_SHOP.NEXTVAL,#{name},#{addr},#{tel},#{category},#{menu},0,0,#{imgfile},0)
+	</insert>
+	
+	<select id="getShopList"
+	resultType="com.pae.maja.pmashop.model.PMAShopDTO">
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		FROM PMA_SHOP
+		ORDER BY SEQ ASC
+	</select>
+	
+	<select id="getShop"
+	parameterType="java.lang.Integer"
+	resultType="com.pae.maja.pmashop.model.PMAShopDTO">
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		FROM PMA_SHOP
+		WHERE SEQ=#{seq}
+	</select>
+	
+	<select id="searchShopList"
+	parameterType="java.lang.String"
+	resultType="com.pae.maja.pmashop.model.PMAShopDTO">
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		FROM PMA_SHOP
+		WHERE NAME LIKE  '%'||#{search}||'%'
+		OR CATEGORY LIKE '%'||#{search}||'%'
+		OR ADDR LIKE '%'||#{search}||'%'
+	</select>
+	
+	<select id="searchShopListRegion"
+	parameterType="java.lang.String"
+	resultType="com.pae.maja.pmashop.model.PMAShopDTO">
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		FROM PMA_SHOP
+		WHERE ADDR LIKE '%'||#{search}||'%'
+	</select>
+	
+	
+	
+	<update id="updateShop"
+	parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
+	UPDATE PMA_SHOP SET
+	NAME = #{name},
+	ADDR = #{addr},
+	TEL = #{tel},
+	CATEGORY = #{category},
+	MENU = #{menu},
+	XPOS = #{xpos},
+	YPOS = #{ypos},
+	IMGFILE = #{imgfile}
+	</update>
+	
+	<update id="deleteShop"
+	parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
+	UPDATE PMA_SHOP SET
+	DEL = 1
+	</update>
+	
+	
+	
+ </mapper>

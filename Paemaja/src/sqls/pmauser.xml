@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PMAUser">
+
+	<insert id="regi" parameterType="com.pae.maja.pmauser.model.PMAUser">
+		INSERT INTO PMA_USER(SEQ, ID,
+		AUTH, NICKNAME, PWD, FAVORITE, DEL) VALUES
+		(seq_PMA_USER.nextval,#{id},3,#{nickname},#{pwd},#{favorite},0)
+	</insert>
+
+	<select id="login" parameterType="com.pae.maja.pmauser.model.PMAUser"
+		resultType="com.pae.maja.pmauser.model.PMAUser">
+		SELECT SEQ, ID, AUTH, NICKNAME, PWD, FAVORITE, DEL FROM
+		PMA_USER WHERE ID =
+		#{id} AND PWD = #{pwd} AND DEL = 0
+	</select>
+	<select id="idcheck" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT nvl(COUNT(*),0) FROM PMA_USER WHERE ID=#{id}
+	</select>
+
+	<select id="getInfo" parameterType="com.pae.maja.pmauser.model.PMAUser"
+		resultType="com.pae.maja.pmauser.model.PMAUser">
+		SELECT SEQ, ID, AUTH, NICKNAME, PWD, FAVORITE, DEL FROM
+		PMA_USER WHERE
+		SEQ=#{seq}
+	</select>
+
+	<update id="leave" parameterType="com.pae.maja.pmauser.model.PMAUser">
+		UPDATE PMA_USER SET DEL=1 WHERE
+		SEQ=#{seq}
+	</update>
+
+</mapper>
