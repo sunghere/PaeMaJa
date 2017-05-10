@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <tiles:insertAttribute name="main"/>
-                            <hr class="primary">
+                            
                         </div>
                     </div>
                 </div>
