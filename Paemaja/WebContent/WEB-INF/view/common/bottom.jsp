@@ -7,7 +7,7 @@
 	<div class="modal fade" id="shLogin" style="display: none;"
 		aria-hidden="true">
 		<div id="login_bg"
-			style="background-color: rgba(252,252, 252, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></div>
+			style="background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></div>
 		<div class="modal-dialog login_popup" id="login_popup">
 			<div class="modal-content login_popup_content">
 				<div class="modal-header line_none">
@@ -17,16 +17,16 @@
 					</button>
 					<h2 class="title_Type">패맞아 로그인</h2>
 					<h3 class="subtitle_Type_mb50">
-						Welcome ^ ^ // login plz<i class=""></i>
+						환영합니다 로그인해주세요<i class=""></i>
 					</h3>
 				</div>
 				<div class="modal-body">
 					<form id="loginform">
 						<input type="text" id="login_userid" data-msg="ID"
-							class="form-control" placeholder="ID" name="id"
-							size="15"> <br> <input type="password"
-							id="login_pwd" data-msg="패스워드" title="패스워드" class="form-control"
-							placeholder="PASSWORD" name="pwd" size="15"><br>
+							class="form-control" placeholder="ID" name="id" size="15">
+						<br> <input type="password" id="login_pwd" data-msg="패스워드"
+							title="패스워드" class="form-control" placeholder="PASSWORD"
+							name="pwd" size="15"><br>
 						<button class="btn btn-primary btn-default" type="button"
 							id="login_btnLogin" title="로그인">로그인</button>
 						<button class="btn btn-primary btn-default" type="button"

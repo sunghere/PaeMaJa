@@ -21,7 +21,12 @@
 	top:10px;
 }
 #back_img{
-	opacity:0.5;
+	opacity:0.3;
+}
+
+#qt{
+	border:none;
+	background:none;
 }
 </style>
 
@@ -34,26 +39,25 @@
 		<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
 			<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
 				<div class="mbr-plan card text-xs-center" id="back_img_div">
-				<img src="KakaoTalk_20170510_165445431.png" class="img-responsive" id="back_img">
+				<a href="shopdetail.do?seq=${tempShop.seq}"><button id="qt"><img src="KakaoTalk_20170510_165445431.png" class="img-responsive" id="back_img"></button></a>
 					<div class="mbr-plan-header card-block" id="back_text">
 						<div class="card-title">
-							<h3 class="mbr-plan-title">STANDARD</h3>
-							<small class="mbr-plan-subtitle">Description</small>
+							<h3 class="mbr-plan-title">${tempShop.category}</h3>
+							<small class="mbr-plan-subtitle">${tempShop.menu}</small>
 						</div>
 						<div class="card-text">
 							<div class="mbr-price">
-								<span class="mbr-price-value">$</span> <span
-									class="mbr-price-figure">0</span><small class="mbr-price-term">/mo.</small>
+								<span class="mbr-price-value">★</span> <span
+									class="mbr-price-figure">${tempShop.name}</span><small class="mbr-price-term">/${tempShop.addr}</small>
 							</div>
-							<small class="mbr-plan-price-desc">More details</small>
+							<small class="mbr-plan-price-desc">${tempShop.tel}</small>
 						</div>
 					</div>
 					<div class="mbr-plan-body card-block">
 						<div class="mbr-plan-list">
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item">32 GB storage</li>
-								<li class="list-group-item">Unlimited users</li>
-								<li class="list-group-item">15 GB bandwidth</li>
+								<li class="list-group-item">평점</li>
+								<li class="list-group-item">투표참여인원수</li>
 							</ul>
 						</div>
 
