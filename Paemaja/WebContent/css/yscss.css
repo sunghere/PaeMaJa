@@ -201,7 +201,7 @@
     margin-bottom: 1.5625rem; }
   .mbr-plan-title {
     font-family: "Montserrat";
-    font-size: 0.9375rem;
+    font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.28;
     margin-bottom: 0; }
@@ -274,13 +274,13 @@
     font-size: 1.875rem;
     line-height: 1;
     position: relative;
-    top: -1.25rem; }
+    top: -0.4rem; }
   .mbr-price-figure {
-    font-size: 3.75rem;
+    font-size: 2rem;
     line-height: inherit;
     padding-left: 0.625rem; }
   .mbr-price-term {
-    font-size: 1.875rem;
+    font-size: 1.1rem;
     position: relative; }
 
 /*-------
