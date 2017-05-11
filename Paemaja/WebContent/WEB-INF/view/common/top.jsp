@@ -11,7 +11,9 @@
 <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed"
+		<a class="navbar-brand" title="메인" href="main.do"><img src="image/logo.png" class="paelogo img-responsive" ></a>
+	
+			<button class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#bs-navbar">
 				<span class="sr-only"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
@@ -20,8 +22,8 @@
 		</div>
 		<div class="navbar-collapse collapse" id="bs-navbar">
 			<ul class="nav navbar-nav">
-				<li><a title="메인" href="main.do"><i class="fa fa-home"></i>메인</a>
-				</li>
+			<!--<i class="fa fa-home"></i>메인 -->
+			
 
 				<c:if test="${ !empty login && login.auth eq 1 }">
 					<li><a title="관리메뉴" href="/setting.do">관리자 메뉴</a></li>
