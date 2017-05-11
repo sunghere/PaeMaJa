@@ -60,30 +60,29 @@
 			<li data-target="#carousel-example-generic" data-slide-to="0"
 				class="active"></li>
 			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
 		</ol>
 
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<a href="#" class="thumbnail"> <img src="image/img02gsee.jpg"
-					alt="...">
-				</a>
-				<div class="carousel-caption"></div>
-			</div>
-			<div class="item">
-				<a href="#" class="thumbnail"> <img src="image/img02gsee.jpg"
+				<a href="#" class="thumbnail"> <img src="image/mainimg01.jpg"
 					alt="...">
 				</a>
 				<div class="carousel-caption">
-					<h3>가라요</h3>
-					<p>...</p>
+					<h3>Pae Ma Ja</h3>
+					<p>패 맞 을 맛</p>
 				</div>
 			</div>
 			<div class="item">
-				<img src="image/img02gsee.jpg" class="img4" alt="...">
-				<div class="carousel-caption"></div>
+				<a href="#" class="thumbnail"> <img src="image/mainimg02.jpg"
+					alt="...">
+				</a>
+				<div class="carousel-caption">
+					<h3></h3>
+					<p></p>
+				</div>
 			</div>
+
 		</div>
 
 		<!-- Controls -->
