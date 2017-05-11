@@ -52,7 +52,7 @@
 	</div>
 </nav>
 
-<div class="container-fluid">
+<div class="main-container">
 	<div id="carousel-example-generic" class="carousel slide"
 		data-ride="carousel">
 		<!-- Indicators -->
