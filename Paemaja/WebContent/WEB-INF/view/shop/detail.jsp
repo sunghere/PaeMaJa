@@ -47,9 +47,9 @@
 <div class="hair container">
 	<div class="col-md-6 "><img src="<%=request.getContextPath()%>/images/c1.jpg" class="img-rounded" id="detail_img"></div>
 	<div class="col-md-6 ">
-		<div class="hair_yeopguri_daegari1">텍스트1</div>
-		<div class="hair_yeopguri_daegari2">텍스트2</div>
-		<div class="hair_yeopguri_daegari3">텍스트3</div>
+		<div class="hair_yeopguri_daegari1">${shopdetail.name}</div>
+		<div class="hair_yeopguri_daegari2">${shopdetail.category}</div>
+		<div class="hair_yeopguri_daegari3">${shopdetail.menu}</div>
 	</div>
 </div>
 </div><br>

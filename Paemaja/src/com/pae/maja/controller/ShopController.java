@@ -32,7 +32,6 @@ public class ShopController {
     
     @RequestMapping(value = "shopdetail.do", method = RequestMethod.GET)
     public String detail(int seq,Model model) throws Exception {
-
         logger.info("Welcome ShopController detail---------------------------------!"+seq);
         model.addAttribute("shopdetail",service.getShop(seq));
         return "shopdetail.tiles";
