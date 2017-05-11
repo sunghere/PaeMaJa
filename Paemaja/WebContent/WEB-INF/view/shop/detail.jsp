@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sccss.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-	$(function() {
+	$(function() {	
 		var imgAlt;
 		$("#chang").click(function() {
 			$(".changryeol").css("display", "block")
@@ -45,7 +45,7 @@
 </div><br>
 <div class="row">
 <div class="hair container">
-	<div class="col-md-6 "><img src="<%=request.getContextPath()%>/images/c1.jpg" class="img-rounded"></div>
+	<div class="col-md-6 "><img src="<%=request.getContextPath()%>/images/c1.jpg" class="img-rounded" id="detail_img"></div>
 	<div class="col-md-6 ">
 		<div class="hair_yeopguri_daegari1">텍스트1</div>
 		<div class="hair_yeopguri_daegari2">텍스트2</div>
