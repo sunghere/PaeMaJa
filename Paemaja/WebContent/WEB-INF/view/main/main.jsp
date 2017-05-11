@@ -21,7 +21,7 @@
 	없어
 	</c:if>
 		<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
-			<div class="col-xs-12  col-md-6 col-xl-3">
+			<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
 				<div class="mbr-plan card text-xs-center">
 					<div class="mbr-plan-header card-block">
 
@@ -49,7 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<c:if test="${vs.count% 4 eq 0 }">
+			<c:if test="${vs.count% 3 eq 0 }">
 	</div>
 	<div class="row">
 		</c:if>
