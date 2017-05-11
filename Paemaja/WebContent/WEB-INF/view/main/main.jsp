@@ -24,7 +24,7 @@
 	<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
 		<div class="col-md-3 col-lg-3 col-sm-3 containerys">
 			<div>
-				<a href="detail.do"><img class="thumnail" src="<%=request.getContextPath()%>/image/shop/${tempShop.imgfile}" class="content_img" alt="없음" /></a>
+				<a href="shopdetail.do?seq=${tempShop.seq}"><img class="thumnail" src="<%=request.getContextPath()%>/image/shop/${tempShop.imgFile}" class="content_img" alt="없음" /></a>
 				<!-- 이미지 -->
 			</div>
 			<div>
@@ -45,6 +45,7 @@
 		</div>
 		<c:if test="${vs.count% 3 eq 0 }">
 			</div>
+			<div class="col-md-1 col-lg-1 yeop"></div>
 			<div class="row">
 		</c:if>
 	</c:forEach>
