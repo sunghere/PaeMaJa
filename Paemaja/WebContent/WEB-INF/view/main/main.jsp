@@ -12,19 +12,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<style>
+#back_img_div{
+	position:relative;
+}
+#back_text{
+	position:absolute;
+	top:10px;
+}
+#back_img{
+	opacity:0.5;
+}
+</style>
 
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/yscss.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/yscss.css" />
 <div class="row">
 
 		<c:if test="${empty shoplist}">
 	없어
 	</c:if>
 		<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
-			<div class="col-xs-12  col-md-6 col-xl-3">
-				<div class="mbr-plan card text-xs-center">
-					<div class="mbr-plan-header card-block">
-
+			<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
+				<div class="mbr-plan card text-xs-center" id="back_img_div">
+				<img src="KakaoTalk_20170510_165445431.png" class="img-responsive" id="back_img">
+					<div class="mbr-plan-header card-block" id="back_text">
 						<div class="card-title">
 							<h3 class="mbr-plan-title">STANDARD</h3>
 							<small class="mbr-plan-subtitle">Description</small>
@@ -49,7 +60,7 @@
 					</div>
 				</div>
 			</div>
-			<c:if test="${vs.count% 4 eq 0 }">
+			<c:if test="${vs.count% 3 eq 0 }">
 	</div>
 	<div class="row">
 		</c:if>
