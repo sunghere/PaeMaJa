@@ -16,39 +16,45 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/yscss.css" />
 <div class="row">
-	<c:if test="${empty shoplist}">
+
+		<c:if test="${empty shoplist}">
 	없어
 	</c:if>
-	<div class="col-md-1 col-lg-1 yeop"></div>
+		<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
+			<div class="col-xs-12  col-md-6 col-xl-3">
+				<div class="mbr-plan card text-xs-center">
+					<div class="mbr-plan-header card-block">
 
-	<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
-		<div class="col-md-3 col-lg-3 col-sm-3 containerys">
-			<div>
-				<a href="shopdetail.do?seq=${tempShop.seq}"><img class="thumnail" src="<%=request.getContextPath()%>/image/shop/${tempShop.imgFile}" class="content_img" alt="없음" /></a>
-				<!-- 이미지 -->
-			</div>
-			<div>
-				<p class="shop_name">${tempShop.name}</p>
-				<!-- 상호명 -->
-				<p class="shop_comt">${tempShop.category},${tempShop.menu}</p>
-				<!-- 요약 -> 카테고리, 메뉴-->
-				<hr />
-				<br />
-				<ul class="mainul">
-					<li class="img mainli"><span><img src="images/s2.jpg"
-							class="imgul1"></span>3</li>
+						<div class="card-title">
+							<h3 class="mbr-plan-title">STANDARD</h3>
+							<small class="mbr-plan-subtitle">Description</small>
+						</div>
+						<div class="card-text">
+							<div class="mbr-price">
+								<span class="mbr-price-value">$</span> <span
+									class="mbr-price-figure">0</span><small class="mbr-price-term">/mo.</small>
+							</div>
+							<small class="mbr-plan-price-desc">More details</small>
+						</div>
+					</div>
+					<div class="mbr-plan-body card-block">
+						<div class="mbr-plan-list">
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">32 GB storage</li>
+								<li class="list-group-item">Unlimited users</li>
+								<li class="list-group-item">15 GB bandwidth</li>
+							</ul>
+						</div>
 
-					<li class="img mainli"><span><img src="images/h1.jpg"
-							class="imgul2"></span><label for="">3</label>/10</li>
-				</ul>
+					</div>
+				</div>
 			</div>
-		</div>
-		<c:if test="${vs.count% 3 eq 0 }">
-			</div>
-			<div class="col-md-1 col-lg-1 yeop"></div>
-			<div class="row">
+			<c:if test="${vs.count% 4 eq 0 }">
+	</div>
+	<div class="row">
 		</c:if>
-	</c:forEach>
+		</c:forEach>
+	</div>
 </div>
 
 
