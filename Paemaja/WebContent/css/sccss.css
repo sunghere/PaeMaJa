@@ -90,8 +90,14 @@
 	display: inline;
 	padding: 20px;
 }
+
 .hair{
 	width:80%;
+}
+
+#detail_img{
+	max-width:400px;
+	max-height:300px;
 }
 /* 
 .hair_face {
