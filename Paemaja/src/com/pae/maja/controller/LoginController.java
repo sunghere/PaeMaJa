@@ -54,7 +54,7 @@ public class LoginController {
 
 	public String getDoRef(String ref) {
 		if (ref.contains("/"))
-			ref = ref.substring(ref.lastIndexOf("/"));
+			ref = ref.substring(ref.indexOf("/"));
 
 		return ref;
 	}
