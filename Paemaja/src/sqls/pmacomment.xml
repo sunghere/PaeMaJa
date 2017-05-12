@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PMAComment">
+
+	<insert id="writeComment" parameterType="com.pae.maja.pmacomment.model.PMAComment">
+		INSERT INTO PMA_COMMENT VALUES
+		(seq_PMA_COMMENT.NEXTVAL, #{pseq}, #{idseq}, #{wdate}, #{score}, 0, #{img}, #{content})
+	</insert>
+	
+	<select id="getCommentList" parameterType="java.lang.Integer"
+		resultType="com.pae.maja.pmacomment.model.PMAComment">
+		SELECT SEQ ,PSEQ,
+		IDSEQ,WDATE,SCORE,IMG,DEL,CONTENT
+		FROM PMA_COMMENT
+		WHERE PSEQ=#{pseq}
+	</select>
+
+	<update id="updateShop" parameterType="com.pae.maja.pmacomment.model.PMAComment">
+		UPDATE PMA_COMMENT SET
+		SCORE = #{score},
+		CONTENT = #{content}
+	</update>
+
+	<update id="deleteComment" parameterType="com.pae.maja.pmacomment.model.PMAComment">
+		UPDATE PMA_COMMENT SET
+		DEL = 1
+		WHERE SEQ = #{seq}
+	</update>
+
+
+
+</mapper>
