@@ -39,7 +39,7 @@
 					</li>
 				</c:if>
 				<c:if test="${ !empty login  && login.id ne ''}">
-					<li><a href="/logout.do" title="로그아웃">로그아웃</a></li>
+					<li><a href="logout.do" title="로그아웃">로그아웃</a></li>
 
 				</c:if>
 

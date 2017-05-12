@@ -3,7 +3,7 @@ SELECT * FROM PMA_COMMENT;
 SELECT * FROM PMA_SHOP;
 
 SELECT * FROM PMA_USER;
-insert into pma_user values(seq_pma_user.nextval,'admin','1','admin','1')
+insert into pma_user values(seq_pma_user.nextval,'admin',1,'admin','admin','',0)
 
 -- PMA_USER AUTH 
 -- 1:관리자 / 3:사용자
