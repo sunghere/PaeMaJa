@@ -12,64 +12,89 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script>
+	/* $(function(){
+	 $("#qt").on("mouseover",function(){
+	 $("#back_img").animate({
+	 opacity: '1'
+	 });
+	 $("#back_text").animate({
+	 opacity:'0'
+	 });
+	 })
+	 $("#qt").mouseleave(function(){
+	 $("#back_img").animate({
+	 opacity: '0.3'
+	 });
+	 $("#back_text").animate({
+	 opacity:'1'
+	 });
+	 })
+	 }) */
+</script>
 <style>
-#back_img_div{
-	position:relative;
-}
-#back_text{
-	position:absolute;
-	top:10px;
-}
-#back_img{
-	opacity:0.3;
+.back_img{
+	position: relative;
 }
 
-#qt{
-	border:none;
-	background:none;
+.txts_divs {
+	position: absolute;
+	top : 1px;
+}
+
+.detailimg {
+	opacity: 0.3;
+}
+
+.detailimg:hover, .detailimg:focus {
+	opacity : 1;	
 }
 </style>
 
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/yscss.css" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/yscss.css" />
 <div class="row">
 
-		<c:if test="${empty shoplist}">
+	<c:if test="${empty shoplist}">
 	없어
 	</c:if>
-		<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
-			<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
-				<div class="mbr-plan card text-xs-center" id="back_img_div">
-				<a href="shopdetail.do?seq=${tempShop.seq}"><button id="qt"><img src="KakaoTalk_20170510_165445431.png" class="img-responsive" id="back_img"></button></a>
-					<div class="mbr-plan-header card-block" id="back_text">
-						<div class="card-title">
-							<h3 class="mbr-plan-title">${tempShop.category}</h3>
-							<small class="mbr-plan-subtitle">${tempShop.menu}</small>
-						</div>
-						<div class="card-text">
-							<div class="mbr-price">
-								<span class="mbr-price-value">★</span> <span
-									class="mbr-price-figure">${tempShop.name}</span><small class="mbr-price-term">/${tempShop.addr}</small>
-							</div>
-							<small class="mbr-plan-price-desc">${tempShop.tel}</small>
-						</div>
+	<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
+		<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
+		
+			<div class="mbr-plan card text-xs-center back_img" >
+			
+				<a href="shopdetail.do?seq=${tempShop.seq}"><img src="KakaoTalk_20170510_165445431.png" class="detailimg img-responsive"></a>
+				
+				<div class="card-block txts_divs">
+					<div class="card-title">
+						<h3 class="mbr-plan-title">${tempShop.category}</h3>
+						<small class="mbr-plan-subtitle">${tempShop.menu}</small>
 					</div>
-					<div class="mbr-plan-body card-block">
-						<div class="mbr-plan-list">
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item">평점</li>
-								<li class="list-group-item">투표참여인원수</li>
-							</ul>
+					<div class="card-text">
+						<div class="mbr-price">
+							<span class="mbr-price-value">★</span> <span
+								class="mbr-price-figure">${tempShop.name}</span><small
+								class="mbr-price-term">/${tempShop.addr}</small>
 						</div>
-
+						<small class="mbr-plan-price-desc">${tempShop.tel}</small>
 					</div>
 				</div>
+				<div class="mbr-plan-body card-block">
+					<div class="mbr-plan-list">
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item">평점</li>
+							<li class="list-group-item">투표참여인원수</li>
+						</ul>
+					</div>
+
+				</div>
 			</div>
-			<c:if test="${vs.count% 3 eq 0 }">
-	</div>
-	<div class="row">
-		</c:if>
-		</c:forEach>
-	</div>
+		</div>
+		<c:if test="${vs.count% 3 eq 0 }">
+</div>
+<div class="row">
+	</c:if>
+	</c:forEach>
 </div>
 
 
