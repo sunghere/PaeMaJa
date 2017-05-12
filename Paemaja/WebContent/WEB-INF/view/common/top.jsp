@@ -35,7 +35,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${ !empty login  && login.nickname ne ''}">
 					<li><a class="" data-toggle="modal" data-target="#infomodal"
-						title="내정보" href="#"><i class="fa fa-info-circle"></i>${login.name}</a>
+						title="내정보" href="#"><i class="fa fa-info-circle"></i>${login.nickname}</a>
 					</li>
 				</c:if>
 				<c:if test="${ !empty login  && login.id ne ''}">
