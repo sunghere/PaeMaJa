@@ -44,9 +44,9 @@
 				</c:if>
 
 				<c:if test="${empty login}">
-					<li><a title="회원가입" href="regi.do">회원가입</a></li>
-					<li><a href="#" data-toggle="modal" title="로그인"
-						data-target="#shLogin" class="icon06">로그인 </a></li>
+
+					<li><a href="#" data-toggle="modal" title="로그인&회원가입"
+						data-target="#shLogin" class="icon06">로그인&회원가입</a></li>
 				</c:if>
 
 			</ul>
