@@ -70,9 +70,9 @@
 				<a href="#" class="thumbnail"> <img src="image/mainimg01.jpg"
 					alt="...">
 				</a>
-				<div class="carousel-caption">
-					<h3>Pae Ma Ja</h3>
-					<p>패 맞 을 맛</p>
+				<div class="carousel-caption-middle">
+					<h1>Pae Ma Ja</h1>
+					<h2>패 맞 을 맛</h2>
 				</div>
 			</div>
 			<div class="item">

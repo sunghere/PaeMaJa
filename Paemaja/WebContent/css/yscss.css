@@ -220,7 +220,7 @@
   .mbr-plan-header {
     padding-bottom: 3.4375rem;
     padding-top: 2.1875rem;
-    position: relative; }
+  }
     .mbr-plan-header.bg-primary .mbr-plan-subtitle,
     .mbr-plan-header.bg-primary .mbr-plan-price-desc {
       color: #e8ddcd; }
@@ -284,7 +284,7 @@
     position: relative; }
 
 /*-------
-
+  /* position: relative;*/
    Testimonials
 
 -------*/
