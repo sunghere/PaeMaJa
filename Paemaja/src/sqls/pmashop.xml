@@ -67,6 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="deleteShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
 		UPDATE PMA_SHOP SET
 		DEL = 1
+		WHERE SEQ = #{seq}
 	</update>
 
 
