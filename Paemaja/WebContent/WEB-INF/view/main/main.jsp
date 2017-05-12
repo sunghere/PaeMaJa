@@ -40,6 +40,7 @@
 .txts_divs {
 	position: absolute;
 	top : 1px;
+	z-index:9999;
 }
 
 .detailimg {

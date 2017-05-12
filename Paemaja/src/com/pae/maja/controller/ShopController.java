@@ -36,4 +36,11 @@ public class ShopController {
 		return "shopdetail.tiles";
 	}
 
+	@RequestMapping(value = "shopreply.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String shopreply(int seq, Model model) throws Exception {
+
+		logger.info("Welcome ShopController shopreply---------------------------------!" + seq);
+//		model.addAttribute("shopreply", service.getShop(seq));
+		return "shopdetail.tiles";
+	}
 }

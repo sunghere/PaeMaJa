@@ -71,8 +71,7 @@
 
 .mom {
 	vertical-align: bottom;
-	border: 1px solid #dddddd;
-	border-radius: 5px;
+	border-bottom: 1px solid #dddddd;
 }
 
 .sc_ul{
