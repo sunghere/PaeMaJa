@@ -54,20 +54,21 @@ public class LoginController {
 
 	public String getDoRef(String ref) {
 		if (ref.contains("/"))
+			logger.info("Welcome LoginController logout! asjdaskadkaadskadskss"+ ref);
 			ref = ref.substring(ref.lastIndexOf("/"));
 
 		return ref;
 	}
 
-	@RequestMapping(value = "getID.do", method = RequestMethod.POST)
+	@RequestMapping(value = "idcheck.do", method = RequestMethod.POST)
 	@ResponseBody
-	public AjaxCheck getID(String id, Model model) throws Exception {
+	public AjaxCheck idcheck(String id, Model model) throws Exception {
 		// logger.info("Welcome LoginController getID! " + new Date());
 		int count = pMAUserSerivce.idcheck(id);
 
 		AjaxCheck checkResult = new AjaxCheck();
 		if (count > 0) {
-			checkResult.setMessage("SUCS");
+			checkResult.setMessage("SUCC");
 		} else {
 			checkResult.setMessage("FAIL");
 		}

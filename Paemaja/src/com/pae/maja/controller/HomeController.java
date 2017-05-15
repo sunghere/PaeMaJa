@@ -1,5 +1,7 @@
 package com.pae.maja.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,23 @@ public class HomeController {
         logger.info("Welcome HomeController home---------------------------------!"+service.getShopList());
         model.addAttribute("shoplist", service.getShopList());
         return "main.tiles";
+    }
+    
+    @RequestMapping(value = "this.do", method = RequestMethod.GET)
+    public String thispage(HttpServletRequest request, Model model) throws Exception {
+        logger.info("go this page" + request.getHeader("Referer"));
+
+
+        return "redirect:" + getDoRef(request.getHeader("Referer"));
+    }
+
+
+    public String getDoRef(String ref) {
+
+        if (ref.contains("/"))
+            ref = ref.substring(ref.lastIndexOf("/"));
+
+
+        return ref;
     }
 }
