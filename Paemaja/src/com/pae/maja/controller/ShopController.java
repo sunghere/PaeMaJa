@@ -25,7 +25,7 @@ public class ShopController {
 	public String write(Model model) throws Exception {
 
 		logger.info("Welcome ShopController write---------------------------------!");
-		return "write.tiles";
+		return "shopwrite.tiles";
 	}
 
 	@RequestMapping(value = "shopdetail.do", method = RequestMethod.GET)

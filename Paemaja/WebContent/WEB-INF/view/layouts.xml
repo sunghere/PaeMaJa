@@ -15,7 +15,12 @@
     </definition>
 	
 	<definition name="shopdetail.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/shop/detail.jsp"/>
+        <put-attribute name="main" value="/WEB-INF/view/shop/shopdetail.jsp"/>
+    </definition>
+    
+    <definition name="shopwrite.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/shop/shopwrite.jsp"/>
+        
     </definition>
 
 </tiles-definitions>

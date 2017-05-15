@@ -26,8 +26,8 @@
 			
 
 				<c:if test="${ !empty login && login.auth eq 1 }">
-					<li><a title="관리메뉴" href="/setting.do">관리자 메뉴</a></li>
-					<li><a title="관리메뉴" href="/shopwrite.do">가게 작성</a></li>
+					<li><a title="관리메뉴" href="setting.do">관리자 메뉴</a></li>
+					<li><a title="관리메뉴" href="shopwrite.do">가게 작성</a></li>
 				</c:if>
 
 			</ul>
