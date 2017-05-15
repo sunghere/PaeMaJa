@@ -6,7 +6,7 @@ SELECT * FROM PMA_USER;
 insert into pma_user values(seq_pma_user.nextval,'admin','1','admin','1')
 
 -- PMA_USER AUTH 
--- 1:관리자 / 3:사용자
+-- 1:愿�由ъ옄 / 3:�궗�슜�옄
 
 alter table PMA_COMMENT add content varchar2(500) not null
 
@@ -15,7 +15,7 @@ SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		ORDER BY SEQ ASC
 		
 INSERT INTO PMA_SHOP(SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL) 
-		VALUES(SEQ_PMA_SHOP.NEXTVAL,'국회의사당 버거킹2','서울시 영등포구2','02-1234-5678','패스트푸드','와퍼',0,0,'',0)
+		VALUES(SEQ_PMA_SHOP.NEXTVAL,'援��쉶�쓽�궗�떦 踰꾧굅�궧2','�꽌�슱�떆 �쁺�벑�룷援�2','02-1234-5678','�뙣�뒪�듃�뫖�뱶','���띁',0,0,'',0)
 		
 commit
 
@@ -23,7 +23,7 @@ SELECT * FROM PMA_SHOP;
 		
 SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		FROM PMA_SHOP
-		WHERE ADDR LIKE '%서울%'
+		WHERE ADDR LIKE '%�꽌�슱%'
 		
 SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		FROM PMA_SHOP
