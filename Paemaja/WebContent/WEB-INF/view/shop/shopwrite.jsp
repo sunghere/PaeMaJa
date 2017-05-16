@@ -1,32 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+
+
+
+<!--
+<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script> 
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/ckeditor.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/style.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/config.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/contents.css"/>
+ -->
 <script>
 
-	window.onload=function(){
 		
-		CKEDITOR.replace( 'ckedtest', {
-	        filebrowserUploadUrl: '/upload',
-	      }); 
-	}
-	
-	
-	
-	
+		$(function () {
+			var init=function(){
+				
+				CKEDITOR.replace( 'ckedtest', {
+					width:'100%',
+		            height:'400px',
+			        filebrowserUploadUrl: 'imageUpload.do',
+			      })
+				
+			};
+					
+				
+			$("#typetest").click(function(){
+				alert(CKEDITOR.instances.ckedtest.getData());
+			});
+			
+			init();
+	});
+
 
 </script>
 
 <form>
-가게이름<input type="text">
-주소<input type="text">
-카테고리<input type="text">
-메뉴<input type="text">
-<input tyep="file" >
+	<input type="button" id="typetest" value="타입 확인" />
 
-<textarea id='ckedtest'>
-
-
+	<textarea id='ckedtest'>
 
 </textarea>
 
