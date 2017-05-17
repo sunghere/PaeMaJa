@@ -17,7 +17,6 @@
 		            height:'400px',
 			        filebrowserUploadUrl: 'imageUpload.do',
 			      })
-				
 			};
 					
 				
@@ -71,7 +70,7 @@
 
 </script>
 	<input type="button" id="typetest" value="타입 확인" />
-	<div class="btn btn-primary" id="aa">저장</div><br>
+	<div class="btn btn-primary" id="aa">저장</div><br><br>
 	<input type="text" id="name" name="name">
 	<input type="text" id="search" name="search">
 	<input type="text" id="addr" name="addr">
