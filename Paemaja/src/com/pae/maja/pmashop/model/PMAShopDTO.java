@@ -14,6 +14,7 @@ public class PMAShopDTO implements Serializable {
 	private String imgFile;
 	private int del;
 	private String search;
+	private String content;
 
 	public PMAShopDTO() {
 		super();
@@ -34,6 +35,14 @@ public class PMAShopDTO implements Serializable {
 		this.imgFile = imgFile;
 		this.del = del;
 		this.search = search;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public PMAShopDTO(int seq, String name, String addr, String tel, String category, String menu, float xpos,
@@ -65,11 +74,13 @@ public class PMAShopDTO implements Serializable {
 		this.imgFile = imgFile;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "PMAShopDTO [seq=" + seq + ", name=" + name + ", addr=" + addr + ", tel=" + tel + ", category="
 				+ category + ", menu=" + menu + ", xpos=" + xpos + ", ypos=" + ypos + ", imgFile=" + imgFile + ", del="
-				+ del + ", search=" + search + "]";
+				+ del + ", search=" + search + ", content=" + content + "]";
 	}
 
 	public int getSeq() {

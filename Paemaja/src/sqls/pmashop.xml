@@ -6,13 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="writeShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
 		INSERT INTO PMA_SHOP(SEQ
-		,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL)
-		VALUES(SEQ_PMA_SHOP.NEXTVAL,#{name},#{addr},#{tel},#{category},#{menu},0,0,#{imgfile},0)
+		,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL,CONTENT)
+		VALUES(SEQ_PMA_SHOP.NEXTVAL,#{name},#{addr},#{tel},#{category},#{menu},0,0,#{imgFile},0,#{content})
 	</insert>
 
 	<select id="getShopList" resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL,CONTENT
 		FROM PMA_SHOP
 		ORDER BY SEQ
 		ASC
@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getShop" parameterType="java.lang.Integer"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL,CONTENT
 		FROM PMA_SHOP
 		WHERE
 		SEQ=#{seq}
@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="searchShopList" parameterType="java.lang.String"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL
 		FROM PMA_SHOP
 		WHERE NAME
 		LIKE '%'||#{search}||'%'
@@ -42,14 +42,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="searchShopListRegion" parameterType="java.lang.String"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
+		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL
 		FROM PMA_SHOP
 		WHERE ADDR
 		LIKE '%'||#{search}||'%'
 	</select>
-
-
-
+	
 	<update id="updateShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
 		UPDATE PMA_SHOP SET
 		NAME =
@@ -61,7 +59,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{menu},
 		XPOS = #{xpos},
 		YPOS = #{ypos},
-		IMGFILE = #{imgfile}
+		imgFile = #{imgFile},
+		CONTENT = #{content}
 	</update>
 
 	<update id="deleteShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">

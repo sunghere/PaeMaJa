@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pae.maja.pmashop.dao.PMAShopService;
+import com.pae.maja.pmashop.model.PMAShopDTO;
 
 /**
  * Created by SungHere on 2017-04-17.
@@ -42,5 +44,25 @@ public class ShopController {
 		logger.info("Welcome ShopController shopreply---------------------------------!" + seq);
 //		model.addAttribute("shopreply", service.getShop(seq));
 		return "shopdetail.tiles";
+	}
+	
+	@RequestMapping(value = "shopwriteaf.do", method = {RequestMethod.POST,RequestMethod.GET})
+	@ResponseBody
+	public String write(Model model, PMAShopDTO dto) throws Exception {
+//		logger.info("Welcome ShopController write 
+		String[] temp=dto.getContent().split("<img");
+		String imgFile="";
+		for(String s : temp)
+		{
+			if(s.contains("src=\""))
+			{
+				String[] asd=s.substring(s.indexOf("src=")).split("\"");
+				imgFile=asd[1];
+			}
+		}
+		dto.setImgFile(imgFile);
+		service.writeShop(dto);
+		logger.info(imgFile+"  ,  "+dto);
+		return "asd";
 	}
 }
