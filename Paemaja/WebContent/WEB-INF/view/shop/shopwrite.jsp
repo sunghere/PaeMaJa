@@ -7,13 +7,6 @@
 
 
 
-<!--
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script> 
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/ckeditor.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/style.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/config.js"></script>
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/contents.css"/>
- -->
 <script>
 		
 		$(function () {

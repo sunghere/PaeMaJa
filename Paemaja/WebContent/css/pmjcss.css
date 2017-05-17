@@ -158,7 +158,7 @@ body div {
 	padding: 14px 36px;
 	font-size: 15px;
 	display: inline-block;
-	margin-left: 13px;
+	
 	border-radius: 5px;
 	font-weight: bold;
 	border: none;
@@ -177,6 +177,7 @@ body div {
 	font-size: 13px;
 	margin-bottom: 10px;
 	padding-left: 11px;
+	text-align: left;
 }
 
 .fileFindBtn {
@@ -365,7 +366,7 @@ media ="(max-width: 1199px )" .row {
 
 .help-tip {
     position: absolute;
-    top: 57%;
+    top: 80%;
     right: 18px;
     text-align: center;
     background-color: rgba(155,155,155,0.7);
@@ -447,4 +448,93 @@ media ="(max-width: 1199px )" .row {
     100% {
         opacity: 1;
     }
+}
+ #kakao-login-btn {
+padding-right: 20%;
+}
+
+/*팝업창*/
+#alertModal {
+
+    z-index: 2000;
+    top:30%;
+}
+/*-------
+
+  balloon-div
+
+  흔들이벤트
+
+-------*/
+@-webkit-keyframes balloon-div {
+    from {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+    65% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    to {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes balloon-div {
+    from {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+    65% {
+        -webkit-transform: translateY(4px);
+        /* transform: translateY(4px); */
+    }
+    to {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+}
+
+@-webkit-keyframes balloon-div-up {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    25% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    75% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes balloon-div-up {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    25% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    75% {
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+    }
+}
+
+.fixed-alram {
+    padding: 5px;
+
+    position: fixed;
+    right: 3%;
+    top: 60%;
+    border-radius: 100px;
+    background-color: lavenderblush;
+    color: black;
+
+    animation: balloon-div 1.6s infinite ease-in-out 0s;
 }

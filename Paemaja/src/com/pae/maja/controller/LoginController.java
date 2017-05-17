@@ -33,7 +33,7 @@ public class LoginController {
 		if (login != null && !login.getId().equals("")) {
 			request.getSession().setAttribute("login", login);
 			request.getSession().setMaxInactiveInterval(20 * 60);
-			check.setMessage("SUCC");
+			check.setMessage("SUCS");
 
 		} else {
 			request.getSession().invalidate();
@@ -54,8 +54,8 @@ public class LoginController {
 
 	public String getDoRef(String ref) {
 		if (ref.contains("/"))
-			logger.info("Welcome LoginController logout! asjdaskadkaadskadskss"+ ref);
-			ref = ref.substring(ref.lastIndexOf("/"));
+			logger.info("Welcome LoginController logout! " + ref);
+		ref = ref.substring(ref.lastIndexOf("/"));
 
 		return ref;
 	}
@@ -68,11 +68,51 @@ public class LoginController {
 
 		AjaxCheck checkResult = new AjaxCheck();
 		if (count > 0) {
-			checkResult.setMessage("SUCC");
+			checkResult.setMessage("SUCS");
 		} else {
 			checkResult.setMessage("FAIL");
 		}
 		return checkResult;
+	}//
+	@RequestMapping(value = "nickCheck.do", method = RequestMethod.POST)
+	@ResponseBody
+	public AjaxCheck nickCheck(String nickname, Model model) throws Exception {
+		// logger.info("Welcome LoginController getID! " + new Date());
+		int count = pMAUserSerivce.nickcheck(nickname);
+
+		AjaxCheck checkResult = new AjaxCheck();
+		if (count > 0) {
+			checkResult.setMessage("SUCS");
+		} else {
+			checkResult.setMessage("FAIL");
+		}
+		return checkResult;
+	}//
+	@RequestMapping(value = "regiAf.do", method = {RequestMethod.POST })
+	public String regiAf(PMAUser user, Model model) {
+		logger.info("Welcome LoginController regiAf! " + new Date());
+		try {
+			pMAUserSerivce.regi(user);
+		} catch (Exception e) {
+		}
+		return "redirect:/" + "login.do";
+	}//
+
+	@RequestMapping(value = "kakaoRegi.do", method = {RequestMethod.POST })
+	@ResponseBody
+	public AjaxCheck kakaoRegi(PMAUser user, Model model) {
+		AjaxCheck check = new AjaxCheck();
+
+		try {
+
+			pMAUserSerivce.regi(user);
+			check.setMessage("SUCS");
+
+		} catch (Exception e) {
+			check.setMessage("FAIL");
+
+		}
+		return check;
 	}//
 
 }

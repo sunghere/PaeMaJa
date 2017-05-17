@@ -1355,7 +1355,7 @@ body {
 	font-size: 14px;
 	line-height: 1.42857143;
 	color: #c8c8c8;
-	background-color: #f7f7ff;
+	background-color: #fff;
 }
 
 input, button, select, textarea {
@@ -6431,7 +6431,7 @@ button.close {
 
 .modal-content {
 	position: relative;
-	background-color: #f7f7ff;
+	background-color: #d7d7dd;
 	border: 1px solid #999999;
 	border: 1px solid rgba(0, 0, 0, 0.2);
 	border-radius: 6px;
@@ -7377,11 +7377,11 @@ button.close {
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-	background-image: -webkit-linear-gradient(#f1f1f1, #f7f7ff 80%, #f7f7ff);
-	background-image: -o-linear-gradient(#f1f1f1, #f7f7ff 80%, #f7f7ff);
+	background-image: -webkit-linear-gradient(#f1f1f1, #fff 80%, #fff);
+	background-image: -o-linear-gradient(#f1f1f1, #fff 80%, #fff);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f1f1f1),
 		color-stop(40%, #101112), to(#141618));
-	background-image: linear-gradient(#f1f1f1, #f7f7ff 80%, #f7f7ff);
+	background-image: linear-gradient(#f1f1f1, #fff 80%, #fff);
 	background-repeat: no-repeat;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1',
 		endColorstr='#ff141618', GradientType=0);

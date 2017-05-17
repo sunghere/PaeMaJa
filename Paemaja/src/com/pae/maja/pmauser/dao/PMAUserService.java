@@ -16,4 +16,7 @@ public interface PMAUserService {
 	/* 하나 Select */
 
 	public void leave(PMAUser user);
+	
+	public Integer nickcheck(String nick);
+	/*닉네임중복확인*/
 }

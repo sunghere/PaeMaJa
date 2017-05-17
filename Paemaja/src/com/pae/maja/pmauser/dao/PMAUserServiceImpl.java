@@ -41,4 +41,10 @@ public class PMAUserServiceImpl implements PMAUserService {
 		pMAUserDAO.leave(user);
 	}
 
+	@Override
+	public Integer nickcheck(String nick) {
+		// TODO Auto-generated method stub
+		return pMAUserDAO.nickcheck(nick);
+	}
+
 }

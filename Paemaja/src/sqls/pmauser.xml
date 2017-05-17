@@ -20,7 +20,11 @@
 		resultType="java.lang.Integer">
 		SELECT nvl(COUNT(*),0) FROM PMA_USER WHERE ID=#{id}
 	</select>
-
+	<select id="nickcheck" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT nvl(COUNT(*),0) FROM PMA_USER WHERE
+		NICKNAME=#{nickname}
+	</select>
 	<select id="getInfo" parameterType="com.pae.maja.pmauser.model.PMAUser"
 		resultType="com.pae.maja.pmauser.model.PMAUser">
 		SELECT SEQ, ID, AUTH, NICKNAME, PWD, FAVORITE, DEL FROM

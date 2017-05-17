@@ -45,4 +45,9 @@ public class PMAUserDAOImp implements PMAUserDAO {
 		sqlSession.selectOne(ns + "leave", user);
 	}
 
+	@Override
+	public Integer nickcheck(String nick) {
+		return sqlSession.selectOne(ns + "nickcheck", nick);
+	}
+
 }
