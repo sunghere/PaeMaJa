@@ -135,7 +135,7 @@
 
 	$("#_regibtn").click(function() {
 		if ($("#regi_userid").val() == "") {
-			alert($("#regi_userid").attr("data-msg") + " 입력해 주십시요.");
+			alert($("#regi_userid").attr("data-msg") + " 입력해 d주십시요.");
 			$("#_userid").focus();
 		} else if ($("#regi_nick").val() == "") {
 			alert($("#regi_nick").attr("data-msg") + " 입력해 주십시요.");
