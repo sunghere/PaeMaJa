@@ -64,7 +64,7 @@
 		
 			<div class="mbr-plan card text-xs-center back_img" >
 			
-				<a href="shopdetail.do?seq=${tempShop.seq}"><img src="KakaoTalk_20170510_165445431.png" class="detailimg img-responsive"></a>
+				<a href="shopdetail.do?seq=${tempShop.seq}"><img src="images/no-image.png" class="detailimg img-responsive"></a>
 				
 				<div class="card-block txts_divs">
 					<div class="card-title">
