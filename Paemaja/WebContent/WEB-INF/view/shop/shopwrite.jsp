@@ -22,7 +22,7 @@
 				
 			
 			$("#typetest").click(function(){
-				showMsgs('작성하시겠습니까??<br><input type="button">');
+				showMsgs('작성하시겠습니까??<br><button type="submit">작성</button>');
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				$("#ff").attr("value",shopContent);
 				
@@ -56,7 +56,7 @@
 
 
 </script>
-	<button type="button" id="typetest" value="타입 확인" class="btn"/>
+	<button type="button" id="typetest" value="타입 확인" class="btn"></button>
 <form action="shopwriteaf.do" method="post">
 	<button id="aaa">저장</button>
 	상호 <input type="text" id="name" name="name"> <br>

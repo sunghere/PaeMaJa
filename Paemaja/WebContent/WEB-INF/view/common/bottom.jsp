@@ -388,3 +388,4 @@ var idchecks = true;
 <script src="<%=request.getContextPath()%>/js/jquery_cycle_swipe.js"></script>
 <script src="<%=request.getContextPath()%>/js/wow.js"></script>
 <script src="<%=request.getContextPath()%>/js/scripts.js"></script>
+<script src="<%=request.getContextPath()%>/js/shlogin.js"></script>
