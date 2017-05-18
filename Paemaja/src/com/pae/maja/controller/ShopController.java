@@ -47,9 +47,9 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value = "shopwriteaf.do", method = {RequestMethod.POST,RequestMethod.GET})
-	public String write(Model model, PMAShopDTO dto) throws Exception {
-//		logger.info("Welcome ShopController write 
-		String[] temp=dto.getContent().split("<img");
+	public String write(Model model, PMAShopDTO dto, String ff) throws Exception {
+		logger.info("Welcome ShopController write           =====   "+ff);
+		String[] temp=ff.split("<img");
 		String imgFile="";
 		for(String s : temp)
 		{
@@ -59,6 +59,7 @@ public class ShopController {
 				imgFile=asd[1];
 			}
 		}
+		dto.setContent(ff);
 		dto.setImgFile(imgFile);
 		service.writeShop(dto);
 		logger.info(imgFile+"  ,  "+dto);

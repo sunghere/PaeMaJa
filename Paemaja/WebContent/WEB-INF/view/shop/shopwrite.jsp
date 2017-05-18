@@ -44,10 +44,10 @@
 				} 
 			}); */
 			
-			$("#aa").click(function(){
+			$("#aaa").click(function(){
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				$("#ff").attr("value",shopContent)
-				$.ajax({
+				/* $.ajax({
 					url:"shopwriteaf.do",
 					type:"post",
 					async:false,
@@ -61,15 +61,16 @@
 					success:function(data){
 						alert(data)
 					}
-				})
-			})
-			
+				}) */
+			}) 
 			init();
 	});
 
 
 </script>
 	<input type="button" id="typetest" value="타입 확인" />
+<form action="shopwriteaf.do" method="post">
+	<button id="aaa">저장</button>
 	<div class="btn btn-primary" id="aa">저장</div><br><br>
 	<input type="text" id="name" name="name">
 	<input type="text" id="search" name="search">
@@ -78,9 +79,7 @@
 	<input type="text" id="category" name="category">
 	<input type="text" id="menu" name="menu">
 	<input type="hidden" id="ff" name="ff" value="">
-
+</form>
 	<textarea id='ckedtest'>
 
-</textarea>
-
-
+	</textarea>

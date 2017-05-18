@@ -39,7 +39,14 @@ $(function() {
 <style>
 .yesmother{
 	width:100%;
+	border-radius:10%;
 }
+.repYeop-day{border-bottom:1px solid gray;}
+.wdate{
+	color:gray;
+	font-size:11px;
+}
+.repYeopAll{border-bottom:1px solid gray; padding-bottom:5px; margin-bottom:10px;}
 </style>
 
 <div class="container">
@@ -51,9 +58,27 @@ $(function() {
 		<div class="hair_yeopguri_daegari2">${shopdetail.category}</div>
 		<div class="hair_yeopguri_daegari3">${shopdetail.menu}</div>
 	</div>
-	<button id="btn chang">별</button>
+	<button id="chang" class="btn">별</button>
 </div>
+
+<!--댓글 div-->
+<div class="col-md-7 repYeopAll">
 <div class="col-md-3">
+
+	<div class="repHead">
+		<div class="repHead-mom">
+			아이디
+		</div>
+		<div class="repHead-skull">
+			별
+		</div>
+	</div><br>
+	<div class="repYeop-pict">
+		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+	</div>
+	
+	
+	
 	<div class="repHead">
 		<div class="repHead-mom">
 			아이디
@@ -66,7 +91,21 @@ $(function() {
 		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
 	</div>
 </div>
-<div class="col-md-4">
+<div class="col-md-9">
+	<div class="repYeop-day"><p class="wdate">wdate</p></div>
+	<div class="repYeop-cont">
+		가나다라<br>
+		마바사아<br>
+		자카타파<br>
+		하ABC<br>
+		DEFG<br>
+		HIGK<br>
+		LMNO
+	</div>
+	
+	
+	
+	<div class="repYeop-day"><p class="wdate">wdate</p></div>
 	<div class="repYeop-cont">
 		가나다라<br>
 		마바사아<br>
@@ -79,7 +118,7 @@ $(function() {
 </div>
 </div>
 </div>
-
+</div>
 
 
 
