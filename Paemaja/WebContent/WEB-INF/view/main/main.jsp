@@ -57,11 +57,10 @@
 <div class="row">
 
 	<c:if test="${empty shoplist}">
-	없어
+	등록된 음식점이 없습니다.
 	</c:if>
 	<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
 		<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
-		<button class="ㄻㄴㅇ">시발</button>
 			<div class="mbr-plan card text-xs-center back_img" >
 			
 				<c:if test='${empty tempShop.imgFile or  tempShop.imgFile eq ""}'>

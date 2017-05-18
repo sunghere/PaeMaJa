@@ -20,33 +20,21 @@
 			};
 					
 				
-			$("#typetest").click(function(){
-				alert(CKEDITOR.instances.ckedtest.getData());
-			});
 			
-	/* 		$("#aa").click(function(){
+			$("#typetest").click(function(){
+				showMsgs('작성하시겠습니까??<br><input type="button">');
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
-				var temp=shopContent.split('<img')
-				$(".ckedtest").append(shopContent)
-				console.log($(".ckedtest:contains('ㅁㄴㅇ')").css("background-color", "red"))
+				$("#ff").attr("value",shopContent);
 				
- 				$(".ff").append(shopContent)
-				$(".ff:contains('asd')").css("background-color", "red")
-				console.log($("#ff").val())
-				console.log($("#ff:contains('asd')"))
-
-				var imgTag="";
-				var shopContent=CKEDITOR.instances.ckedtest.getData();
-				var temp=shopContent.split('<img')
+				$("#ff").val(shopContent);
 				
-				for(var i=0; i<temp.length; i++)
-				{
-				} 
-			}); */
+				console.log($("#ff").val());
+			});
+	
 			
 			$("#aaa").click(function(){
-				var shopContent=CKEDITOR.instances.ckedtest.getData();
-				$("#ff").attr("value",shopContent)
+				/* var shopContent=CKEDITOR.instances.ckedtest.getData();
+				$("#ff").attr("value",shopContent) */
 				/* $.ajax({
 					url:"shopwriteaf.do",
 					type:"post",
@@ -68,18 +56,19 @@
 
 
 </script>
-	<input type="button" id="typetest" value="타입 확인" />
+	<button type="button" id="typetest" value="타입 확인" class="btn"/>
 <form action="shopwriteaf.do" method="post">
 	<button id="aaa">저장</button>
-	<div class="btn btn-primary" id="aa">저장</div><br><br>
-	<input type="text" id="name" name="name">
-	<input type="text" id="search" name="search">
-	<input type="text" id="addr" name="addr">
-	<input type="text" id="tel" name="tel">
-	<input type="text" id="category" name="category">
-	<input type="text" id="menu" name="menu">
-	<input type="hidden" id="ff" name="ff" value="">
-</form>
+	상호명 <input type="text" id="name" name="name"> <br>
+	주소 <input type="text" id="addr" name="addr"> <br>
+	전화번호 <input type="text" id="tel" name="tel"> <br>
+	카테고리 <input type="text" id="category" name="category"> <br>
+	메뉴 <input type="text" id="menu" name="menu"> <br>
+		<input type="hidden" id="ff" name="ff" value="">
+	
+
 	<textarea id='ckedtest'>
 
 	</textarea>
+	
+</form>
