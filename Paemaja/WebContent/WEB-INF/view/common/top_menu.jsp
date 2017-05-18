@@ -89,7 +89,7 @@
 				data-allow-wrap=true style="max-width: 76%;">
 				<li class="area_0"><a
 					href="main.do">
-						<span>전체</span>\
+						<span>전체</span>
 				</a></li>
 				<li class="area_1"><a
 					href="searchregion.do?search=서울">

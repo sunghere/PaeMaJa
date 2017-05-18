@@ -63,7 +63,7 @@ public class ShopController {
 		dto.setImgFile(imgFile);
 		service.writeShop(dto);
 		logger.info(imgFile+"  ,  "+dto);
-		return "main.tiles";
+		return "redirect:/main.do";
 	}
 	
 	
