@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<button class="btn black-control" id="showMsgsBt" data-toggle="modal"
+<button class="btn black-control" id="showMsgBt" data-toggle="modal"
 	data-target="#alertModal" type="button" hidden='hidden'></button>
 
 <div id="alertModal" class="modal fade" tabindex="-1" role="dialog"
@@ -114,14 +114,16 @@
 	</div>
 </div>
 <script>
+
+var idchecks = true;
 	var checkID = false;
 	var checkNick = false;
 
-    function showMsgs(str) {
-        $('#myMsg').html(str);
+	function showMsgs(str) {
+		$('#myMsg').html(str);
 
-        $('#showMsgsBt').click();
-    }
+		$('#showMsgsBt').click();
+	}
 	function checkRegi() {
 
 		if (checkID == true && checkNick == true) {
@@ -190,16 +192,20 @@
 		}
 
 		if (!(text == "") && !(text == null))
-			$.ajax({
-					type : "POST",
-					url : "idcheck.do",
-					data : {"id" : text},
+			$
+					.ajax({
+						type : "POST",
+						url : "idcheck.do",
+						data : {
+							"id" : text
+						},
 						success : function(msg) {
 
 							if (msg.message == "FAIL") {
 								checkID = true;
 								checkRegi();
-								$("#checkResult").html(
+								$("#checkResult")
+										.html(
 												"<i class='icon ion-ios-checkmark-outline'></i>")
 										.css({
 											"display" : "inline-block",
@@ -283,7 +289,8 @@
 		}
 
 		if (!(text == "") && !(text == null))
-			$.ajax({
+			$
+					.ajax({
 						type : "POST",
 						url : "nickCheck.do",
 						data : {
@@ -353,9 +360,8 @@
 					$("#_islogin").attr("value", 1);
 					$(".loginScreen").show();
 					$(".regiScreen").hide();
-					$('#regi_userid').val(""),
-					$('#regi_pwd').val(""),
-					$('#regi_nick').val("")
+					$('#regi_userid').val(""), $('#regi_pwd').val(""), $(
+							'#regi_nick').val("")
 					$('.title_Type').html("유저 로그인");
 					checkID = false;
 					checkNick = false;
@@ -364,13 +370,12 @@
 
 				} else {
 					showMsgs("회원가입에 실패하였습니다.");
-					
+
 				}
 			},
 			error : function(a, b, c) {
 
 				showMsgs("통신 Error <br> 관리자에게 문의해주세요")
-				
 
 			}
 

@@ -1,6 +1,7 @@
-(function ($) {
-    $(function () {
 
+(function ($) {
+
+    $(function () {
         $("#login_btnLogin").click(function () {
             if ($("#login_userid").val() == "") {
                 alert($("#login_userid").attr("data-msg") + " 입력해 주십시요.");
@@ -213,7 +214,7 @@
     }
 
     function kakaoRegi(data) {
-
+    		alert('응?')
         $.ajax({
             type: "POST",
             url: "kakaoRegi.do",
