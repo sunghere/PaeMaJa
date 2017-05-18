@@ -59,7 +59,7 @@
 	<button type="button" id="typetest" value="타입 확인" class="btn"/>
 <form action="shopwriteaf.do" method="post">
 	<button id="aaa">저장</button>
-	상호명 <input type="text" id="name" name="name"> <br>
+	상호 <input type="text" id="name" name="name"> <br>
 	주소 <input type="text" id="addr" name="addr"> <br>
 	전화번호 <input type="text" id="tel" name="tel"> <br>
 	카테고리 <input type="text" id="category" name="category"> <br>
