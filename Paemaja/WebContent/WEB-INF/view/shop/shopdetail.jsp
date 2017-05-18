@@ -47,11 +47,14 @@ $(function() {
 	font-size:11px;
 }
 .repYeopAll{border-bottom:1px solid gray; padding-bottom:5px; margin-bottom:10px;}
+.foradun{
+	height:100%;
+}
 </style>
 
 <div class="container">
-<div class="row ">
-<div class="col-md-5">
+<div class="row">
+<div class="col-md-5 foradun">
 	<div class=""><img src="KakaoTalk_20170510_165445431.png<%-- <%=request.getContextPath()%>/images/c1.jpg --%>" class="img-rounded" id="detail_img"></div>
 	<div class="">
 		<div class="hair_yeopguri_daegari1">${shopdetail.name}</div>
@@ -64,8 +67,87 @@ $(function() {
 <!--댓글 div-->
 <div class="col-md-7 repYeopAll">
 <div class="col-md-3">
-
+	<div class="repYeop-pict">
+		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+	</div>
+</div>
+<div class="col-md-6">
 	<div class="repHead">
+		<div class="repHead-mom">
+			아이디  별
+		</div>
+	</div>
+	<div class="repHead-body">
+		가나다라마바사아자카타파하abcdefghijklmnopqrstuvwxyz
+	</div>
+</div>
+</div>
+<div class="col-md-7 repYeopAll">
+<div class="col-md-3">
+	<div class="repYeop-pict">
+		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="repHead">
+		<div class="repHead-mom">
+			아이디  별
+		</div>
+	</div>
+	<div class="repHead-body">
+		가나다라마바사아자카타파하abcdefghijklmnopqrstuvwxyz
+	</div>
+</div>
+</div>
+<div class="col-md-7 repYeopAll">
+<div class="col-md-3">
+	<div class="repYeop-pict">
+		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="repHead">
+		<div class="repHead-mom">
+			아이디  별
+		</div>
+	</div>
+	<div class="repHead-body">
+		가나다라마바사아자카타파하abcdefghijklmnopqrstuvwxyz
+	</div>
+</div>
+</div>
+<div class="col-md-7 repYeopAll">
+<div class="col-md-3">
+	<div class="repYeop-pict">
+		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+	</div>
+</div>
+<div class="col-md-6">
+	<div class="repHead">
+		<div class="repHead-mom">
+			아이디  별
+		</div>
+	</div>
+	<div class="repHead-body">
+		가나다라마바사아자카타파하abcdefghijklmnopqrstuvwxyz
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 	<div class="repHead">
 		<div class="repHead-mom">
 			아이디
 		</div>
@@ -94,13 +176,11 @@ $(function() {
 <div class="col-md-9">
 	<div class="repYeop-day"><p class="wdate">wdate</p></div>
 	<div class="repYeop-cont">
-		가나다라<br>
-		마바사아<br>
-		자카타파<br>
-		하ABC<br>
-		DEFG<br>
-		HIGK<br>
-		LMNO
+		가나다라가 나다라가나다라가나다라가나다라가나다라가<br>
+		가나다라가나다라가나다라가나다라가나다라가나다라가<br>
+		가나다라가나다라가나다라가나다라가나다라가나다라가<br>
+				가나다라가나다라가나다라가나다라가나다라가나다라가<br>
+		
 	</div>
 	
 	
@@ -114,23 +194,7 @@ $(function() {
 		DEFG<br>
 		HIGK<br>
 		LMNO
-	</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
+	</div> -->
 
 
 
