@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sccss.css"/>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 $(function() {	
@@ -45,11 +44,17 @@ $(function() {
 .writing-info{
 	height:100%;
 }
+.buttonHouse{
+	margin:0 auto;
+}
+.affix{
+	top:60px;
+}
 </style>
 
 <div class="container">
 <div class="row">
-<div class="col-md-5 writing-info">
+<div class="col-md-5 writing-info"  data-spy="affix" data-offset-top="650">
 	<div class=""><img src="KakaoTalk_20170510_165445431.png<%-- <%=request.getContextPath()%>/images/c1.jpg --%>" class="img-rounded" id="detail_img"></div>
 	<div class="">
 		<div class="writing-info1">${shopdetail.name}</div>
@@ -57,13 +62,14 @@ $(function() {
 		<div class="writing-info3">${shopdetail.menu}</div>
 		<div class="writing-info4">${shopdetail.content}</div>
 	</div>
-	<div class="">
-	<button id="chang" class="btn">별</button>
+	<div class="buttonHouse">
+		<button id="chang" class="btn">별</button> 
+		<button class="btn">주문하기</button>
 	</div>
 </div>
 
 <!--댓글 div-->
-<div class="col-md-7">
+<div class="col-md-7 sidereply">
 <div class="col-md-12 repYeopAll">
 <div class="col-md-3">
 	<div class="repYeop-pict">
