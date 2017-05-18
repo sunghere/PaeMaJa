@@ -38,7 +38,7 @@
 				var imgTag="";
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				var temp=shopContent.split('<img')
-				
+				d
 				for(var i=0; i<temp.length; i++)
 				{
 				} 
@@ -51,7 +51,7 @@
 					url:"shopwriteaf.do",
 					type:"post",
 					async:false,
-					data:{"addr": $('input[name="addr"]').val(), 
+					data:{"addr": $("#addr").val(), 
 						  "tel":$("#tel").val(), 
 						  "category":$("#category").val(),
 						  "menu":$("#menu").val(),
