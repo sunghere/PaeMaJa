@@ -49,7 +49,7 @@
 					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="images/no-image.png" class="detail_img img-responsive"></a>
 				</c:if>
 			
-				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ""}'>
+				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ne ""}'>
 					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="${tempShop.imgFile}" class="detail_img img-responsive"></a>
 				</c:if>
 				

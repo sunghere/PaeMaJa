@@ -58,13 +58,23 @@
 	<div class='row'>
 		<div class="col-sm-1 col-xs-1 col-lg-3 col-md-3"></div>
 		<div class="search-box col-xs-10 col-sm-10 col-lg-6 col-md-6">
+			
+			<form action="search.do" method="post" id="searchpart">
 			<div class=".bootstrap-tagsinput">
-				<input class="search" type="search" name="q" id="q"
+				<input class="search" type="search" name="search" id="search"
 					placeholder="검색어를 입력해주세요" value="">
-				<div class="btn-search" id="btnSearch">
-					<i class="spi spi-search"></i>
-				</div>
+				
+				
+				<div class="btn-search submit" id="btnSearch" >
+						<a href="#" onclick="document.getElementById('searchpart').submit()"> <i
+							class="spi spi-search"></i>
+						</a>
+					</div>
+				
 			</div>
+			</form>
+			
+			
 		</div>
 	</div>
 </div>

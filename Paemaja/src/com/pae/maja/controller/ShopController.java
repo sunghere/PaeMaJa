@@ -72,7 +72,15 @@ public class ShopController {
         model.addAttribute("shoplist", service.searchShopListRegion(search));
 
 		logger.info("Welcome ShopController searchregion---------------------------------!"+search);
-		return "shopsearchregion.tiles";
+		return "shopsearch.tiles";
+	}
+	
+	@RequestMapping(value = "search.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String search(String search, Model model) throws Exception {
+        model.addAttribute("shoplist", service.searchShopList(search));
+
+		logger.info("Welcome ShopController searchregion---------------------------------!"+search);
+		return "shopsearch.tiles";
 	}
 	
 }
