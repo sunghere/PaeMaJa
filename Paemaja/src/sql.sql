@@ -31,4 +31,7 @@ SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		
 		
 commit
+
+
+update PMA_USER set auth=1 where seq = 41;
 		

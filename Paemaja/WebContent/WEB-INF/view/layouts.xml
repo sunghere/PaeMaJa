@@ -23,4 +23,10 @@
         
     </definition>
 
+
+
+    <definition name="shopsearchregion.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/shop/shopsearchregion.jsp"/>
+        
+    </definition>
 </tiles-definitions>

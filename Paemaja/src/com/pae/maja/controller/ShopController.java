@@ -47,7 +47,6 @@ public class ShopController {
 	}
 	
 	@RequestMapping(value = "shopwriteaf.do", method = {RequestMethod.POST,RequestMethod.GET})
-	@ResponseBody
 	public String write(Model model, PMAShopDTO dto) throws Exception {
 //		logger.info("Welcome ShopController write 
 		String[] temp=dto.getContent().split("<img");
@@ -63,6 +62,16 @@ public class ShopController {
 		dto.setImgFile(imgFile);
 		service.writeShop(dto);
 		logger.info(imgFile+"  ,  "+dto);
-		return "asd";
+		return "main.tiles";
 	}
+	
+	
+	@RequestMapping(value = "searchregion.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String searchregion(String search, Model model) throws Exception {
+        model.addAttribute("shoplist", service.searchShopListRegion(search));
+
+		logger.info("Welcome ShopController searchregion---------------------------------!"+search);
+		return "shopsearchregion.tiles";
+	}
+	
 }
