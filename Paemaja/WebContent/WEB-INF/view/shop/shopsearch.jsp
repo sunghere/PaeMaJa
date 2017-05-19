@@ -70,8 +70,8 @@
 				<div class="mbr-plan-body card-block">
 					<div class="mbr-plan-list">
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item">평점</li>
-							<li class="list-group-item">투표참여인원수</li>
+							<li class="list-group-item">평점 : ${tempShop.scores}</li>
+							<li class="list-group-item">투표참여인원수 : ${tempShop.counts}</li>
 						</ul>
 					</div>
 

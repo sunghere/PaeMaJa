@@ -11,11 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<select id="getShopList" resultType="com.pae.maja.pmashop.model.PMAShopDTO">
-		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL,CONTENT
-		FROM PMA_SHOP
-		ORDER BY SEQ
-		ASC
+	SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL,CONTENT, SCORES, COUNTS
+	FROM PMA_SHOP, (SELECT PSEQ, AVG(SCORE) SCORES, COUNT(SCORE) COUNTS FROM PMA_COMMENT GROUP BY PSEQ) CMT
+	WHERE CMT.PSEQ = PMA_SHOP.SEQ
+	ORDER BY SEQ ASC
+	
 	</select>
 
 	<select id="getShop" parameterType="java.lang.Integer"
