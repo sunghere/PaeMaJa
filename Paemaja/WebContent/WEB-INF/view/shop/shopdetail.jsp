@@ -2,8 +2,7 @@
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/sccss.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
 <script>
 $(function() {	
 	
@@ -28,9 +27,12 @@ $(function() {
 	})
 
 	$("#OK").click(function() {
+		var repContent=CKEDITOR.instances.ckedtest.getData();
 		var skullScore = imgAlt;
-		$("#OK").attr("value", imgAlt)
-		$("#skullScore").attr("value", skullScore)
+		$("#score").attr("value", skullScore)
+		$("#content").attr("value",repContent)
+		console.log($("#score").attr("value")+"   ,   "+$("#content").attr("value"))
+		$("#OK").attr("type","submit")
 	})
 	
 	$(".yesmother").css("width", "115px");
@@ -39,6 +41,7 @@ $(function() {
 </script>
 
 <style>
+#point_average{margin-bottom:10px;}
 .skullbtn{
 	display:inline;
 	cursor:pointer;
@@ -454,8 +457,9 @@ height:70%;
 <div id="chang_give" class="changryeol">
 	<!-- Modal content -->
 	<div class="chang_mom">
+	<div id="">머뤼 <span class="close">&times;</span></div>
 	<div id="point_average">
-		<br> <span class="close">&times;</span> 평점 &nbsp;:
+		<br>  평점 &nbsp;:
 		<div class="skullbtn">
 			<img src="skull_black.png" class="img" id="img1" alt="1">
 		</div>
@@ -475,20 +479,23 @@ height:70%;
 	</div>
 	<script>
 	$(function () {
-	
-			CKEDITOR.replace('ckedtest')
-		      
+		var init=function(){
+			CKEDITOR.replace( 'ckedtest', {
+				width:'100%',
+	            height:'200px',
+		        filebrowserUploadUrl: 'imageUpload.do',
+		      });
+		}
+		
+		init();
 	});
 	</script>
 	<textarea id="ckedtest">
 	
 	</textarea>
-
-	
-		<br> 그림&nbsp;:&nbsp;&nbsp; <input type="text" id="point_average_title" name="title"> <br> <br> 
-		<span id="pyeong">핑까&nbsp;:</span>&nbsp;&nbsp; <textarea id="point_average_content" name="content" rows="10" cols="50"></textarea>
-		<input type="hidden" id="skullScore" name="score" value="">
-		<br>
-		<button type="submit" class="btn btn-primary">확인</button> 
+	<form action="comment.do" method="post">
+	<input type="hidden" id="score" name="score" value=""><br><input type="hidden" id="content" name="content" value="">
+	<button type="button" id="OK" class="btn btn-primary">확인</button> 
+	</form>
 	</div>
 </div>
