@@ -50,6 +50,9 @@ $(function() {
 .affix{
 	top:60px;
 }
+.sidereply{
+	left:50%;
+}
 </style>
 
 <div class="container">
@@ -69,218 +72,339 @@ $(function() {
 </div>
 
 <!--댓글 div-->
-<div class="col-md-7 sidereply">
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
+		<div class="col-md-7 sidereply">
+			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+						<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>			<div class="col-md-12 repYeopAll">
+				<div class="col-md-3">
+					<div class="repYeop-pict">
+						<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="repHead-body">
+						가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="rep-profile">
+						<div class="rep-profileId">
+							<p>아이디 :</p>
+						</div>
+						<div class="rep-profileSkull">
+							<p>해골 :</p>
+						</div>
+						<div class="rep-profileDate">
+							<p>날짜 :</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
 		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
 	</div>
-</div>
-</div>
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-
-
-
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-
-
-
-
-<div class="col-md-12 repYeopAll">
-<div class="col-md-3">
-	<div class="repYeop-pict">
-		<img class="yesmother" src="KakaoTalk_20170510_165445431.png">
-	</div>
-</div>
-<div class="col-md-6">
-	<div class="repHead-body">
-		가나다라마바사아자카타파하<br>abcdefghijklmnopqrstuvwxyz
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="rep-profile">
-		<div class="rep-profileId">
-			<p>아이디 :</p>
-		</div>
-		<div class="rep-profileSkull">
-			<p>해골 :</p>
-		</div>
-		<div class="rep-profileDate">
-			<p>날짜 :</p>
-		</div>
-	</div>
-</div>
-</div>
-
-
-</div>
-</div>
 </div>
 
 
