@@ -22,60 +22,41 @@
 				
 			
 			$("#typetest").click(function(){
-				showMsgs('작성하시겠습니까??<br><button type="submit">작성</button>');
+				showMsgs('작성하시겠습니까??<br><button class='btn btn-primary' type="button" id='wrintBtn'>작성</button>');
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
-				$("#ff").attr("value",shopContent);
+				$("#shop_content").attr("value",shopContent);
 				
-				$("#ff").val(shopContent);
 				
-				console.log($("#ff").val());
 			});
 	
 			
-			$("#aaa").click(function(){
-				/* var shopContent=CKEDITOR.instances.ckedtest.getData();
-				$("#ff").attr("value",shopContent) */
-				/* $.ajax({
-					url:"shopwriteaf.do",
-					type:"post",
-					async:false,
-					data:{"addr": $('input[name="addr"]').val(), 
-						  "tel":$("#tel").val(), 
-						  "category":$("#category").val(),
-						  "menu":$("#menu").val(),
-						  "content":$("#ff").val(),
-						  "name":$("#name").val(),
-						  "search":$("#search").val()},
-					success:function(data){
-						alert(data)
-					}
-				}) */
-			}) 
+		$('#myMsg').on('click','#writeBtn',function({
+			$('#writeForm').attr({"action":"shopwriteaf.do","method":"post"})
+		}))
 			init();
 	});
 
 
 </script>
-	<button type="button" id="typetest" value="타입 확인" class="btn"></button>
-<form action="shopwriteaf.do" method="post">
-	<button id="aaa">저장</button>
+	
+<form method="post" id='writeForm'>
 	상호 <input type="text" id="name" name="name"> <br>
 	주소 <input type="text" id="addr" name="addr"> <br>
 	전화번호 <input type="text" id="tel" name="tel"> <br>
 	카테고리 <input type="text" id="category" name="category"> <br>
 	메뉴 <input type="text" id="menu" name="menu"> <br>
-		<input type="hidden" id="ff" name="ff" value="">
-	
+		<input type="hidden" id="shop_content" name="content" value="">
+	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
+</button>
 
 	<textarea id='ckedtest'>
 
 	</textarea>
-	
+	<button type="button" id="typetest"class="btn">글 작성</button>
 </form>
 
 <!--지도부분-->
-<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
-</button>
+
 <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
