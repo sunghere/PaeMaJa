@@ -29,9 +29,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="searchShopList" parameterType="java.lang.String"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
-		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL,CONTENT, SCORES, COUNTS
 		FROM PMA_SHOP
+		LEFT OUTER JOIN (SELECT PSEQ, AVG(SCORE) SCORES, COUNT(SCORE) COUNTS FROM PMA_COMMENT GROUP BY PSEQ) CMT
+		ON CMT.PSEQ = PMA_SHOP.SEQ
 		WHERE NAME
 		LIKE '%'||#{search}||'%'
 		OR CATEGORY LIKE '%'||#{search}||'%'
@@ -41,11 +42,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="searchShopListRegion" parameterType="java.lang.String"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
-		SELECT SEQ ,NAME,
-		ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL
+		SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL,CONTENT, SCORES, COUNTS
 		FROM PMA_SHOP
-		WHERE ADDR
-		LIKE '%'||#{search}||'%'
+		LEFT OUTER JOIN (SELECT PSEQ, AVG(SCORE) SCORES, COUNT(SCORE) COUNTS FROM PMA_COMMENT GROUP BY PSEQ) CMT
+		ON CMT.PSEQ = PMA_SHOP.SEQ
+		WHERE ADDR LIKE '%'||#{search}||'%'
 	</select>
 	
 	<update id="updateShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
