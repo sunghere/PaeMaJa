@@ -1,4 +1,4 @@
-#point_average_title, #point_average_content {width: 70%; margin-bottom:10px;} #point_average_head{border: 1px solid; text-align: center;} #pyeong {vertical-align: top;} 
+#point_average_title, #point_average_content {width: 70%; padding-bottom:10px;} #point_average_head{border: 1px solid; text-align: center;} #pyeong {vertical-align: top;} 
 
 #skull_score {
 	float: right;
@@ -6,7 +6,7 @@
 	font-color: gray;
 }
 
-.imgSkull {
+.img {
 	cursor: pointer;
 	opacity: 0.1;
 }
