@@ -32,25 +32,7 @@
 			});
 	
 			
-			$("#aaa").click(function(){
-				/* var shopContent=CKEDITOR.instances.ckedtest.getData();
-				$("#ff").attr("value",shopContent) */
-				/* $.ajax({
-					url:"shopwriteaf.do",
-					type:"post",
-					async:false,
-					data:{"addr": $('input[name="addr"]').val(), 
-						  "tel":$("#tel").val(), 
-						  "category":$("#category").val(),
-						  "menu":$("#menu").val(),
-						  "content":$("#ff").val(),
-						  "name":$("#name").val(),
-						  "search":$("#search").val()},
-					success:function(data){
-						alert(data)
-					}
-				}) */
-			}) 
+		
 			init();
 			
 			$('#myMsg').on('click','#writeBtn',function(){
@@ -76,6 +58,9 @@
 
 	</textarea>
 </form>
+
+<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
+</button>
 <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -128,23 +113,39 @@
         }).open();
     }
 </script>
-<div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
-    <div class="row">
-        <div class="col-md-4">
-            <input id="addrtf" class="form-control" name="addrtf" placeholder="주소를 입력해주세요" type="search">
+<div class="modal fade" aria-hidden="true" id="mapModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <div class="modal-header line_none">
+                <button type="button" class="close" id="login_close" data-dismiss="modal">
+                    <span class='loginexit' aria-hidden="true">x</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input id="addrtf" class="form-control" name="addrtf" placeholder="주소를 입력해주세요" type="search"/>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <br>
+                        <button id="bAddress" type="button" class="btn black-control"
+                                onclick="NewZipCode5NumCheck(); return false;">상세주소
+                        </button>
+                        <button id="bSearch" type="button" class="btn black-control">좌표조회</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="map" style="height: 300px; width: 270px"></div>
+                <div id="scriptCode"></div>
+            </div>
         </div>
-        <div class="col-md-3">
-        <button id="bAddress" type="button" class="btn btn-primary"
-                onclick="NewZipCode5NumCheck(); return false;">상세주소
-        </button>
-        </div>
-        <button id="bSearch" type="button" class="btn btn-primary">좌표조회</button>
-        <div id="map" style="HEIGHT: 300px; WIDTH: 100%"></div>
-        <div id="scriptCode"></div>
     </div>
 </div>
 <script id="code">
-
+    var map;
+    var marker;
+    var infoWindow;
     var mylat = 37.5666102;
     var mylng = 126.9783881;
     if (!!navigator.geolocation) {
@@ -155,15 +156,20 @@
     }
     function errorCallback(error) {
         alert(error.message);
-        mapinit();
     }
 
     function successCallback(position) {
         mylat = position.coords.latitude;
         mylng = position.coords.longitude;
-        mapinit();
     }
 
+    $('#mapAdd').click(function () {
+        mapinit();
+        var tempwidth = $(window).width();
+        var tempheight = $(window).height();
+
+
+    })
 
     var mapOptions = {
         center: new naver.maps.LatLng(mylat, mylng),
@@ -177,9 +183,10 @@
     };
 
     mapinit = function () {
+
         mapOptions = {
             center: new naver.maps.LatLng(mylat, mylng),
-            zoom: 10,
+            zoom: 8,
             scaleControl: false,
             logoControl: false,
             mapDataControl: false,
@@ -193,23 +200,33 @@
             position: new naver.maps.LatLng(mylat, mylng),
             map: map
         });
-
-        infoWindow = new naver.maps.InfoWindow({
+        var mylatlng = new naver.maps.LatLng(mylat, mylng);
+        infowindow = new naver.maps.InfoWindow({
+            maxWidth: 140,
+            backgroundColor: "lavenderblush",
+            borderColor: "lavenderblush",
+            borderWidth: 5,
+            anchorColor: "#lavenderblush",
             content: ''
         });
-        updateInfoWindow(map.getCenter());
-        map.addListener('click', function (e) {
+
+        naver.maps.Event.addListener(map, 'click', function (e) {
+            marker.setPosition(e.coord);
             updateInfoWindow(e.coord);
+
         });
-        map.addListener('idle', function (e) {
-            //updateInfoWindow(map.getCenter());
+        naver.maps.Event.addListener(marker, "click", function (e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                updateInfoWindow(e.coord);
+//                infowindow.open(map, marker);
+
+            }
         });
+        updateInfoWindow(mylatlng);
+
     }
-    var map;
-
-    var marker;
-
-    var infoWindow;
 
 
     function updateInfoWindow(latlng) {
@@ -219,21 +236,18 @@
             latlngConv = naver.maps.LatLng(latlng);                         // 위/경도
 
         var latVal = latlngConv.lat();
-        lngVal = latlngConv.lng();
+        var lngVal = latlngConv.lng();
 
         utmk.x = parseFloat(utmk.x.toFixed(1));
         utmk.y = parseFloat(utmk.y.toFixed(1));
 
-        infoWindow.setContent([
-            '<div style="padding:10px;width:340px;font-size:14px;line-height:20px;">',
-            '<span onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>LatLng</strong> : ' + latlngConv + '</span> (◀ 클릭)<br />',
-            '<strong>UTMK  </strong> : ' + utmk + '<br />',
-            '<strong>TM128 </strong> : ' + tm128 + '<br />',
-            '<strong>NAVER </strong> : ' + naverCoord + '<br />',
+        infowindow.setContent([
+            '<div style="padding:10px;width: 10%;font-size:14px;line-height:20px;">',
+            '<span class="btn non-fixed-balloon" onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>Click</strong></span><br />',
             '</div>'
         ].join(''));
-
-        infoWindow.open(map, latlng);
+        infowindow.open(map, marker);
+//        infoWindow.open(map, latlng);
     }
 
     function selectLatLng(lat, lng) {
@@ -244,7 +258,7 @@
     function selectAddress(lat, lng) {
         var latlng = new naver.maps.LatLng(lat, lng);
         map.setCenter(latlng);          // 중심 좌표 이동
-        //map.setZoom(13);              // 줌 레벨 변경
+        map.setZoom(13);              // 줌 레벨 변경
         marker.setPosition(latlng);     // 마크 이동
         updateInfoWindow(latlng);       // 정보창 표현
         $("#bAddress").focus();
