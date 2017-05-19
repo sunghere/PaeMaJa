@@ -2,7 +2,7 @@ package com.pae.maja.pmauser.model;
 
 public class PMAUser {
 
-	private int seq;
+	private int seq;  
 	private String id;
 	private int auth;
 	private String nickname;
