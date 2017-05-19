@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.pae.maja.pmacomment.dao.PMACommentService;
 import com.pae.maja.pmashop.dao.PMAShopService;
 import com.pae.maja.pmashop.model.PMAShopDTO;
 
@@ -65,7 +66,6 @@ public class ShopController {
 		logger.info(imgFile+"  ,  "+dto);
 		return "redirect:/main.do";
 	}
-	
 	
 	@RequestMapping(value = "searchregion.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String searchregion(String search, Model model) throws Exception {
