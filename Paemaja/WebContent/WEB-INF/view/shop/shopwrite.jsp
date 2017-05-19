@@ -22,7 +22,7 @@
 				
 			
 			$("#typetest").click(function(){
-				showMsgs('작성하시겠습니까??<br><button type="submit">작성</button>');
+				showMsgs('작성하시겠습니까??<br><button type="button" id="writeBtn">작성</button>');
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				$("#ff").attr("value",shopContent);
 				
@@ -52,13 +52,18 @@
 				}) */
 			}) 
 			init();
+			
+			$('#myMsg').on('click','#writeBtn',function(){
+				
+				$('#writeSubmit').attr({"action":"shopwriteaf.do","method":"post"}).submit();
+			});
 	});
 
 
 </script>
 	<button type="button" id="typetest" value="타입 확인" class="btn"></button>
-<form action="shopwriteaf.do" method="post">
-	<button id="aaa">저장</button>
+	
+	<form action="shopwriteaf.do" method="post" id='writeSubmit'>
 	상호 <input type="text" id="name" name="name"> <br>
 	주소 <input type="text" id="addr" name="addr"> <br>
 	전화번호 <input type="text" id="tel" name="tel"> <br>
@@ -70,7 +75,6 @@
 	<textarea id='ckedtest'>
 
 	</textarea>
-	
 </form>
 <script type="text/javascript"
         src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
