@@ -533,8 +533,29 @@ padding-right: 20%;
     right: 3%;
     top: 60%;
     border-radius: 100px;
-    background-color: lavenderblush;
+    background-color: #ccc;
     color: black;
 
     animation: balloon-div 1.6s infinite ease-in-out 0s;
 }
+
+
+.non-fixed-balloon {
+    padding: 5px;
+    border-radius: 100px;
+    background-color: #ccc;
+    color: black;
+
+    animation: balloon-div 1.6s infinite ease-in-out 0s;
+}
+
+
+
+.modal-header-body{
+    margin-top: 25px;
+}
+#bSearch {
+    padding-top: 10px;
+    padding-bottom: 1px;
+}
+

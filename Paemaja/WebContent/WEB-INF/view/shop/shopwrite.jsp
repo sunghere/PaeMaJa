@@ -22,7 +22,7 @@
 				
 			
 			$("#typetest").click(function(){
-				showMsgs('작성하시겠습니까??<br><button type="button" id="writeBtn">작성</button>');
+				showMsgs('작성하시겠습니까??<br><button type="submit">작성</button>');
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				$("#ff").attr("value",shopContent);
 				
@@ -32,20 +32,33 @@
 			});
 	
 			
-		
+			$("#aaa").click(function(){
+				/* var shopContent=CKEDITOR.instances.ckedtest.getData();
+				$("#ff").attr("value",shopContent) */
+				/* $.ajax({
+					url:"shopwriteaf.do",
+					type:"post",
+					async:false,
+					data:{"addr": $('input[name="addr"]').val(), 
+						  "tel":$("#tel").val(), 
+						  "category":$("#category").val(),
+						  "menu":$("#menu").val(),
+						  "content":$("#ff").val(),
+						  "name":$("#name").val(),
+						  "search":$("#search").val()},
+					success:function(data){
+						alert(data)
+					}
+				}) */
+			}) 
 			init();
-			
-			$('#myMsg').on('click','#writeBtn',function(){
-				
-				$('#writeSubmit').attr({"action":"shopwriteaf.do","method":"post"}).submit();
-			});
 	});
 
 
 </script>
 	<button type="button" id="typetest" value="타입 확인" class="btn"></button>
-	
-	<form action="shopwriteaf.do" method="post" id='writeSubmit'>
+<form action="shopwriteaf.do" method="post">
+	<button id="aaa">저장</button>
 	상호 <input type="text" id="name" name="name"> <br>
 	주소 <input type="text" id="addr" name="addr"> <br>
 	전화번호 <input type="text" id="tel" name="tel"> <br>
@@ -57,8 +70,10 @@
 	<textarea id='ckedtest'>
 
 	</textarea>
+	
 </form>
 
+<!--지도부분-->
 <button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
 </button>
 <script type="text/javascript"
@@ -119,20 +134,14 @@
 
             <div class="modal-header line_none">
                 <button type="button" class="close" id="login_close" data-dismiss="modal">
-                    <span class='loginexit' aria-hidden="true">x</span>
+                    <span class='loginexit' aria-hidden="true">x<br></span>
                     <span class="sr-only">Close</span>
                 </button>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <input id="addrtf" class="form-control" name="addrtf" placeholder="주소를 입력해주세요" type="search"/>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <br>
-                        <button id="bAddress" type="button" class="btn black-control"
-                                onclick="NewZipCode5NumCheck(); return false;">상세주소
-                        </button>
-                        <button id="bSearch" type="button" class="btn black-control">좌표조회</button>
-                    </div>
+                <div class="input-group modal-header-body">
+                    <input id="addrtf" class="form-control" name="addrtf" placeholder="주소를 입력해주세요"
+                           type="search"/>
+                    <span id="bSearch" class="input-group-addon black-control">&nbsp;<i class="icon ion-search"></i>&nbsp;
+                                            </span>
                 </div>
             </div>
             <div class="modal-body">
@@ -142,12 +151,14 @@
         </div>
     </div>
 </div>
+
 <script id="code">
     var map;
     var marker;
     var infoWindow;
     var mylat = 37.5666102;
     var mylng = 126.9783881;
+    var htmlAddresses = [];
     if (!!navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
     }
@@ -203,17 +214,17 @@
         var mylatlng = new naver.maps.LatLng(mylat, mylng);
         infowindow = new naver.maps.InfoWindow({
             maxWidth: 140,
-            backgroundColor: "lavenderblush",
-            borderColor: "lavenderblush",
+            backgroundColor: "#ccc",
+            borderColor: "#ccc",
             borderWidth: 5,
-            anchorColor: "#lavenderblush",
+            anchorColor: "#ccc",
             content: ''
         });
 
         naver.maps.Event.addListener(map, 'click', function (e) {
             marker.setPosition(e.coord);
             updateInfoWindow(e.coord);
-
+            searchCoordinateToAddress(e.coord);
         });
         naver.maps.Event.addListener(marker, "click", function (e) {
             if (infowindow.getMap()) {
@@ -243,7 +254,7 @@
 
         infowindow.setContent([
             '<div style="padding:10px;width: 10%;font-size:14px;line-height:20px;">',
-            '<span class="btn non-fixed-balloon" onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>Click</strong></span><br />',
+            '<span class="non-fixed-balloon" onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>Click</strong></span><br />',
             '</div>'
         ].join(''));
         infowindow.open(map, marker);
@@ -252,9 +263,37 @@
 
     function selectLatLng(lat, lng) {
         var sHTMLCODE = "" + lat + "/" + lng;
-        $("#scriptCode").html(sHTMLCODE);
+//        $("#scriptCode").html(sHTMLCODE);
+
+        $('#addr').val($('#addrtf').val());
+        $('.loginexit').click();
     }
 
+    function searchCoordinateToAddress(latlng) {
+        var tm128 = naver.maps.TransCoord.fromLatLngToTM128(latlng);
+
+        naver.maps.Service.reverseGeocode({
+            location: tm128,
+            coordType: naver.maps.Service.CoordType.TM128
+        }, function (status, response) {
+            if (status === naver.maps.Service.Status.ERROR) {
+                return alert('Something Wrong!');
+            }
+
+            var items = response.result.items;
+            htmlAddresses = [];
+
+            for (var i = 0, ii = items.length, item, addrType; i < ii; i++) {
+                item = items[i];
+                addrType = item.isRoadAddress ? '[도로명 주소]' : '[지번 주소]';
+
+                htmlAddresses.push(item.address);
+                htmlAddresses.push('&nbsp&nbsp&nbsp -> ' + item.point.x + ',' + item.point.y);
+            }
+
+        });
+        $('#addrtf').val(htmlAddresses[2]);
+    }
     function selectAddress(lat, lng) {
         var latlng = new naver.maps.LatLng(lat, lng);
         map.setCenter(latlng);          // 중심 좌표 이동
@@ -264,7 +303,9 @@
         $("#bAddress").focus();
         $("#addrList").css("visibility", "hidden");
     }
-
+    $('#addrtf').click(function () {
+        NewZipCode5NumCheck();
+    })
     $("#bSearch").click(function () {
         var sHTML = "";
         var sUrl = "https://apis.daum.net/local/geo/addr2coord?apikey=1b98be2bf5ecb8fa9384650b0345cf83&output=json&page_size=30&q=";
