@@ -28,9 +28,9 @@
 			});
 	
 			
-			$("#myMsg").on("click","#writeBtn",function(){
+			$("#myMsg").on("click","#writeBtn",function({
 				$("#writeForm").attr({"action":"shopwriteaf.do","method":"post"}).submit();
-			});
+			}));
 		
 			init();
 	});
