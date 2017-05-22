@@ -26,7 +26,7 @@
 			
 
 				<c:if test="${ !empty login && login.auth eq 1 }">
-					<li><a title="관리메뉴" href="setting.do">관리자 메뉴</a></li>
+					<li><a title="관리메뉴" href="manager.do">관리자 메뉴</a></li>
 					<li><a title="관리메뉴" href="shopwrite.do">가게 작성</a></li>
 				</c:if>
 
@@ -35,7 +35,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${ !empty login  && login.nickname ne ''}">
 					<li><a class="" data-toggle="modal" data-target="#infomodal"
-						title="내정보" href="#"><i class="fa fa-info-circle"></i>${login.nickname}</a>
+						title="내정보" href="userinfo.do"><i class="fa fa-info-circle"></i>${login.nickname}</a>
 					</li>
 				</c:if>
 				<c:if test="${ !empty login  && login.id ne ''}">

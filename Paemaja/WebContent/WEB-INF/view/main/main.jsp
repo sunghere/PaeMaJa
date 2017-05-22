@@ -5,8 +5,7 @@
   Time: 오후 4:06
   To change this template use File | Settings | File Templates.
 --%>
-<%@page import="com.pae.maja.pmashop.model.PMAShopDTO"%>
-<%@page import="java.util.List"%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -57,7 +56,7 @@
 <div class="row">
 
 	<c:if test="${empty shoplist}">
-	등록된 음식점이 없습니다.
+	 등록된 음식점이 없습니다.
 	</c:if>
 	<c:forEach items="${shoplist}" var="tempShop" varStatus="vs">
 		<div class="col-xs-12 col-sm-12  col-md-4 col-xl-3">
