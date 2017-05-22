@@ -9,4 +9,5 @@ public interface PMACommentService {
 	public void deleteComment(PMAComment pcomt) throws Exception;
 	public void updateComment(PMAComment pcomt) throws Exception;
 	public List<PMAComment> getCommentList(int pseq) throws Exception; // 
+	public List<PMAComment> getAllCommentList() throws Exception;	
 }

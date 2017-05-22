@@ -34,8 +34,13 @@
 
 			<ul class="nav navbar-nav navbar-right">
 				<c:if test="${ !empty login  && login.nickname ne ''}">
-					<li><a class="" data-toggle="modal" data-target="#infomodal"
-						title="내정보" href="userinfo.do"><i class="fa fa-info-circle"></i>${login.nickname}</a>
+					<li>
+					<a class="dropdown" title="내정보" data-toggle="dropdown"><i class="fa fa-info-circle"></i>${login.nickname}<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+					      <li><a href="infomodify.do">회원정보 수정</a></li>
+					      <li><a href="blacklist.do">블랙 리스트</a></li>
+					      <li><a href="userdelete.do">내가 쓴 글</a></li>
+					    </ul>
 					</li>
 				</c:if>
 				<c:if test="${ !empty login  && login.id ne ''}">

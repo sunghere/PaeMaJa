@@ -8,5 +8,6 @@ public interface PMACommentDAO {
 	public void writeComment(PMAComment pcomt) throws Exception;
 	public void deleteComment(PMAComment pcomt) throws Exception;
 	public void updateComment(PMAComment pcomt) throws Exception;
-	public List<PMAComment> getCommentList(int pseq) throws Exception; // 	
+	public List<PMAComment> getCommentList(int pseq) throws Exception; //
+	public List<PMAComment> getAllCommentList() throws Exception;	
 }

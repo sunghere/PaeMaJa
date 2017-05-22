@@ -1,5 +1,7 @@
 package com.pae.maja.pmauser.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +47,12 @@ public class PMAUserServiceImpl implements PMAUserService {
 	public Integer nickcheck(String nick) {
 		// TODO Auto-generated method stub
 		return pMAUserDAO.nickcheck(nick);
+	}
+
+	@Override
+	public List<PMAUser> getAllInfo() {
+		// TODO Auto-generated method stub
+		return pMAUserDAO.getAllInfo();
 	}
 
 }

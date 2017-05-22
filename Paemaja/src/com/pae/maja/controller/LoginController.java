@@ -1,6 +1,7 @@
 package com.pae.maja.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -115,4 +116,15 @@ public class LoginController {
 		return check;
 	}//
 
+	
+
+	
+	
+    @RequestMapping(value = "userconfig.do", method = {RequestMethod.POST,RequestMethod.GET})
+    @ResponseBody
+	public List<PMAUser> userconfig(Model model) throws Exception {
+    	logger.info("Welcome userconfig");
+    	List<PMAUser> list=pMAUserSerivce.getAllInfo();
+		return list;
+	}
 }

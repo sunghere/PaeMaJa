@@ -1,8 +1,11 @@
 package com.pae.maja.pmauser.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pae.maja.pmauser.model.PMAUser;
 
@@ -48,6 +51,12 @@ public class PMAUserDAOImp implements PMAUserDAO {
 	@Override
 	public Integer nickcheck(String nick) {
 		return sqlSession.selectOne(ns + "nickcheck", nick);
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public List<PMAUser> getAllInfo() {
+		return sqlSession.selectList(ns+"getAllInfo");
 	}
 
 }

@@ -22,8 +22,8 @@
         <put-attribute name="main" value="/WEB-INF/view/shop/shopwrite.jsp"/>        
     </definition>
 
-    <definition name="userinfo.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+    <definition name="infomodify.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/user/infomodify.jsp"/>        
     </definition>
 
     <definition name="shopsearch.tiles" extends="main.tiles">
@@ -32,6 +32,18 @@
     
     <definition name="manager.tiles" extends="main.tiles">
         <put-attribute name="main" value="/WEB-INF/view/admin/manager.jsp"/>
+    </definition>
+    
+    <definition name="blacklist.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+    </definition>
+    
+    <definition name="writinglist.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+    </definition>
+    
+    <definition name="userdelete.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
     </definition>
     
 </tiles-definitions>

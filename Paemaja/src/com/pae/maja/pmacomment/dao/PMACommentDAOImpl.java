@@ -35,4 +35,9 @@ public class PMACommentDAOImpl implements PMACommentDAO {
 		return sqlSession.selectList(ns+"getCommentList",pseq);
 	}
 
+	@Override
+	public List<PMAComment> getAllCommentList() throws Exception {
+		return sqlSession.selectList(ns+"getAllCommentList");
+	}
+
 }

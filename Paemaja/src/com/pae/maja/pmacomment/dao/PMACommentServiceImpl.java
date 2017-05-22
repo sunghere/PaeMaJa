@@ -37,4 +37,9 @@ public class PMACommentServiceImpl implements PMACommentService {
 		return pMACommentDAO.getCommentList(pseq);
 	}
 
+	@Override
+	public List<PMAComment> getAllCommentList() throws Exception {
+		return pMACommentDAO.getAllCommentList();
+	}
+
 }

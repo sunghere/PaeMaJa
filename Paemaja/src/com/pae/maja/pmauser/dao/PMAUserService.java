@@ -1,5 +1,7 @@
 package com.pae.maja.pmauser.dao;
 
+import java.util.List;
+
 import com.pae.maja.pmauser.model.PMAUser;
 
 public interface PMAUserService {
@@ -19,4 +21,5 @@ public interface PMAUserService {
 	
 	public Integer nickcheck(String nick);
 	/*닉네임중복확인*/
+	public List<PMAUser> getAllInfo();
 }

@@ -37,4 +37,8 @@
 		SEQ=#{seq}
 	</update>
 
+	<select id="getAllInfo" resultType="com.pae.maja.pmauser.model.PMAUser">
+		SELECT * FROM PMA_USER
+	</select>
+
 </mapper>

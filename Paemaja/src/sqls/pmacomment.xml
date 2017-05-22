@@ -29,4 +29,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE SEQ = #{seq}
 	</update>
 
+	<select id="getAllCommentList" resultType="com.pae.maja.pmacomment.model.PMAComment">
+		SELECT * FROM PMA_COMMENT
+	</select>
+
 </mapper>

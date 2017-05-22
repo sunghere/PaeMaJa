@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pae.maja.pmashop.dao.PMAShopService;
 
@@ -20,7 +21,6 @@ public class AdminController {
     private static final Logger logger =
             LoggerFactory.getLogger(AdminController.class);
 
-    
     @RequestMapping(value = "manager.do", method = RequestMethod.GET)
     public String home(Model model) throws Exception {
 
@@ -28,5 +28,5 @@ public class AdminController {
 //        model.addAttribute("shoplist", service.getShopList());
         return "manager.tiles";
     }
- 
+    
 }

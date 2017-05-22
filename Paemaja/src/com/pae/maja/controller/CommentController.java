@@ -27,9 +27,9 @@ public class CommentController
 	
 	@RequestMapping(value = "commentadd.do", method = {RequestMethod.POST,RequestMethod.GET})
 	@ResponseBody
-	public String write(Model model, PMAComment dto, int seqs) throws Exception {
+	public String write(Model model, PMAComment dto, int pseq) throws Exception {
 		logger.info("Welcome ShopController write           =====   ");
-		logger.info("Welcome ShopController write           =====   "+dto+"   ,   "+seqs);
+		logger.info("Welcome ShopController write           =====   "+dto+"   ,   "+pseq);
 		/*String[] temp=ff.split("<img");
 		String imgFile="";
 		for(String s : temp)
@@ -54,6 +54,13 @@ public class CommentController
 		List<PMAComment> list=service.getCommentList(Integer.parseInt(pseq));
 
 		logger.info("Welcome detailrepl detailrepl---------------------------------!"+list);
+		return list;
+	}
+	
+	@RequestMapping(value = "commentconfig.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public List<PMAComment> commentconfig(Model model) throws Exception {
+		List<PMAComment> list=service.getAllCommentList();
 		return list;
 	}
 }
