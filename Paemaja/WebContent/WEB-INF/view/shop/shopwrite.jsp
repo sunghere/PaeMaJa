@@ -5,8 +5,6 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
 
-
-
 <script>
 		
 		$(function () {
@@ -22,7 +20,7 @@
 				
 			
 			$("#typetest").click(function(){
-				showMsgs('작성하시겠습니까??<br><button class='btn btn-primary' type="button" id='wrintBtn'>작성</button>');
+				showMsgs("작성하시겠습니까??<br><button class='btn btn-primary' type='button' id='wrintBtn'>작성</button>");
 				var shopContent=CKEDITOR.instances.ckedtest.getData();
 				$("#shop_content").attr("value",shopContent);
 				
@@ -30,9 +28,10 @@
 			});
 	
 			
-		$('#myMsg').on('click','#writeBtn',function({
-			$('#writeForm').attr({"action":"shopwriteaf.do","method":"post"})
-		}))
+			$("#myMsg").on("click","#writeBtn",function(){
+				$("#writeForm").attr({"action":"shopwriteaf.do","method":"post"}).submit();
+			});
+		
 			init();
 	});
 
