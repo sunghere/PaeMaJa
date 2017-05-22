@@ -72,7 +72,9 @@
 		</div>
 
 		<!--댓글 div-->
-		<div class="col-md-7 sidereply"></div>
+		<div class="col-md-7 sidereply">
+		
+		</div>
 	</div>
 </div>
 
@@ -161,8 +163,8 @@
 						},
 						success : function(data) {
 							$.each(data,function(index, value) {
-												str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict"> <img class="yesmother" src="'+value.img+'"> </div> </div>'
-												str += '<div class="col-md-6"> <div class="repHead-body">'
+												str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict"> <img class="yesmother" src="'+value.img+'">'
+												str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
 														+ value.content
 														+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p>아이디 :'
 														+ value.idseq

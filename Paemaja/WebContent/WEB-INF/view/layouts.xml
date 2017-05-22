@@ -19,14 +19,19 @@
     </definition>
     
     <definition name="shopwrite.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/shop/shopwrite.jsp"/>
-        
+        <put-attribute name="main" value="/WEB-INF/view/shop/shopwrite.jsp"/>        
     </definition>
 
-
+    <definition name="userinfo.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+    </definition>
 
     <definition name="shopsearch.tiles" extends="main.tiles">
         <put-attribute name="main" value="/WEB-INF/view/shop/shopsearch.jsp"/>
-        
     </definition>
+    
+    <definition name="manager.tiles" extends="main.tiles">
+        <put-attribute name="main" value="/WEB-INF/view/admin/manager.jsp"/>
+    </definition>
+    
 </tiles-definitions>
