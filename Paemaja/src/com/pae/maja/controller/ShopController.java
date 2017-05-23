@@ -54,17 +54,25 @@ public class ShopController {
 		logger.info("Welcome ShopController write           =====   "+dto);
 		String[] temp=dto.getContent().split("<img");
 		String imgFile="";
+		String test="";
+		int i=0;
 		for(String s : temp)
 		{
+			if(s.contains("<img alt="))
 			if(s.contains("src=\""))
 			{
 				String[] asd=s.substring(s.indexOf("src=")).split("\"");
 				imgFile=asd[1];
 			}
+			else
+			{
+				test+=temp[i];
+			}
+			i++;
 		}
 		dto.setImgFile(imgFile);
 		service.writeShop(dto);
-		logger.info(imgFile+"  ,  "+dto);
+		logger.info(imgFile+"  ,  "+dto+"   ,   \n"+test);
 		return "redirect:/main.do";
 	}
 	

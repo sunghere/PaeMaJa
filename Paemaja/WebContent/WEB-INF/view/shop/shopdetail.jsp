@@ -22,7 +22,6 @@
 }
 
 .yesmother {
-	width: 100%;
 	border-radius: 10%;
 }
 
@@ -218,7 +217,10 @@
 						type : "post",
 						async : false,
 						data : {"pseq" : $('#pseq').val(),"idseq":$(".forb-info2").text(),"score":$("#score").attr("value"),"img":"noimage","content":$("#content").attr("value")},
-						success : function(data){alert(data)}
+						success : function(data){
+							if(data=="fail"){alert("에러")}
+							else if(data=="true"){$(".changryeol").css("display", "none"); repReload();}
+						}
 				})
 		})
 
