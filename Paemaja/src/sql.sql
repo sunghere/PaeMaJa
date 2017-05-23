@@ -3,6 +3,13 @@ SELECT * FROM PMA_COMMENT;
 SELECT * FROM PMA_SHOP;
 
 SELECT * FROM PMA_USER;
+
+SELECT * FROM FORB;
+
+CREATE SEQUENCE SEQ_FORB
+	START WITH 1
+	INCREMENT BY 1;
+
 insert into pma_user values(seq_pma_user.nextval,'admin',1,'admin','admin','',0)
 
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 51,1, '20170519', 5, 0, 'noimage',0, 'nocontent');
