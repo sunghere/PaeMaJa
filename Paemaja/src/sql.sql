@@ -80,3 +80,25 @@ SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL,CONTENT, SCORES, 
 		ON CMT.PSEQ = PMA_SHOP.SEQ
 		WHERE ADDR LIKE '%서울%'
 		
+insert into forb values(seq_forb.nextval, 1, 0, 61)
+insert into forb values(seq_forb.nextval, 1, 1, 62)
+insert into forb values(seq_forb.nextval, 1, 2, 60)
+
+
+
+
+		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
+		users.ID userid, users.SEQ userseq,
+		FORB.forbs
+		FROM PMA_SHOP shop, PMA_USER users, FORB 
+		WHERE shop.SEQ=60
+		AND shop.seq = FORB.shop_seq
+		AND FORB.id_seq = users.seq
+
+		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
+		users.ID, users.SEQ,
+		FORB.forbs
+		FROM PMA_SHOP shop, PMA_USER users, FORB 
+		WHERE shop.SEQ=60
+		AND shop.seq = FORB.shop_seq
+		AND FORB.id_seq = users.seq

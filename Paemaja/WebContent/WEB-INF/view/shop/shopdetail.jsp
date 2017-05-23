@@ -64,6 +64,12 @@
 				<div class="writing-info4">${shopdetail.content}</div>
 				<div class="writing-info5">${shopdetail.addr}</div>
 				<input type="hidden" id="pseq" name="pseq" value="${shopdetail.seq}">
+				<!-- 블랙리스트,즐겨찾기부분 -->
+				<c:if test='${!empty shopdetail.userseq or  shopdetail.userseq ne ""}'>
+					<div class="writing-info1">${shopdetail.userid}</div>
+					<div class="writing-info1">${shopdetail.userseq}</div>
+					<div class="writing-info1">${shopdetail.forbs}</div>
+				</c:if>
 			</div>
 			<div class="buttonHouse">
 				<button id="chang" class="btn">별</button>
