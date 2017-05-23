@@ -1,5 +1,7 @@
 package com.pae.maja.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -28,8 +30,11 @@ public class CommentController
 	@RequestMapping(value = "commentadd.do", method = {RequestMethod.POST,RequestMethod.GET})
 	@ResponseBody
 	public String write(Model model, PMAComment dto, int pseq) throws Exception {
+		String state="fail";
 		logger.info("Welcome ShopController write           =====   ");
 		logger.info("Welcome ShopController write           =====   "+dto+"   ,   "+pseq);
+		
+		if(dto!=null){service.writeComment(dto); state="true";}
 		/*String[] temp=ff.split("<img");
 		String imgFile="";
 		for(String s : temp)
@@ -44,7 +49,7 @@ public class CommentController
 		dto.setImgFile(imgFile);
 		service.writeShop(dto);
 		logger.info(imgFile+"  ,  "+dto);*/
-		return "asd";
+		return state;
 	}
 	
 	@RequestMapping(value = "detailrepl.do", method = {RequestMethod.GET, RequestMethod.POST})

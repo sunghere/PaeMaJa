@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="writeComment" parameterType="com.pae.maja.pmacomment.model.PMAComment">
 		INSERT INTO PMA_COMMENT VALUES
-		(seq_PMA_COMMENT.NEXTVAL, #{pseq}, #{idseq}, #{wdate}, #{score}, 0, #{img}, #{content})
+		(seq_PMA_COMMENT.NEXTVAL, #{pseq}, #{idseq}, SYSDATE, #{score}, 0, #{img}, 0, #{content})
 	</insert>
 	
 	<select id="getCommentList" parameterType="java.lang.Integer"

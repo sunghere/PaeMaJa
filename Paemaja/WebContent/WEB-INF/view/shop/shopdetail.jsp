@@ -66,9 +66,9 @@
 				<input type="hidden" id="pseq" name="pseq" value="${shopdetail.seq}">
 				<!-- 블랙리스트,즐겨찾기부분 -->
 				<c:if test='${!empty shopdetail.userseq or  shopdetail.userseq ne ""}'>
-					<div class="writing-info1">${shopdetail.userid}</div>
-					<div class="writing-info1">${shopdetail.userseq}</div>
-					<div class="writing-info1">${shopdetail.forbs}</div>
+					<div class="forb-info1">${shopdetail.userid}</div>
+					<div class="forb-info2">${shopdetail.userseq}</div>
+					<div class="forb-info3">${shopdetail.forbs}</div>
 				</c:if>
 			</div>
 			<div class="buttonHouse">
@@ -148,6 +148,7 @@
 	
 	</textarea>
 		<form action="comment.do" method="post">
+			
 			<input type="hidden" id="score" name="score" value=""><br>
 			<input type="hidden" id="content" name="content" value="">
 			<button type="button" id="OK" class="btn btn-primary">확인</button>
@@ -206,16 +207,20 @@
 			}
 		})
 
-		$("#OK").click(
-				function() {
+		$("#OK").click(function() {
 					var repContent = CKEDITOR.instances.ckedtest.getData();
 					var skullScore = imgAlt;
 					$("#score").attr("value", skullScore)
 					$("#content").attr("value", repContent)
-					console.log($("#score").attr("value") + "   ,   "
-							+ $("#content").attr("value"))
-					$("#OK").attr("type", "submit")
+					console.log($("#score").attr("value") + "   ,   "+ $("#content").attr("value"))
+					$.ajax({
+						url : "commentadd.do",
+						type : "post",
+						async : false,
+						data : {"pseq" : $('#pseq').val(),"idseq":$(".forb-info2").text(),"score":$("#score").attr("value"),"img":"noimage","content":$("#content").attr("value")},
+						success : function(data){alert(data)}
 				})
+		})
 
 		$(".yesmother").css("width", "115px");
 		$(".yesmother").css("height", "115px");
