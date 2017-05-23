@@ -26,7 +26,7 @@ public class HomeController {
     @RequestMapping(value = "main.do", method = RequestMethod.GET)
     public String home(Model model) throws Exception {
 
-        logger.info("Welcome HomeController home---------------------------------!"+service.getShopList());
+//        logger.info("Welcome HomeController home---------------------------------!"+service.getShopList());
         model.addAttribute("shoplist", service.getShopList());
         return "main.tiles";
     }
