@@ -12,6 +12,7 @@ public class PMAComment implements Serializable{
 	private String img;
 	private int del=1;
 	private String content;
+	private String id;
 	public PMAComment() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -32,7 +33,14 @@ public class PMAComment implements Serializable{
 	@Override
 	public String toString() {
 		return "PMAComment [seq=" + seq + ", pseq=" + pseq + ", idseq=" + idseq + ", wdate=" + wdate + ", score="
-				+ score + ", replyNum=" + replyNum + ", img=" + img + ", del=" + del + ", content=" + content + "]";
+				+ score + ", replyNum=" + replyNum + ", img=" + img + ", del=" + del + ", content=" + content + ", id="
+				+ id + "]";
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public int getSeq() {
 		return seq;

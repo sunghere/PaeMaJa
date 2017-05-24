@@ -49,7 +49,7 @@
 	height: 70%;
 }
 .repYeop-pict{
-	height:200px;
+	height:120px;
 }
 
 </style>
@@ -70,6 +70,7 @@
 				<!-- 블랙리스트,즐겨찾기부분 -->
 
 					<input type="hidden" id="idseq" name="idseq" value="${login.seq}">
+					<input type="hidden" id="auth" name="auth" value="${login.auth}">
 
 			</div>
 			<div class="buttonHouse">
@@ -159,7 +160,16 @@
 <script>
 	$(function() {
 		repReload();
-
+		
+		if($("#auth").val()==1)
+		{
+			$(".rep-id").css("cursor","pointer")
+			$(".rep-id").click(function(){
+				showMsgs("정지 ㄱㄱ??<br><button class='btn btn-primary' id='black-add'>확인</button>&nbsp;&nbsp;"
+				+"<button class='btn btn-primary' id='black-cancel'>취소</button>")
+			})
+		}
+		
 		function repReload() {
 			var str = "";
 			$.ajax({
@@ -174,8 +184,8 @@
 												str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict"> <img class="yesmother" src="'+value.img+'">'
 												str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
 														+ value.content
-														+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p>아이디 :'
-														+ value.idseq
+														+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p class="rep-id">아이디 :'
+														+ value.id
 														+ '</p> </div>'
 												str += '<div class="rep-profileSkull"> <p>해골 :'
 														+ value.score
@@ -189,6 +199,11 @@
 						}
 					})
 		}
+		
+		/* 
+		 <div class="rep-profile"> <p>아이디 :'
+				+ value.idseq
+				+ '</p> </div>' */
 
 		var imgAlt;
 		$("#chang").click(function() {
