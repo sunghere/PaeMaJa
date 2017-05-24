@@ -16,7 +16,10 @@ INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 51,1, '20170519', 5, 0,
 
 
 -- PMA_USER AUTH 
--- 1:愿�由ъ옄 / 3:�궗�슜�옄
+-- 1:관리자
+-- 3:일반회원
+-- 4:우수회원ㅡㅓ
+-- 5:특별회원
 
 alter table PMA_COMMENT add content varchar2(500) not null
 
@@ -54,7 +57,7 @@ SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		
 		
 commit
-
+delete forb
 delete PMA_SHOP 
 delete PMA_COMMENT
 
@@ -85,7 +88,7 @@ insert into forb values(seq_forb.nextval, 1, 1, 62)
 insert into forb values(seq_forb.nextval, 1, 2, 60)
 
 
-
+delete from pma_shop where seq > 65
 
 		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
 		users.ID userid, users.SEQ userseq,
@@ -102,3 +105,30 @@ insert into forb values(seq_forb.nextval, 1, 2, 60)
 		WHERE shop.SEQ=60
 		AND shop.seq = FORB.shop_seq
 		AND FORB.id_seq = users.seq
+		
+		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
+				users.ID userid, users.SEQ userseq,
+				FORB.forbs
+		FROM PMA_SHOP shop, 
+			LEFT OUTER JOIN FORB 
+			ON shop.seq = FORB.shop_seq
+			LEFT OUTER JOIN PMA_USER users
+			ON FORB.id_seq = users.seq
+		WHERE shop.SEQ=#{seq}
+		
+		
+		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
+				users.ID userid, users.SEQ userseq,
+				FORB.forbs
+		FROM PMA_SHOP shop
+			LEFT OUTER JOIN FORB 
+			ON shop.seq = FORB.shop_seq
+			LEFT OUTER JOIN PMA_USER users
+			ON FORB.id_seq = users.seq
+		WHERE shop.SEQ=#{seq}
+	
+		
+		
+		
+		
+		
