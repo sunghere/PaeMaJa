@@ -58,7 +58,7 @@
 	<div class="row">
 		<div class="col-md-5 writing-info">
 			<img
-				src="KakaoTalk_20170510_165445431.png<%-- <%=request.getContextPath()%>/images/c1.jpg --%>"
+				src="<%=request.getContextPath()%>/${shopdetail.imgFile}"
 				class="img-rounded" id="detail_img">
 			<div class="">
 				<div class="writing-info1">${shopdetail.name}</div>
@@ -73,10 +73,18 @@
 					<input type="hidden" id="auth" name="auth" value="${login.auth}">
 
 			</div>
+			<c:if test="${!empty login.id or login.id eq ''}">
 			<div class="buttonHouse">
 				<button id="chang" class="btn">별</button>
 				<button class="btn">주문하기</button>
 			</div>
+			</c:if>
+			<c:if test="${empty login.id and login.id ne ''}">
+			<div>
+				댓글 작성 및 주문은 로그인 후에 가능합니다.
+			</div>
+			</c:if>
+			
 		</div>
 
 		<!--댓글 div-->
