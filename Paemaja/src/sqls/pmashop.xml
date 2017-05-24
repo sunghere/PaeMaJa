@@ -22,15 +22,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getShop" parameterType="java.lang.Integer"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		
-		SELECT shop.SEQ , shop.NAME, shop.ADDR, shop.TEL, shop.CATEGORY, shop.MENU, shop.XPOS, shop.YPOS, shop.imgFile, shop.DEL, shop.CONTENT,
-            users.ID userid, users.SEQ userseq,
-            FORB.forbs
-      FROM PMA_SHOP shop
-         LEFT OUTER JOIN FORB 
-         ON shop.seq = FORB.shop_seq
-         LEFT OUTER JOIN PMA_USER users
-         ON FORB.id_seq = users.seq
-      WHERE shop.SEQ=#{seq}
+		SELECT SEQ , NAME, ADDR, TEL,CATEGORY,MENU, XPOS, YPOS,imgFile,DEL,CONTENT
+      FROM PMA_SHOP
+      WHERE SEQ=#{seq}
 	</select>
 
 	<select id="searchShopList" parameterType="java.lang.String"

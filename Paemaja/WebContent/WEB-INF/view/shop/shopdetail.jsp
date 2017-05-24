@@ -48,6 +48,10 @@
 	overflow: scroll;
 	height: 70%;
 }
+.repYeop-pict{
+	height:200px;
+}
+
 </style>
 
 <div class="container">
@@ -64,11 +68,9 @@
 				<div class="writing-info5">${shopdetail.addr}</div>
 				<input type="hidden" id="pseq" name="pseq" value="${shopdetail.seq}">
 				<!-- 블랙리스트,즐겨찾기부분 -->
-				<c:if test='${!empty shopdetail.userseq or  shopdetail.userseq ne ""}'>
-					<div class="forb-info1">${shopdetail.userid}</div>
-					<div class="forb-info2">${shopdetail.userseq}</div>
-					<div class="forb-info3">${shopdetail.forbs}</div>
-				</c:if>
+
+					<input type="hidden" id="idseq" name="idseq" value="${login.seq}">
+
 			</div>
 			<div class="buttonHouse">
 				<button id="chang" class="btn">별</button>
@@ -182,6 +184,8 @@
 														+ '</p> </div> </div> </div> </div>'
 											})
 							$(".sidereply").html(str)
+							$(".yesmother").css("width","115px")
+							$(".yesmother").css("height","115px")
 						}
 					})
 		}
@@ -211,14 +215,15 @@
 					var skullScore = imgAlt;
 					$("#score").attr("value", skullScore)
 					$("#content").attr("value", repContent)
-					console.log($("#score").attr("value") + "   ,   "+ $("#content").attr("value"))
 					$.ajax({
 						url : "commentadd.do",
 						type : "post",
 						async : false,
-						data : {"pseq" : $('#pseq').val(),"idseq":$(".forb-info2").text(),"score":$("#score").attr("value"),"img":"noimage","content":$("#content").attr("value")},
+						data : {"pseq" : $('#pseq').val(),"idseq":$("#idseq").val(),"score":$("#score").attr("value"),"img":"noimage","content":$("#content").attr("value")},
 						success : function(data){
+							alert(data);
 							if(data=="fail"){alert("에러")}
+							else if(data=="idfail"){alert("로그인 ㄱㄱ")}
 							else if(data=="true"){$(".changryeol").css("display", "none"); repReload();}
 						}
 				})

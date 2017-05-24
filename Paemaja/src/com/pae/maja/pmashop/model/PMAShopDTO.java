@@ -17,17 +17,12 @@ public class PMAShopDTO implements Serializable {
 	private String content;
 	private float scores=0;
 	private int counts=0;
-	
-	private String userid;
-	private int userseq;
-	private int forbs;
 	public PMAShopDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public PMAShopDTO(int seq, String name, String addr, String tel, String category, String menu, float xpos,
-			float ypos, String imgFile, int del, String search, String content, float scores, int counts, String userid,
-			int userseq, int forbs) {
+			float ypos, String imgFile, int del, String search, String content, float scores, int counts) {
 		super();
 		this.seq = seq;
 		this.name = name;
@@ -43,16 +38,13 @@ public class PMAShopDTO implements Serializable {
 		this.content = content;
 		this.scores = scores;
 		this.counts = counts;
-		this.userid = userid;
-		this.userseq = userseq;
-		this.forbs = forbs;
 	}
 	@Override
 	public String toString() {
 		return "PMAShopDTO [seq=" + seq + ", name=" + name + ", addr=" + addr + ", tel=" + tel + ", category="
 				+ category + ", menu=" + menu + ", xpos=" + xpos + ", ypos=" + ypos + ", imgFile=" + imgFile + ", del="
 				+ del + ", search=" + search + ", content=" + content + ", scores=" + scores + ", counts=" + counts
-				+ ", userid=" + userid + ", userseq=" + userseq + ", forbs=" + forbs + "]";
+				+ "]";
 	}
 	public int getSeq() {
 		return seq;
@@ -138,25 +130,6 @@ public class PMAShopDTO implements Serializable {
 	public void setCounts(int counts) {
 		this.counts = counts;
 	}
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
-	public int getUserseq() {
-		return userseq;
-	}
-	public void setUserseq(int userseq) {
-		this.userseq = userseq;
-	}
-	public int getForbs() {
-		return forbs;
-	}
-	public void setForbs(int forbs) {
-		this.forbs = forbs;
-	}
 	
 	
-
 }

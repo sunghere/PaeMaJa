@@ -33,22 +33,29 @@ public class CommentController
 		String state="fail";
 		logger.info("Welcome ShopController write           =====   ");
 		logger.info("Welcome ShopController write           =====   "+dto+"   ,   "+pseq);
-		
-		if(dto!=null){service.writeComment(dto); state="true";}
-		/*String[] temp=ff.split("<img");
+		String[] temp=dto.getContent().split("<img");
 		String imgFile="";
+		String test="";
+		int i=0;
 		for(String s : temp)
 		{
 			if(s.contains("src=\""))
 			{
 				String[] asd=s.substring(s.indexOf("src=")).split("\"");
 				imgFile=asd[1];
+				test+=asd[4].substring((asd[4].indexOf("/>"))+2);
 			}
+			else
+			{
+				test+=temp[i];
+			}
+			i++;
 		}
-		dto.setContent(ff);
-		dto.setImgFile(imgFile);
-		service.writeShop(dto);
-		logger.info(imgFile+"  ,  "+dto);*/
+		dto.setContent(test);
+		dto.setImg(imgFile);
+		service.writeComment(dto);
+		state="true";
+		logger.info(test);
 		return state;
 	}
 	
