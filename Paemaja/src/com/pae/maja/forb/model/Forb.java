@@ -1,7 +1,10 @@
 package com.pae.maja.forb.model;
 
+import java.io.Serializable;
+
 // com.pae.maja.forb.model
-public class Forb {
+
+public class Forb implements Serializable{
 	private int seq;
 	private int idseq;
 	private int fobs=0; 

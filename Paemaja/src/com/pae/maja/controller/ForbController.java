@@ -16,7 +16,7 @@ import com.pae.maja.forb.model.Forb;
 
 @Controller
 public class ForbController {
-	private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ForbController.class);
 
 	@Autowired
 	private ForbService service;
