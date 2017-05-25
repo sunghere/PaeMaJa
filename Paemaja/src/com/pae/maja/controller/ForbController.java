@@ -24,9 +24,11 @@ public class ForbController {
 	
 	@RequestMapping(value = "getforb.do", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public List<Forb> getforb(String search, Model model,String pseq) throws Exception {
-
-		return list;
+	public Forb getforb(Model model,int pseq) throws Exception {
+		Forb forb = new Forb();
+		forb = service.getForb(pseq);
+		
+		return forb;
 	}
 	
 

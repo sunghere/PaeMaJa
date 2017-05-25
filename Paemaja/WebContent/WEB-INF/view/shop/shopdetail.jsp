@@ -177,7 +177,7 @@
 					"pseq" : $('#pseq').val()
 				},
 				success : function(data) {
-					
+					console.log(data.forbs);
 				}
 			})
 		}
