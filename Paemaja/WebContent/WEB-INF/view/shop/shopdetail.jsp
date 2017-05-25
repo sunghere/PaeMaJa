@@ -167,6 +167,23 @@
 </div>
 <script>
 	$(function() {
+		
+		function getForb() {
+			$.ajax({
+				url : "getforb.do",
+				type : "post",
+				async : false,
+				data : {
+					"pseq" : $('#pseq').val()
+				},
+				success : function(data) {
+					
+				}
+			})
+		}
+		
+		
+		
 		repReload();
 		
 		if($("#auth").val()==1)
