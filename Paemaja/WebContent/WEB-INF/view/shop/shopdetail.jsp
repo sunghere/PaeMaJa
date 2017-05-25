@@ -168,6 +168,11 @@
 <script>
 	$(function() {
 		
+		getForb();
+		repReload();
+		
+		
+		/* 즐겨찾기&블랙리스트 목록을 불러옴 */
 		function getForb() {
 			$.ajax({
 				url : "getforb.do",
@@ -182,9 +187,37 @@
 			})
 		}
 		
+		function addForb() {
+			$.ajax({
+				url : "addforb.do",
+				type : "post",
+				async : false,
+				data : {
+					"pseq" : $('#pseq').val(),
+					"idseq" : $('#idseq').val(),
+					"forbs" : ""
+				},
+				success : function() {
+					console.log("갓성찬뒤BAR")
+				}
+			})
+		}
 		
-		
-		repReload();
+		function modifyForb() {
+			$.ajax({
+				url : "modifyforb.do",
+				type : "post",
+				async : false,
+				data : {
+					"pseq" : $('#pseq').val(),
+					"idseq" : $('#idseq').val(),
+					"forbs" : ""
+				},
+				success : function() {
+					console.log("갓성찬뒤BAR")
+				}
+			})
+		}
 		
 		if($("#auth").val()==1)
 		{

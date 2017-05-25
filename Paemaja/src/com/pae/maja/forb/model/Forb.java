@@ -7,7 +7,7 @@ import java.io.Serializable;
 public class Forb implements Serializable{
 	private int seq;
 	private int idseq;
-	private int fobs=0; 
+	private int forbs=0; 
 	/*
 	 * 
 	 * 0 : 미체크
@@ -16,20 +16,20 @@ public class Forb implements Serializable{
 	 * 
 	 * */
 	private int shopseq;
+	public Forb(int seq, int idseq, int forbs, int shopseq) {
+		super();
+		this.seq = seq;
+		this.idseq = idseq;
+		this.forbs = forbs;
+		this.shopseq = shopseq;
+	}
 	public Forb() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Forb(int seq, int idseq, int fobs, int shopseq) {
-		super();
-		this.seq = seq;
-		this.idseq = idseq;
-		this.fobs = fobs;
-		this.shopseq = shopseq;
-	}
 	@Override
 	public String toString() {
-		return "Forb [seq=" + seq + ", idseq=" + idseq + ", fobs=" + fobs + ", shopseq=" + shopseq + "]";
+		return "Forb [seq=" + seq + ", idseq=" + idseq + ", forbs=" + forbs + ", shopseq=" + shopseq + "]";
 	}
 	public int getSeq() {
 		return seq;
@@ -43,11 +43,11 @@ public class Forb implements Serializable{
 	public void setIdseq(int idseq) {
 		this.idseq = idseq;
 	}
-	public int getFobs() {
-		return fobs;
+	public int getForbs() {
+		return forbs;
 	}
-	public void setFobs(int fobs) {
-		this.fobs = fobs;
+	public void setForbs(int forbs) {
+		this.forbs = forbs;
 	}
 	public int getShopseq() {
 		return shopseq;
@@ -55,6 +55,5 @@ public class Forb implements Serializable{
 	public void setShopseq(int shopseq) {
 		this.shopseq = shopseq;
 	}
-	
 	
 }

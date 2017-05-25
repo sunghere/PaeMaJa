@@ -31,5 +31,27 @@ public class ForbController {
 		return forb;
 	}
 	
+	@RequestMapping(value = "addforb.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public void addforb(Model model,int pseq,int idseq, int forbs) throws Exception {
+		Forb forb = new Forb();
+		forb.setIdseq(idseq);
+		forb.setShopseq(pseq);
+		forb.setForbs(forbs);
+		service.addForb(forb);
+		return;
+	}
+	
+	
+	@RequestMapping(value = "modifyforb.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public void modifyforb(Model model,int pseq,int idseq, int forbs) throws Exception {
+		Forb forb = new Forb();
+		forb.setIdseq(idseq);
+		forb.setShopseq(pseq);
+		forb.setForbs(forbs);
+		service.modifyForb(forb);
+		return;
+	}
 
 }
