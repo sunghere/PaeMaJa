@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 VALUES(SEQ_FORB.NEXTVAL,#{idseq},#{forbs},#{shopseq})
 	</insert>
 
-	<select id="getforb" resultType="com.pae.maja.forb.model.Forb">
+	<select id="getforb" parameterType="java.lang.Integer" resultType="com.pae.maja.forb.model.Forb">
 	SELECT SEQ, ID_SEQ, FORBS, SHOP_SEQ
 	FROM FORB
 	WHERE SHOP_SEQ=#{shopseq}
