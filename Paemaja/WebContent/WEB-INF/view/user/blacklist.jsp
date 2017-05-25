@@ -17,6 +17,14 @@
 			 	<a class="menuT" href="userdelete.do" id="D">회원 탈퇴</a>
  			</div>
 	 	</div>
-	 <div class="col-md-9 mainContent">내용</div>
+	 <div class="col-md-9 mainContent">
+	 <div class="col-md-9">
+	 	<ul class="infomodify-head">
+	 		<h4>비밀번호</h4>
+	 		<input type="password" id="passcheck">
+	 		<li class="infomodify-body"><button class="btn modifybtn">확인</button></li>
+	 	</ul>
+	</div>
+	</div>
 	</div>
 </div>

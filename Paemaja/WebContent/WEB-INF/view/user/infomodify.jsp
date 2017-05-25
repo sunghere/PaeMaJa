@@ -19,9 +19,6 @@
 				async : false,
 				data:{"pass" : $("#passcheck").val(), "pwd":$("#pwd").val()},
 				success:function(data){
-					if(){
-						alert("야호");
-					}
 				}
 			})
 		})

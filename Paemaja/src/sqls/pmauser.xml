@@ -41,4 +41,8 @@
 		SELECT * FROM PMA_USER
 	</select>
 
+	<update id="updateUserGrade" parameterType="com.pae.maja.pmauser.model.PMAUser">
+		UPDATE PMA_USER SET AUTH=#{auth} WHERE SEQ=#{seq}
+	</update>
+	
 </mapper>

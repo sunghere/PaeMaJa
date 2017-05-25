@@ -59,4 +59,9 @@ public class PMAUserDAOImp implements PMAUserDAO {
 		return sqlSession.selectList(ns+"getAllInfo");
 	}
 
+	@Override
+	public void updateUserGrade(PMAUser user) {
+		sqlSession.update(ns+"updateUserGrade",user);
+	}
+
 }

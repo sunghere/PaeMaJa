@@ -24,4 +24,6 @@ public interface PMAUserDAO {
 	/*닉네임중복확인*/
 	
 	public List<PMAUser> getAllInfo();
+	
+	public void updateUserGrade(PMAUser user);
 }
