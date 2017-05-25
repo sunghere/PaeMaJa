@@ -177,8 +177,7 @@
 		getForb();
 		repReload();
 		
-		$(".dislike").click(function(){
-			
+		$(".dislike").click(function(){			
 			if($(".dislike").attr("alt")==0 && $(".like").attr("alt")==0){
 				$(".dislike").css("opacity","1"); 
 				$(".dislike").attr("alt","1");
