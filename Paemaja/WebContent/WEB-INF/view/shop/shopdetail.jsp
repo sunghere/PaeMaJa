@@ -12,6 +12,9 @@
 
 
 <style>
+.dislike{cursor:pointer;opacity:0.2;}
+.like{cursor:pointer;}
+
 #point_average {
 	margin-bottom: 10px;
 }
@@ -77,6 +80,9 @@
 			<div class="buttonHouse">
 				<button id="chang" class="btn">별</button>
 				<button class="btn">주문하기</button>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<img src="like2.png" alt="0" class="like">&nbsp;&nbsp;&nbsp;
+				<img src="dislike.png" alt="0" class="dislike">
 			</div>
 			</c:if>
 			<c:if test="${empty login.id and login.id ne ''}">
@@ -171,6 +177,50 @@
 		getForb();
 		repReload();
 		
+		$(".dislike").click(function(){
+			
+			if($(".dislike").attr("alt")==0 && $(".like").attr("alt")==0){
+				$(".dislike").css("opacity","1"); 
+				$(".dislike").attr("alt","1");
+				
+			} else if($(".dislike").attr("alt")==1 && $(".like").attr("alt")==0){
+				$(".dislike").css("opacity","0.2"); 
+				$(".dislike").attr("alt","0");
+				
+			} else if ($(".dislike").attr("alt")==0 && $(".like").attr("alt")==1){
+				$(".dislike").css("opacity","1"); 
+				$(".dislike").attr("alt","1");
+				$(".like").css("opacity","0.2"); 
+				$(".like").attr("alt","0");
+				
+			}
+		})
+		
+		$(".like").click(function(){			
+			if($(".like").attr("alt")==0 && $(".dislike").attr("alt")==0){
+				$(".like").css("opacity","1"); 
+				$(".like").attr("alt","1");
+				
+			}
+			
+			else if($(".like").attr("alt")==1 && $(".dislike").attr("alt")==0){
+				$(".like").css("opacity","0.2"); 
+				$(".like").attr("alt","0");
+				
+			} else if($(".like").attr("alt")==0 && $(".dislike").attr("alt")==1){
+				$(".like").css("opacity","1"); 
+				$(".like").attr("alt","1");
+				$(".dislike").css("opacity","0.2"); 
+				$(".dislike").attr("alt","0");
+			}  
+		})
+		
+		
+		
+		
+		
+		
+		
 		
 		/* 즐겨찾기&블랙리스트 목록을 불러옴 */
 		function getForb() {
@@ -218,6 +268,9 @@
 				}
 			})
 		}
+	
+		
+		
 		
 		if($("#auth").val()==1)
 		{
@@ -258,10 +311,7 @@
 					})
 		}
 		
-		/* 
-		 <div class="rep-profile"> <p>아이디 :'
-				+ value.idseq
-				+ '</p> </div>' */
+		
 
 		var imgAlt;
 		$("#chang").click(function() {

@@ -21,7 +21,7 @@ $(function(){
 				async:false,
 				success:function(data){
 						$.each(data,function(index, v) {
-							if(v.auth==1){v.auth="관리자"} else if(v.auth==3){v.auth="일반"} else if(v.auth==4){v.auth=="우수"}  else if(v.auth==5){v.auth=="특별"} else if(v.auth==9){v.auth=="계정정지"}
+							if(v.auth==1){v.auth="관리자"} else if(v.auth==3){v.auth="일반"} else if(v.auth==4){v.auth="우수"}  else if(v.auth==5){v.auth="특별"} else if(v.auth==9){v.auth="계정정지"}
 							if(v.del==0){v.del="나중에"} else{v.del="탈퇴"}
 							str+="<tr><td class='userIds"+ v.id+"'>"
 								+v.id+"</td><td class='nickname'>"
