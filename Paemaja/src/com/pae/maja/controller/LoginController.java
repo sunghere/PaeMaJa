@@ -47,7 +47,7 @@ public class LoginController {
 
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, Model model) {
-		logger.info("Welcome LoginController logout! " + new Date());
+		logger.info("Welcome LoginController logout! "+"redirect:" + getDoRef(request.getHeader("Referer")));
 		request.getSession().invalidate();
 		model.addAttribute("head", "WELCOME");
 		return "redirect:" + getDoRef(request.getHeader("Referer"));

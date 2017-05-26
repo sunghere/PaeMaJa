@@ -24,11 +24,16 @@ public class ForbController {
 	
 	@RequestMapping(value = "getforb.do", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public Forb getforb(Model model,int pseq) throws Exception {
+	public Forb getforb(Model model,int pseq,int id) throws Exception {
 		Forb forb = new Forb();
-		forb = service.getForb(pseq);
-		
-		return forb;
+		Forb forb2 = new Forb();
+        logger.info("qseq---------------------------------!"+pseq);
+        forb.setShopseq(pseq);
+        forb.setIdseq(id);
+		forb2 = service.getForb(forb);
+
+        logger.info("frbs---------------------------------!"+forb);
+		return forb2;
 	}
 	
 	@RequestMapping(value = "addforb.do", method = {RequestMethod.GET, RequestMethod.POST})
@@ -42,6 +47,15 @@ public class ForbController {
 		return;
 	}
 	
+	@RequestMapping(value = "deleteforb.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public void deleteforb(Model model,int pseq,int idseq) throws Exception {
+		Forb forb = new Forb();
+		forb.setIdseq(idseq);
+		forb.setShopseq(pseq);
+		service.deleteForb(forb);
+		return;
+	}
 	
 	@RequestMapping(value = "modifyforb.do", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody

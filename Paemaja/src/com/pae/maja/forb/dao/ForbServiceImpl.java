@@ -19,14 +19,19 @@ public class ForbServiceImpl implements ForbService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public Forb getForb(int pseq) {
-		return forbDAO.getForb(pseq);
+	public Forb getForb(Forb forb) {
+		return forbDAO.getForb(forb);
 	}
 
 	@Override
 	@Transactional
 	public void modifyForb(Forb forb) {
 		forbDAO.modifyForb(forb);
+	}
+
+	@Override
+	public void deleteForb(Forb forb) {
+		forbDAO.deleteForb(forb);		
 	}
 
 }

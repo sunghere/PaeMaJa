@@ -10,6 +10,7 @@
 	.infomodify-head{margin-top:100px; list-style: none;} .infomodify-body{float: right; margin: 0px 20px; margin-top:35px;}
 	#foot{height:250px;}
 	#passcheck{width:80%; height:30px; margin:0 auto; border:1px solid; border-radius:3px; } .modifybtn{display:inline-block;}
+	.modifybtn{border:none;}
 </style>
 <script>
 	$(function(){
@@ -17,13 +18,18 @@
 			$.ajax({
 				url:"passcheck.do",
 				async : false,
-				data:{"pass" : $("#passcheck").val(), "pwd":$("#pwd").val()},
+				data:{"pass" : $("#passcheck").val(), "pwd":$("#pwd").val(), "id":$("#id").val()},
 				success:function(data){
+					if(data=="kakao" || data=="true"){alert("일치")}
+					else if(data=="notInput"){alert("입력x")}
+					else if(data=="fail"){alert("불일치")}
+					else if(data=="error"){alert("에러")}
 				}
 			})
 		})
 	})
 </script>
+<input type="hidden" id="id" value="${login.id}">
 <input type="hidden" id="pwd" value="${login.pwd}">
 <div class="container first">
 	<div class="row">
@@ -37,11 +43,24 @@
  			</div>
 	 	</div>
 	 <div class="col-md-9">
-	 	<ul class="infomodify-head">
-	 		<h4>비밀번호</h4>
-	 		<input type="password" id="passcheck">
-	 		<li class="infomodify-body"><button class="btn modifybtn">확인</button></li>
-	 	</ul>
+	 <br><br>
+	 <div><h3>&nbsp;회원정보 수정</h3></div>
+		<c:choose>
+			<c:when test="${fn:contains(login.id,'@')}">
+				<ul class="infomodify-head">
+			 		<h5>카카오 계정을 입력하세요</h5>
+			 		<input type="password" id="passcheck">
+			 		<li class="infomodify-body"><button class="btn modifybtn">확인</button></li>
+			 	</ul>	
+			</c:when>
+			<c:otherwise>
+				<ul class="infomodify-head">
+			 		<h5>비밀번호를 입력하세요</h5>
+			 		<input type="password" id="passcheck">
+			 		<li class="infomodify-body"><button class="btn modifybtn">확인</button></li>
+			 	</ul>	
+			</c:otherwise>
+		</c:choose>
 	 </div>
 	</div>
 </div>

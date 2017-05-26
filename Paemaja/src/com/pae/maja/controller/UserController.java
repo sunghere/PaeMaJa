@@ -46,18 +46,17 @@ public class UserController
 	
 	@RequestMapping(value = "passcheck.do", method = {RequestMethod.POST,RequestMethod.GET})
 	@ResponseBody
-	public String passcheck(String pass,String pwd,Model model) throws Exception {
-		String result="";
-		if(pass.equals(pwd))
-		{
-			result="success";
-		}
-		else
-		{
-			result="fail";
-		}
+	public String passcheck(String id,String pass,String pwd,Model model) throws Exception {
+		if(id.contains("@")){
+			if(pass.equals(id)){return "kakao";} //<- 추후에 true로 바꿀 예정
+			else if(pass==""||pass.equals("")){return "notInput";}
+			else if(!pass.equals(id)){return "fail";}
+		} else if(pass.equals("")||pass==""){return "notInput";}
+		else if(pass.equals(pwd)){return "true";}
+		else if(!pass.equals(pwd)){return "fail";}
+		
 		logger.info("Welcome UserController passcheck---------------------------------!");
-		return result;
+		return "error";
 	}
 	
 }

@@ -19,14 +19,20 @@ public class ForbDAOImpl implements ForbDAO {
 	}
 
 	@Override
-	public Forb getForb(int pseq) {
-		return sqlSession.selectOne(ns+"getForb",pseq);
+	public Forb getForb(Forb forb) {
+		return sqlSession.selectOne(ns+"getForb",forb);
 
 	}
 
 	@Override
 	public void modifyForb(Forb forb) {
 		sqlSession.update(ns+"modifyForb",forb);
+	}
+
+	@Override
+	public void deleteForb(Forb forb) {
+		sqlSession.delete(ns+"deleteForb",forb);
+		
 	}
 
 }

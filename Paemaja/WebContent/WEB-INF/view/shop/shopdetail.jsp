@@ -13,7 +13,7 @@
 
 <style>
 .dislike{cursor:pointer;opacity:0.2;}
-.like{cursor:pointer;}
+.like{cursor:pointer;opacity:0.2;}
 
 #point_average {
 	margin-bottom: 10px;
@@ -181,18 +181,18 @@
 		$(".dislike").click(function(){			
 			if($(".dislike").attr("alt")==0 && $(".like").attr("alt")==0){
 				$(".dislike").css("opacity","1"); 
-				$(".dislike").attr("alt","1");
-				
-			} else if($(".dislike").attr("alt")==1 && $(".like").attr("alt")==0){
+				$(".dislike").attr("alt","2");
+				addForb(2);
+			} else if($(".dislike").attr("alt")==2 && $(".like").attr("alt")==0){
 				$(".dislike").css("opacity","0.2"); 
 				$(".dislike").attr("alt","0");
-				
+				deleteForb();
 			} else if ($(".dislike").attr("alt")==0 && $(".like").attr("alt")==1){
 				$(".dislike").css("opacity","1"); 
-				$(".dislike").attr("alt","1");
+				$(".dislike").attr("alt","2");
 				$(".like").css("opacity","0.2"); 
 				$(".like").attr("alt","0");
-				
+				modifyForb(2);
 			}
 		})
 		
@@ -200,18 +200,18 @@
 			if($(".like").attr("alt")==0 && $(".dislike").attr("alt")==0){
 				$(".like").css("opacity","1"); 
 				$(".like").attr("alt","1");
-				
+				addForb(1);
 			}
-			
 			else if($(".like").attr("alt")==1 && $(".dislike").attr("alt")==0){
 				$(".like").css("opacity","0.2"); 
 				$(".like").attr("alt","0");
-				
-			} else if($(".like").attr("alt")==0 && $(".dislike").attr("alt")==1){
+				deleteForb();
+			} else if($(".like").attr("alt")==0 && $(".dislike").attr("alt")==2){
 				$(".like").css("opacity","1"); 
 				$(".like").attr("alt","1");
 				$(".dislike").css("opacity","0.2"); 
 				$(".dislike").attr("alt","0");
+				modifyForb(1);
 			}  
 		})
 		
@@ -222,22 +222,37 @@
 		
 		
 		
+		
 		/* 즐겨찾기&블랙리스트 목록을 불러옴 */
 		function getForb() {
+
 			$.ajax({
 				url : "getforb.do",
 				type : "post",
-				async : false,
-				data : {
-					"pseq" : $('#pseq').val()
-				},
+				data : {"pseq" : $('#pseq').val(),"id":$("#idseq").val()},
 				success : function(data) {
-					console.log(data.forbs);
+					alert("테스트 : "+data.forbs);
+					gfb=data.forbs;
+					
+					
+					if(gfb==null || gfb==''){
+						
+					} else if (gfb==1 || gfb=='1') {
+						$(".like").css("opacity","1"); 
+						$(".like").attr("alt","1");
+						$(".dislike").css("opacity","0.2"); 
+						$(".dislike").attr("alt","0");
+					} else if (gfb==2 || gfb=='2') {
+						$(".dislike").css("opacity","1"); 
+						$(".dislike").attr("alt","2");
+						$(".like").css("opacity","0.2"); 
+						$(".like").attr("alt","0");
+					}
 				}
 			})
 		}
 		
-		function addForb() {
+		function addForb(i) {
 			$.ajax({
 				url : "addforb.do",
 				type : "post",
@@ -245,7 +260,7 @@
 				data : {
 					"pseq" : $('#pseq').val(),
 					"idseq" : $('#idseq').val(),
-					"forbs" : ""
+					"forbs" : i,
 				},
 				success : function() {
 					console.log("갓성찬뒤BAR")
@@ -253,7 +268,22 @@
 			})
 		}
 		
-		function modifyForb() {
+		function deleteForb() {
+			$.ajax({
+				url : "deleteforb.do",
+				type : "post",
+				async : false,
+				data : {
+					"pseq" : $('#pseq').val(),
+					"idseq" : $('#idseq').val()
+				},
+				success : function() {
+					console.log("갓성찬뒤BAR")
+				}
+			})
+		}
+		
+		function modifyForb(i) {
 			$.ajax({
 				url : "modifyforb.do",
 				type : "post",
@@ -261,7 +291,7 @@
 				data : {
 					"pseq" : $('#pseq').val(),
 					"idseq" : $('#idseq').val(),
-					"forbs" : ""
+					"forbs" : i
 				},
 				success : function() {
 					console.log("갓성찬뒤BAR")

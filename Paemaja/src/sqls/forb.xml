@@ -4,26 +4,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Forb">
 
-	<insert id="addforb" parameterType="com.pae.maja.forb.model.Forb">
+	<insert id="addForb" parameterType="com.pae.maja.forb.model.Forb">
 		INSERT INTO FORB(SEQ, ID_SEQ, FORBS, SHOP_SEQ)
 		 VALUES(SEQ_FORB.NEXTVAL,#{idseq},#{forbs},#{shopseq})
 	</insert>
 
-	<select id="getforb" parameterType="java.lang.Integer" resultType="com.pae.maja.forb.model.Forb">
+	<select id="getForb" parameterType="com.pae.maja.forb.model.Forb" resultType="com.pae.maja.forb.model.Forb">
 	SELECT SEQ, ID_SEQ, FORBS, SHOP_SEQ
 	FROM FORB
 	WHERE SHOP_SEQ=#{shopseq}
+	AND ID_SEQ=#{idseq}
 	ORDER BY SEQ ASC
 	
 	</select>
 
 
-	<update id="modifyforb" parameterType="com.pae.maja.forb.model.Forb">
+	<update id="modifyForb" parameterType="com.pae.maja.forb.model.Forb">
 		UPDATE FORB SET
 		FORBS = #{forbs}
 		WHERE ID_SEQ = #{idseq}
 		AND SHOP_SEQ = #{shopseq}
 	</update>
 
+	<delete id="deleteForb" parameterType="com.pae.maja.forb.model.Forb">
+		DELETE FROM FORB
+		WHERE ID_SEQ = #{idseq}
+		AND SHOP_SEQ = #{shopseq}
+	</delete>
 
 </mapper>
