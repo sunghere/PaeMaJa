@@ -14,7 +14,15 @@
 <style>
 .dislike{cursor:pointer;opacity:0.2;}
 .like{cursor:pointer;opacity:0.2;}
-
+#toast{ min-width: 250px;visibility: hidden;margin-left: -125px; left: 43%;height:58px; bottom: 30px; padding:15px;background-color:#333;color: #fff;top:555px;position:fixed; text-align: center; border-radius: 2px; z-index: 9999; font-size: 17px;}
+#toast.show {visibility: visible; 
+-webkit-animation: fadein 0.5s, fadeout 0.5s 1.0s; 
+animation: fadein 0.5s, fadeout 0.5s 1.0s;}
+}
+@-webkit-keyframes fadein {from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;}}
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;}}
+@-webkit-keyframes fadeout {from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;}}
+@keyframes fadeout {from {bottom: 30px; opacity: 1;}to {bottom: 0; opacity: 0;}}
 #point_average {
 	margin-bottom: 10px;
 }
@@ -30,8 +38,7 @@
 
 .repYeopAll {
 	border-bottom: 1px solid #e0e0e0;
-	padding-bottom: 5px;
-	margin-bottom: 10px;
+	padding-top:2.85%;
 }
 
 .writing-info {
@@ -47,9 +54,10 @@
 }
 
 .sidereply {
+	background:#fdfdfd;
 	margin: 0 auto;
-	overflow: scroll;
-	height: 70%;
+	overflow-y: scroll;
+	height: 90%;
 }
 .repYeop-pict{
 	height:120px;
@@ -57,6 +65,7 @@
 
 </style>
 
+<div id="toast">'나의 맛집' 메뉴에서 방금 체크한 맛집을 확인하세요.</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-5 writing-info">
@@ -134,7 +143,6 @@
 
 
 
-
 <div id="chang_give" class="changryeol">
 	<!-- Modal content -->
 	<div class="chang_mom">
@@ -173,6 +181,7 @@
 	</div>
 </div>
 <script>
+
 	$(function() {
 		
 		getForb();
@@ -201,6 +210,8 @@
 				$(".like").css("opacity","1"); 
 				$(".like").attr("alt","1");
 				addForb(1);
+				$("#toast").attr("class", "show")
+				setTimeout(function(){ $("#toast").removeClass("show");}, 1500);
 			}
 			else if($(".like").attr("alt")==1 && $(".dislike").attr("alt")==0){
 				$(".like").css("opacity","0.2"); 

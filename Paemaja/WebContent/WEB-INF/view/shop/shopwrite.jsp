@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
-
+<style>
+.w3-input {margin-top:1%;margin-bottom:1%;width:62%;}
+#menu{margin-bottom:3%;}
+.blank-div{padding-top:5%;}
+</style>
 <script>
 		
 		$(function () {
@@ -35,16 +38,19 @@
 
 
 </script>
-	
+
 <form method="post" id='writeForm'>
-	상호 <input type="text" id="name" name="name"> <br>
-	주소 <input type="text" id="addr" name="addr"> <br>
-	전화번호 <input type="text" id="tel" name="tel"> <br>
-	카테고리 <input type="text" id="category" name="category"> <br>
-	메뉴 <input type="text" id="menu" name="menu"> <br>
+	<div class="blank-div"></div>
+	<input class="w3-input" type="text" id="name" name="name" placeholder="상호명을 입력해주세요" width="20%">
+	<input class="w3-input" type="text" id="mapAdd" name="addr" placeholder="주소를 입력해주세요" data-toggle="modal" data-target="#mapModal">
+	<input class="w3-input" type="text" id="tel" name="tel" placeholder="전화번호를 입력해주세요">
+	<input class="w3-input" type="text" id="category" name="category" placeholder="카테고리를 입력해주세요">
+	<input class="w3-input" type="text" id="menu" name="menu" placeholder="메뉴를 입력해주세요">
+	
+	
 		<input type="hidden" id="shop_content" name="content" value="">
-	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
-</button>
+<!-- 	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
+</button> -->
 
 	<textarea id='ckedtest'>
 
@@ -243,7 +249,7 @@
         var sHTMLCODE = "" + lat + "/" + lng;
 //        $("#scriptCode").html(sHTMLCODE);
 
-        $('#addr').val($('#addrtf').val());
+        $('#mapAdd').val($('#addrtf').val());
         $('.loginexit').click();
     }
 
