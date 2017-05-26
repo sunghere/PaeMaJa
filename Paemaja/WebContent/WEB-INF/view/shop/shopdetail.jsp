@@ -78,7 +78,7 @@
 			</div>
 			<c:if test="${!empty login.id or login.id eq ''}">
 			<div class="buttonHouse">
-				<button id="chang" class="btn">별</button>
+				<button id="chang" class="btn">댓글쓰기</button>
 				<button class="btn">주문하기</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<img src="like2.png" alt="0" class="like">&nbsp;&nbsp;&nbsp;
@@ -87,7 +87,8 @@
 			</c:if>
 			<c:if test="${empty login.id and login.id ne ''}">
 			<div>
-				댓글 작성 및 주문은 로그인 후에 가능합니다.
+			
+댓글 작성 및 주문은 로그인 후에 가능합니다.
 			</div>
 			</c:if>
 			

@@ -120,7 +120,7 @@ function aaa(id, auth, nickname,seq){
     	</div>
     	<div class="col-md-6" id="tab-userInfo">
     	<div id="infoText"></div>
-    	<div><button id="infoSubmit">벤자민버튼의시간은거꾸로가냐?</button></div>
+    	<div><button id="infoSubmit">등급변경</button></div>
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="shop">
