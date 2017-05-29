@@ -13,7 +13,6 @@
 		border:1px solid;
 		background-color:white;
 	}
-	.leftside{border-left:none;} .rightside{border-right:1px white;}
 	table {
 		width:100%;
 		color:black;
@@ -29,11 +28,19 @@
 	a {
 		color : black;
 	}
-	td{max-width:100%;}
-	th {
-		text-align:center;
-	}
+	
+	th {text-align:center;}
 	.userdel{text-align:center;}
+	
+	.cth1 {min-width:70px;}.ctd1 {min-width:70px; text-align:center;}.cth2 {min-width:70px;}.ctd2 {min-width:70px; text-align:center;}
+	
+	.cth3{
+		width:100%;
+	}
+	.rep-content {
+		max-width:500px;
+	}
+	.txtcen{text-align:center;}
 
 </style>
 <script>
@@ -66,15 +73,15 @@ $(function(){
 	})
 	
 	$("#shops").on("click", function(){
-		str="<table><tr><td>식당 명</td><td>댓글 수</td><td>평점  </td><td>링크  </td></tr>"
+		str="<table><tr><th>식당명</th><th>댓글 수</th><th>평 점</th><th>링크</th></tr>"
 		$.ajax({
 			url:"shopconfig.do",
 			type:"post",
 			async:false,
 			success:function(data){
 					$.each(data,function(index, v) {
-						str+="<tr><td>"+v.name+"</td><td>"+v.counts+"</td><td>"+v.scores+"</td>"
-						str+="<td><a href='shopdetail.do?seq="+v.seq+"'>글보기</a></td></tr>"
+						str+="<tr><td>"+"&nbsp;"+v.name+"</td><td class='txtcen'>"+v.counts+"</td><td class='txtcen'>"+v.scores+"</td>"
+						str+="<td class='txtcen'><a href='shopdetail.do?seq="+v.seq+"'>글보기</a></td></tr>"
 					})
 				str+="</table>"
 				$("#tab-shop").html(str);
@@ -83,7 +90,7 @@ $(function(){
 	})
 //  class='table-striped table-bordered table-hover'	
 	$("#comments").on("click", function(){
-		str="<table><tr><td width='100%'>아이디 </td><td width='100%'>스코어 </td><td width='100%'>내용  </td></tr>"
+		str="<table><tr><th class='cth1'>아이디</th><th class='cth2'>평 점</th><th class='cth3'>내 용</th></tr>"
 		$.ajax({
 			url:"commentconfig.do",
 			type:"post",
@@ -91,7 +98,7 @@ $(function(){
 			success:function(data){
 				console.log(data)
 					$.each(data,function(index, v) {
-						str+="<tr><td>"+v.idseq+"</td><td>"+v.score+"</td><td class='rep-content'>"+v.content+"</td></tr>"
+						str+="<tr><td class='ctd1'>"+v.id+"</td><td class='ctd2'>"+v.score+"</td><td class='rep-content'>"+v.content+"</td></tr>"
 					})
 				str+="</table>"
 				$("#tab-comment").html(str);
@@ -157,10 +164,11 @@ function aaa(id, auth, nickname,seq){
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="comment">
-    	<div class="col-md-10" id="tab-comment">
+    	<div class="col-md-9" id="tab-comment">
+
     	사람들의 댓글을 관리
     	</div>
-    </div>
+    </div>	
   </div>
 </div>
 </div>
