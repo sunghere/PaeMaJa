@@ -63,6 +63,10 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 	height:120px;
 }
 
+.repHead-body{
+	max-width:100%;
+}
+
 </style>
 
 <div id="toast">'나의 맛집' 메뉴에서 방금 체크한 맛집을 확인하세요.</div>
