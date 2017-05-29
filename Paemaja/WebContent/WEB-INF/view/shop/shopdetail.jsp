@@ -156,19 +156,19 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 		<div id="point_average">
 			<br> 평점 &nbsp;:
 			<div class="skullbtn">
-				<img src="skull_black.png" class="img" id="img1" alt="1">
+				<img src="<%=request.getContextPath()%>/images/dislike.png" class="img" id="img1" alt="1">
 			</div>
 			<div class="skullbtn">
-				<img src="skull_black.png" class="img" id="img2" alt="2">
+				<img src="<%=request.getContextPath()%>/images/dislike.png" class="img" id="img2" alt="2">
 			</div>
 			<div class="skullbtn">
-				<img src="skull_black.png" class="img" id="img3" alt="3">
+				<img src="<%=request.getContextPath()%>/images/dislike.png" class="img" id="img3" alt="3">
 			</div>
 			<div class="skullbtn">
-				<img src="skull_black.png" class="img" id="img4" alt="4">
+				<img src="<%=request.getContextPath()%>/images/dislike.png" class="img" id="img4" alt="4">
 			</div>
 			<div class="skullbtn">
-				<img src="skull_black.png" class="img" id="img5" alt="5">
+				<img src="<%=request.getContextPath()%>/images/dislike.png" class="img" id="img5" alt="5">
 			</div>
 			<span id="skull_score">0 점</span>
 		</div>

@@ -83,7 +83,7 @@ $(function(){
 	})
 //  class='table-striped table-bordered table-hover'	
 	$("#comments").on("click", function(){
-		str="<table><tr><td>아이디 </td><td>스코어 </td><td>내용  </td></tr>"
+		str="<table><tr><td width='100%'>아이디 </td><td width='100%'>스코어 </td><td width='100%'>내용  </td></tr>"
 		$.ajax({
 			url:"commentconfig.do",
 			type:"post",
