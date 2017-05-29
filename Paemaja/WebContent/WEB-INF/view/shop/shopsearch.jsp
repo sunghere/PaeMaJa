@@ -26,6 +26,9 @@
 
 .detailimg {
 	opacity: 0.3;
+	max-height:200px;
+	max-width:300px;
+	width:100%;
 }
 
 .detailimg:hover, .detailimg:focus {
@@ -46,11 +49,11 @@
 			<div class="mbr-plan card text-xs-center back_img" >
 			
 				<c:if test='${empty tempShop.imgFile or  tempShop.imgFile eq ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="images/no-image.png" class="detail_img img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="images/no-image.png" class="detailimg img-responsive"></a>
 				</c:if>
 			
 				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ne ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="${tempShop.imgFile}" class="detail_img img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="${tempShop.imgFile}" class="detailimg img-responsive"></a>
 				</c:if>
 				
 				<div class="card-block txts_divs">

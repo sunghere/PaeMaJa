@@ -160,12 +160,6 @@
         mylat = position.coords.latitude;
         mylng = position.coords.longitude;
     }
-	
-    $(".mapps").click(function(){
-    	mapinit();
-    	var tempwidth = $(window).width();
-        var tempheight = $(window).height();
-    })
     
     $('#mapAdd').click(function () {
         mapinit();
@@ -225,7 +219,6 @@
             } else {
                 updateInfoWindow(e.coord);
 //                infowindow.open(map, marker);
-
             }
         });
         updateInfoWindow(mylatlng);

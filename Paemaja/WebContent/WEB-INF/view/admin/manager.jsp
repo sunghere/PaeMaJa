@@ -9,12 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <style>
-	table, td, tr{
+	table, td,  th{
+		border:1px solid;
 		background-color:white;
 	}
-	
+	.leftside{border-left:none;} .rightside{border-right:1px white;}
 	table {
-
 		width:100%;
 		color:black;
 	}
@@ -29,14 +29,19 @@
 	a {
 		color : black;
 	}
+	td{max-width:100%;}
+	th {
+		text-align:center;
+	}
+	.userdel{text-align:center;}
 
 </style>
 <script>
 
 $(function(){
-	
+	var l;
 	function userreload(){
-		str="<table><tr><td>아이디</td><td>닉네임</td><td>등급변경</td><td>탈퇴여부</td></tr>"
+		str="<table><tr><th class='leftside'>아이디</th><th>닉네임</th><th>등급변경</th><th>탈퇴여부</th></tr>"
 			$.ajax({
 				url:"userconfig.do",
 				type:"post",
@@ -44,10 +49,10 @@ $(function(){
 				success:function(data){
 						$.each(data,function(index, v) {
 							if(v.auth==1){v.auth="관리자"} else if(v.auth==3){v.auth="일반"} else if(v.auth==4){v.auth="우수"}  else if(v.auth==5){v.auth="특별"} else if(v.auth==9){v.auth="계정정지"}
-							if(v.del==0){v.del="나중에"} else{v.del="탈퇴"}
-							str+="<tr><td class='userIds"+ v.id+"'>"
-								+v.id+"</td><td class='nickname'>"
-								+v.nickname+"</td><td class='userAuth'><button class='btn btn1' onclick='aaa(\""+v.id+"\",\""+v.auth+"\",\""+v.nickname+"\","+v.seq+")'>"
+							if(v.del==0){v.del="미탈퇴"} else{v.del="탈퇴"}
+							str+="<tr><td class='userIds"+ v.id+" leftside'>"
+								+"&nbsp;"+v.id+"</td><td class='nickname'>"
+								+"&nbsp;"+v.nickname+"</td><td class='userAuth'><button class='btn btn1' onclick='aaa(\""+v.id+"\",\""+v.auth+"\",\""+v.nickname+"\","+v.seq+")'>"
 								+v.auth+"</button></td><td class='userdel'>"
 								+v.del+"</td></tr>"
 						})
@@ -86,7 +91,7 @@ $(function(){
 			success:function(data){
 				console.log(data)
 					$.each(data,function(index, v) {
-						str+="<tr><td>"+v.idseq+"</td><td>"+v.score+"</td><td>"+v.content+"</td></tr>"
+						str+="<tr><td>"+v.idseq+"</td><td>"+v.score+"</td><td class='rep-content'>"+v.content+"</td></tr>"
 					})
 				str+="</table>"
 				$("#tab-comment").html(str);
@@ -102,7 +107,7 @@ $(function(){
 			success:function(data){
 			}
 		})
-		userreload()
+		userreload();
 	})	
 })
 
@@ -129,6 +134,7 @@ function aaa(id, auth, nickname,seq){
   </ul>
 
   <!-- Tab panes -->
+  <br>
   <div class="row">
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="main">
@@ -146,12 +152,12 @@ function aaa(id, auth, nickname,seq){
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="shop">
-    	<div id="tab-shop">
+    	<div class="col-md-7" id="tab-shop">
     	등록된 음식점을 관리
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="comment">
-    	<div id="tab-comment">
+    	<div class="col-md-10" id="tab-comment">
     	사람들의 댓글을 관리
     	</div>
     </div>
