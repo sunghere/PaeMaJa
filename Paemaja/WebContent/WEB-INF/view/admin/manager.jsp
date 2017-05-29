@@ -8,13 +8,35 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
+<style>
+	table, td, tr{
+		background-color:white;
+	}
+	
+	table {
 
+		width:100%;
+		color:black;
+	}
+	
+	.btn1 {
+		background-color:white;
+		border:none;
+		width:100%;
+		color: black;
+	}
+	
+	a {
+		color : black;
+	}
+
+</style>
 <script>
 
 $(function(){
 	
 	function userreload(){
-		str="<table><tr><td>아이디</td><td>닉네임</td><td>계정나중에</td><td>탈퇴여부</td></tr>"
+		str="<table><tr><td>아이디</td><td>닉네임</td><td>등급변경</td><td>탈퇴여부</td></tr>"
 			$.ajax({
 				url:"userconfig.do",
 				type:"post",
@@ -25,7 +47,7 @@ $(function(){
 							if(v.del==0){v.del="나중에"} else{v.del="탈퇴"}
 							str+="<tr><td class='userIds"+ v.id+"'>"
 								+v.id+"</td><td class='nickname'>"
-								+v.nickname+"</td><td class='userAuth'><button class='btn btn-primary' onclick='aaa(\""+v.id+"\",\""+v.auth+"\",\""+v.nickname+"\","+v.seq+")'>"
+								+v.nickname+"</td><td class='userAuth'><button class='btn btn1' onclick='aaa(\""+v.id+"\",\""+v.auth+"\",\""+v.nickname+"\","+v.seq+")'>"
 								+v.auth+"</button></td><td class='userdel'>"
 								+v.del+"</td></tr>"
 						})
@@ -47,14 +69,14 @@ $(function(){
 			success:function(data){
 					$.each(data,function(index, v) {
 						str+="<tr><td>"+v.name+"</td><td>"+v.counts+"</td><td>"+v.scores+"</td>"
-						str+="<td><a href='shopdetail.do?seq="+v.seq+"'>링크</a></td></tr>"
+						str+="<td><a href='shopdetail.do?seq="+v.seq+"'>글보기</a></td></tr>"
 					})
 				str+="</table>"
 				$("#tab-shop").html(str);
 			}	
 		})
 	})
-	
+//  class='table-striped table-bordered table-hover'	
 	$("#comments").on("click", function(){
 		str="<table><tr><td>아이디 </td><td>스코어 </td><td>내용  </td></tr>"
 		$.ajax({
@@ -103,7 +125,7 @@ function aaa(id, auth, nickname,seq){
     <li role="presentation" class="active"><a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main</a></li>
     <li role="presentation"><a href="#user" aria-controls="user" role="tab" data-toggle="tab" id="users">user</a></li>
     <li role="presentation"><a href="#shop" aria-controls="shop" role="tab" data-toggle="tab" id="shops">shop</a></li>
-    <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab" id="comments">Settings</a></li>
+    <li role="presentation"><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab" id="comments">comments</a></li>
   </ul>
 
   <!-- Tab panes -->
