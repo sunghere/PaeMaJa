@@ -46,7 +46,7 @@
 	<input class="w3-input" type="text" id="tel" name="tel" placeholder="전화번호를 입력해주세요">
 	<input class="w3-input" type="text" id="category" name="category" placeholder="카테고리를 입력해주세요">
 	<input class="w3-input" type="text" id="menu" name="menu" placeholder="메뉴를 입력해주세요">
-	
+
 	
 		<input type="hidden" id="shop_content" name="content" value="">
 <!-- 	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
@@ -56,6 +56,8 @@
 
 	</textarea>
 	<button type="button" id="typetest"class="btn">글 작성</button>
+	
+		<div id="maps" class="mapps"></div>
 </form>
 
 <!--지도부분-->
@@ -138,6 +140,7 @@
 
 <script id="code">
     var map;
+    var maps;
     var marker;
     var infoWindow;
     var mylat = 37.5666102;
@@ -157,13 +160,17 @@
         mylat = position.coords.latitude;
         mylng = position.coords.longitude;
     }
-
+	
+    $(".mapps").click(function(){
+    	mapinit();
+    	var tempwidth = $(window).width();
+        var tempheight = $(window).height();
+    })
+    
     $('#mapAdd').click(function () {
         mapinit();
         var tempwidth = $(window).width();
         var tempheight = $(window).height();
-
-
     })
 
     var mapOptions = {
@@ -189,8 +196,10 @@
             zoomControl: true,
             minZoom: 1
         };
+        
         map = new naver.maps.Map('map', mapOptions);
-
+        maps = new naver.maps.Map('maps', mapOptions);
+        
         marker = new naver.maps.Marker({
             position: new naver.maps.LatLng(mylat, mylng),
             map: map
@@ -220,9 +229,9 @@
             }
         });
         updateInfoWindow(mylatlng);
-
     }
 
+    
 
     function updateInfoWindow(latlng) {
         var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng),    // 위/경도 -> UTMK
@@ -247,10 +256,10 @@
 
     function selectLatLng(lat, lng) {
         var sHTMLCODE = "" + lat + "/" + lng;
-//        $("#scriptCode").html(sHTMLCODE);
-
+        $("#scriptCode").html(sHTMLCODE);
         $('#mapAdd').val($('#addrtf').val());
         $('.loginexit').click();
+        $('.mapps').click();
     }
 
     function searchCoordinateToAddress(latlng) {
