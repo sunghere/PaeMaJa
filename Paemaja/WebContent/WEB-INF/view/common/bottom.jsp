@@ -113,7 +113,7 @@
 		</div>
 	</div>
 </div>
-<div style="height:45%">
+<div style="height:4%">
 
 </div>
 <script>
