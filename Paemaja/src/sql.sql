@@ -131,6 +131,12 @@ delete from pma_shop where seq > 65
 	
 		
 		
-		
-		
+SELECT p.SEQ ,p.NAME, p.ADDR,p.TEL,p.CATEGORY,p.MENU,p.XPOS,p.YPOS,p.IMGFILE,p.DEL,p.CONTENT, f.FORBS, u.ID
+	FROM PMA_SHOP p
+	INNER JOIN FORB f
+	ON p.seq = f.shop_seq
+	INNER JOIN PMA_USER u
+	ON f.id_seq = u.seq
+	WHERE u.seq = 1		
+
 		

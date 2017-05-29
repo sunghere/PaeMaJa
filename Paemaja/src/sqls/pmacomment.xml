@@ -34,4 +34,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM PMA_COMMENT
 	</select>
 
+	<select id="getMYComment" parameterType="java.lang.Integer" resultType="com.pae.maja.pmacomment.model.PMAComment">
+		SELECT * FROM PMA_COMMENT
+		WHERE ID_SEQ = #{idseq}
+	</select>
+
 </mapper>
