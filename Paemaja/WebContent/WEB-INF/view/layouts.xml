@@ -35,15 +35,15 @@
     </definition>
     
     <definition name="blacklist.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+        <put-attribute name="main" value="/WEB-INF/view/user/mylist.jsp"/>        
     </definition>
     
     <definition name="writinglist.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+        <put-attribute name="main" value="/WEB-INF/view/user/writinglist.jsp"/>        
     </definition>
     
     <definition name="userdelete.tiles" extends="main.tiles">
-        <put-attribute name="main" value="/WEB-INF/view/user/userinfo.jsp"/>        
+        <put-attribute name="main" value="/WEB-INF/view/user/userdelete.jsp"/>        
     </definition>
     
 </tiles-definitions>

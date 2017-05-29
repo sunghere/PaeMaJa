@@ -70,7 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE SEQ = #{seq}
 	</update>
 
-	<select id="getForb" parameterType="java.lang.String"
+	<select id="getForb" parameterType="java.lang.Integer"
 		resultType="com.pae.maja.pmashop.model.PMAShopDTO">
 		
 SELECT p.SEQ ,p.NAME, p.ADDR,p.TEL,p.CATEGORY,p.MENU,p.XPOS,p.YPOS,p.IMGFILE,p.DEL,p.CONTENT, f.FORBS, u.ID

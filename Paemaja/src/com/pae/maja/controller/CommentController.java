@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.pae.maja.pmacomment.dao.PMACommentService;
 import com.pae.maja.pmacomment.model.PMAComment;
+import com.pae.maja.pmauser.model.PMAUser;
 
 import sun.print.resources.serviceui;
 
@@ -74,5 +77,15 @@ public class CommentController
 	public List<PMAComment> commentconfig(Model model) throws Exception {
 		List<PMAComment> list=service.getAllCommentList();
 		return list;
+	}
+	
+
+	@RequestMapping(value = "writinglist.do", method = RequestMethod.GET)
+	public String writinglist(HttpServletRequest req,Model model) throws Exception {
+		PMAUser u=(PMAUser)req.getSession().getAttribute("login");
+		int idseq=u.getSeq();
+		model.addAttribute("mycomment", service.getMYComment(idseq));
+		logger.info("Welcome UserController ---------------------------------!");
+		return "writinglist.tiles";
 	}
 }

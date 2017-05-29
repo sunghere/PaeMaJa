@@ -38,8 +38,8 @@
 					<a class="dropdown" title="내정보" data-toggle="dropdown"><i class="fa fa-info-circle"></i>${login.nickname}<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 					      <li><a href="infomodify.do">회원정보 수정</a></li>
-					      <li><a href="blacklist.do">블랙 리스트</a></li>
-					      <li><a href="userdelete.do">내가 쓴 글</a></li>
+					      <li><a href="mylist.do">나의 맛집</a></li>
+					      <li><a href="writinglist.do">내가 쓴 글</a></li>
 					    </ul>
 					</li>
 				</c:if>

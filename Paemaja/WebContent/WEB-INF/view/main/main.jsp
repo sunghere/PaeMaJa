@@ -70,7 +70,7 @@
 				</c:if>
 			
 				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ne ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}""><img src="${tempShop.imgFile}" class="detailimg img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}"><img src="${tempShop.imgFile}" class="detailimg img-responsive"></a>
 				</c:if>
 				<div class="card-block txts_divs">
 					<div class="card-title">

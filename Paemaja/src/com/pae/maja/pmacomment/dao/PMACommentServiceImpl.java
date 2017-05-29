@@ -42,4 +42,9 @@ public class PMACommentServiceImpl implements PMACommentService {
 		return pMACommentDAO.getAllCommentList();
 	}
 
+	@Override
+	public List<PMAComment> getMYComment(int idseq) {
+		return pMACommentDAO.getMYComment(idseq);
+	}
+
 }

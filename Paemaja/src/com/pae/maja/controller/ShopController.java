@@ -2,6 +2,8 @@ package com.pae.maja.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.pae.maja.pmacomment.dao.PMACommentService;
 import com.pae.maja.pmashop.dao.PMAShopService;
 import com.pae.maja.pmashop.model.PMAShopDTO;
+import com.pae.maja.pmauser.model.PMAUser;
 
 /**
  * Created by SungHere on 2017-04-17.
@@ -103,5 +106,13 @@ public class ShopController {
 	public List<PMAShopDTO> passcheck(Model model) throws Exception {
 		List<PMAShopDTO> list=service.getShopList();
 		return list;
+	}
+	
+	@RequestMapping(value = "mylist.do", method = RequestMethod.GET)
+	public String blacklist(HttpServletRequest req,Model model) throws Exception {
+		PMAUser u=(PMAUser)req.getSession().getAttribute("login");
+		int idseq=u.getSeq();
+		model.addAttribute("mylist", service.getForb(idseq));
+		return "blacklist.tiles";
 	}
 }

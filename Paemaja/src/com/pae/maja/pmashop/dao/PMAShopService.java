@@ -12,4 +12,5 @@ public interface PMAShopService {
 	public List<PMAShopDTO> searchShopListRegion(String search) throws Exception;
 	public void updateShop(int seq) throws Exception;
 	public void deleteShop(int seq) throws Exception;
+	public List<PMAShopDTO> getForb(int idseq);
 }

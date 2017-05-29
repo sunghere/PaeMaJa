@@ -40,4 +40,8 @@ public class PMACommentDAOImpl implements PMACommentDAO {
 		return sqlSession.selectList(ns+"getAllCommentList");
 	}
 
+	@Override
+	public List<PMAComment> getMYComment(int idseq) {
+		return sqlSession.selectList(ns+"getMYComment",idseq);
+	}
 }

@@ -54,6 +54,12 @@ public class PMAShopDAOImpl implements PMAShopDAO {
 
 	}
 
+	@Override
+	public List<PMAShopDTO> getForb(int idseq)
+	{
+		return sqlSession.selectList(ns+"getForb",idseq);
+	}
+
 	
 
 }

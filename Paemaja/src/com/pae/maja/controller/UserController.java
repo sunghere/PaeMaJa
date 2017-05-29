@@ -20,19 +20,6 @@ public class UserController
 		return "infomodify.tiles";
 	}
 	
-	@RequestMapping(value = "blacklist.do", method = RequestMethod.GET)
-	public String blacklist(Model model) throws Exception {
-
-		logger.info("Welcome UserController ---------------------------------!");
-		return "blacklist.tiles";
-	}
-	
-	@RequestMapping(value = "writinglist.do", method = RequestMethod.GET)
-	public String writinglist(Model model) throws Exception {
-
-		logger.info("Welcome UserController ---------------------------------!");
-		return "writinglist.tiles";
-	}
 		
 	@RequestMapping(value = "userdelete.do", method = RequestMethod.GET)
 	public String userdelete(Model model) throws Exception {

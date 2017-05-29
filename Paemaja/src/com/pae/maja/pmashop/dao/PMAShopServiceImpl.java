@@ -56,4 +56,11 @@ public class PMAShopServiceImpl implements PMAShopService {
 		pMAShopDAO.deleteShop(seq);
 	}
 
+	@Override
+	@Transactional(readOnly=true)
+	public List<PMAShopDTO> getForb(int idseq)
+	{
+		return pMAShopDAO.getForb(idseq);
+	}
+
 }
