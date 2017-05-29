@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
 	#menu-head{font-size:25px; text-align:center; color:black; margin-bottom:10px;}
 	.menuT{color:red;display:block;padding:5px 5px;} .menuT:hover{background:#f7f7ff;color:black;}
@@ -16,6 +19,13 @@
 			 	<a class="menuT" href="writinglist.do" id="C">내가 쓴 글</a>
  			</div>
 	 	</div>
-	 <div class="col-md-9 mainContent">내용</div>
+	<div class="col-md-9 mainContent">
+	<table>
+	<tr><td>상호명</td><td>내용</td><td>평점</td></tr>
+		<c:forEach items="${mycomment}" var="list" varStatus="vs">
+			<tr><td>${list.name}</td><td>${list.content}</td><td>${list.score}</td></tr>
+		</c:forEach>
+	</table>
+	</div>
 	</div>
 </div>

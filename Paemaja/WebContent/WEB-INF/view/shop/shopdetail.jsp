@@ -101,7 +101,7 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 			<c:if test="${empty login.id and login.id ne ''}">
 			<div>
 			
-댓글 작성 및 주문은 로그인 후에 가능합니다.
+				댓글 작성 및 주문은 로그인 후에 가능합니다.
 			</div>
 			</c:if>
 			
@@ -187,7 +187,7 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 <script>
 
 	$(function() {
-		
+		var len;
 		getForb();
 		repReload();
 		
@@ -331,13 +331,17 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 			$.ajax({
 						url : "detailrepl.do",
 						type : "post",
-						async : false,
+						async : true,
 						data : {
 							"pseq" : $('#pseq').val()
 						},
 						success : function(data) {
 							$.each(data,function(index, value) {
-												str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict"> <img class="yesmother" src="'+value.img+'">'
+								console.log(value.img)
+												str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict">'
+												
+												if(value.img!="" && value.img!=null){str+=' <img class="yesmother" src="'+value.img+'">'}
+												
 												str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
 														+ value.content
 														+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p class="rep-id">아이디 :'
