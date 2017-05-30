@@ -73,7 +73,11 @@
 	<textarea id='ckedtest'>
 
 	</textarea>
+	
+	
 	<button type="button" id="typetest"class="wbtn" >글 작성</button>
+	<a href="main.do"><button type="button" id="typetest"class="wbtn" >취 소</button></a>
+	
 	
 		<div id="maps" class="mapps"></div>
 </form>
