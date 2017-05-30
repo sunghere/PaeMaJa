@@ -26,4 +26,6 @@ public interface PMAUserDAO {
 	public List<PMAUser> getAllInfo();
 	
 	public void updateUserGrade(PMAUser user);
+	
+	public void infoChange(PMAUser user);
 }

@@ -1,6 +1,8 @@
 package com.pae.maja.pmauser.model;
 
-public class PMAUser {
+import java.io.Serializable;
+
+public class PMAUser implements Serializable{
 
 	private int seq;  
 	private String id;
