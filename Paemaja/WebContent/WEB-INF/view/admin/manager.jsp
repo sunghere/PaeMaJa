@@ -98,7 +98,7 @@ $(function(){
 			success:function(data){
 				console.log(data)
 					$.each(data,function(index, v) {
-						str+="<tr><td class='ctd1'>"+v.id+"</td><td class='ctd2'>"+v.score+"</td><td class='rep-content'>"+v.content+"</td></tr>"
+						str+="<tr><td class='ctd1'>"+v.id+"</td><td class='ctd2'>"+v.score+"</td><td class='rep-content'>"+"&nbsp;"+v.content+"</td></tr>"
 					})
 				str+="</table>"
 				$("#tab-comment").html(str);
