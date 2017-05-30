@@ -14,7 +14,7 @@
 		resultType="com.pae.maja.pmauser.model.PMAUser">
 		SELECT SEQ, ID, AUTH, NICKNAME, PWD, FAVORITE, DEL FROM
 		PMA_USER WHERE ID =
-		#{id} AND PWD = #{pwd} AND DEL = 0
+		#{id}  AND PWD = #{pwd} AND DEL = 0
 	</select>
 	<select id="idcheck" parameterType="java.lang.String"
 		resultType="java.lang.Integer">
