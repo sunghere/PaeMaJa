@@ -214,7 +214,6 @@
     }
 
     function kakaoRegi(data) {
-    		alert('응?')
         $.ajax({
             type: "POST",
             url: "kakaoRegi.do",
@@ -246,7 +245,7 @@
         })
     }
   
-    function showMsg(str) {
+    showMsg= function(str) {
         $('#myMsg').html(str);
 
         $('#showMsgBt').click();

@@ -55,21 +55,26 @@
 	});
 
 
+		
 </script>
 
 <form method="post" id='writeForm'>
+	<div class="row">
+<div class="col-md-5">
 	<div class="blank-div"></div>
 	<input class="w3-input" type="text" id="name" name="name" placeholder="상호명을 입력해주세요" width="20%">
 	<input class="w3-input" type="text" id="mapAdd" name="addr" placeholder="주소를 입력해주세요" data-toggle="modal" data-target="#mapModal">
 	<input class="w3-input" type="text" id="tel" name="tel" placeholder="전화번호를 입력해주세요">
 	<input class="w3-input" type="text" id="category" name="category" placeholder="카테고리를 입력해주세요">
 	<input class="w3-input" type="text" id="menu" name="menu" placeholder="메뉴를 입력해주세요"> 	
-	
-	
+</div>
+<div class="col-md-5">
+	<div id="mymap" style="height: 280px; width: 300px;"></div>
 		<input type="hidden" id="shop_content" name="content" value="">
-<!-- 	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
-</button> -->
+		
+		</div>
 
+</div>
 	<textarea id='ckedtest'>
 
 	</textarea>
@@ -77,9 +82,9 @@
 	
 	<button type="button" id="typetest"class="wbtn" >글 작성</button>
 	<a href="main.do"><button type="button" id="typetest"class="wbtn" >취 소</button></a>
+	<input type="hidden" id="xpos" name="xpos"> 
+	<input type="hidden" id="ypos" name="ypos"> 
 	
-	
-		<div id="maps" class="mapps"></div>
 </form>
 
 <!--지도부분-->
@@ -165,6 +170,8 @@
     var maps;
     var marker;
     var infoWindow;
+    var maplist= new Array();
+    var maptaglist= new Array();
     var mylat = 37.5666102;
     var mylng = 126.9783881;
     var htmlAddresses = [];
@@ -184,7 +191,7 @@
     }
     
     $('#mapAdd').click(function () {
-        mapinit();
+        mapinit("map");
         var tempwidth = $(window).width();
         var tempheight = $(window).height();
     })
@@ -199,8 +206,15 @@
         zoomControl: true,
         minZoom: 1
     };
-
-    mapinit = function () {
+    Array.prototype.contains = function(element) {
+		for (var i = 0; i < this.length; i++) {
+			if (this[i] == element) {
+				return true;
+			}
+		}
+		return false;
+	}
+    mapinit = function (mapId) {
 
         mapOptions = {
             center: new naver.maps.LatLng(mylat, mylng),
@@ -212,25 +226,19 @@
             zoomControl: true,
             minZoom: 1
         };
-        
-        map = new naver.maps.Map('map', mapOptions);
-        maps = new naver.maps.Map('maps', mapOptions);
-        
-        marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(mylat, mylng),
-            map: map
-        });
-        var mylatlng = new naver.maps.LatLng(mylat, mylng);
-        infowindow = new naver.maps.InfoWindow({
-            maxWidth: 140,
-            backgroundColor: "#ccc",
-            borderColor: "#ccc",
-            borderWidth: 5,
-            anchorColor: "#ccc",
-            content: ''
-        });
-
-        naver.maps.Event.addListener(map, 'click', function (e) {
+        if(maplist.contains(mapId) == false){
+        	
+        maptaglist.push(mapId);
+ 		map = new naver.maps.Map(mapId, mapOptions);
+ 	  
+ 		maplist.push(map);
+ 		
+ 		if(mapId != "mymap"){
+ 		marker = new naver.maps.Marker({
+ 	            position: new naver.maps.LatLng(mylat, mylng),
+ 	            map: map
+ 	        });
+ 	    naver.maps.Event.addListener(map, 'click', function (e) {
             marker.setPosition(e.coord);
             updateInfoWindow(e.coord);
             searchCoordinateToAddress(e.coord);
@@ -243,6 +251,23 @@
 //                infowindow.open(map, marker);
             }
         });
+ 		}
+        } else {
+        	map=maplist[maptaglist.indexOf(mapId)];
+        }
+        
+      
+        var mylatlng = new naver.maps.LatLng(mylat, mylng);
+        infowindow = new naver.maps.InfoWindow({
+            maxWidth: 140,
+            backgroundColor: "#ccc",
+            borderColor: "#ccc",
+            borderWidth: 5,
+            anchorColor: "#ccc",
+            content: ''
+        });
+
+    
         updateInfoWindow(mylatlng);
     }
 
@@ -262,7 +287,7 @@
 
         infowindow.setContent([
             '<div style="padding:10px;width: 10%;font-size:14px;line-height:20px;">',
-            '<span class="non-fixed-balloon" onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>Click</strong></span><br />',
+            '<span class="non-fixed-balloon" onclick="selectLatLng(' + latVal + ', ' + lngVal + ');" style="cursor:pointer;"><strong>Here</strong></span><br />',
             '</div>'
         ].join(''));
         infowindow.open(map, marker);
@@ -274,7 +299,13 @@
         $("#scriptCode").html(sHTMLCODE);
         $('#mapAdd').val($('#addrtf').val());
         $('.loginexit').click();
-        $('.mapps').click();
+        mylat = lat;
+        mylng = lng;
+        mapinit("mymap");
+        
+        $('#xpos').attr('value',lat)
+        $('#ypos').attr('value',lng)
+     
     }
 
     function searchCoordinateToAddress(latlng) {
