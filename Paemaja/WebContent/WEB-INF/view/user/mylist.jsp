@@ -7,6 +7,13 @@
 	#menu-head{font-size:25px; text-align:center; color:black; margin-bottom:10px;}
 	.menuT{color:red;display:block;padding:5px 5px;} .menuT:hover{background:#f7f7ff;color:black;}
 	#ㅎㅎ{margin-top:7px;border:1px solid black;}
+	table, td,  th{border:1px solid;background-color:white;}
+	table {width:100%;color:black;}
+	.btn1 {background-color:white;border:none;width:100%;color: black;}
+	a {color : black;}
+	td{max-width:100%;}
+	th {text-align:center;}
+	.userdel{text-align:center;}
 </style>
 <div class="container">
 	<div class="row">
@@ -21,8 +28,8 @@
 	 	</div>
 	 <div class="col-md-9 mainContent">
 	 <div class="col-md-9">
-	 	<table>
-	 		<tr><td>카테고리</td><td>제목</td><td>구분</td><td>ㅇㅇ</td>
+	 	<table class="table table">
+	 		<tr><th>카테고리</th><th>제목</th><th>구분</th><th>ㅇㅇ</th>
 	 		</tr>
 	 		<c:forEach items="${mylist}" var="list" varStatus="vs">
 	 		<tr>

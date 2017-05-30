@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
 	#menu-head{font-size:25px; text-align:center; color:black; margin-bottom:10px;}
 	.menuT{color:red;display:block;padding:5px 5px;} .menuT:hover{background:#f7f7ff;color:black;} .menuT:focus{background:#f7f7ff;}
@@ -11,20 +12,31 @@
 	#foot{height:250px;}
 	#passcheck{width:80%; height:30px; margin:0 auto; border:1px solid; border-radius:3px; } .modifybtn{display:inline-block;}
 	.modifybtn{border:none;}
-	.second{display:none;}
+	.second{display:none;}  .underline{width:70%; margin-top:50px; margin-bottom:5px;} .modifyinput{padding-left:15px;}
+	.w3-input {margin-top:1%;margin-bottom:1%;width:62%;}
+	#menu{margin-bottom:3%;}
 </style>
 <script>
 	$(function(){
+		var state;
 		$(".modifybtn").click(function(){
 			$.ajax({
 				url:"passcheck.do",
 				async : false,
 				data:{"pass" : $("#passcheck").val(), "pwd":$("#pwd").val(), "id":$("#id").val()},
 				success:function(data){
-					if(data=="kakao" || data=="true"){alert("일치");$(".first").css("display","none");$(".second").css("display","block"); }
+					if(data=="kakao" || data=="true"){
+						alert("일치");$(".first").css("display","none");
+						$(".second").css("display","block");
+					}
 					else if(data=="notInput"){alert("입력x")}
 					else if(data=="fail"){alert("불일치")}
 					else if(data=="error"){alert("에러")}
+					
+					if(data=="kakao"){$(".kakaopassword").css("display","none")}
+					
+					$("#nick").attr("value",$("#nickname").val())
+					$("#favo").attr("value",$("#favorite").val())
 				}
 			})
 		})
@@ -32,6 +44,8 @@
 </script>
 <input type="hidden" id="id" value="${login.id}">
 <input type="hidden" id="pwd" value="${login.pwd}">
+<input type="hidden" id="favorite" value="${login.favorite}">
+<input type="hidden" id="nickname" value="${login.nickname}">
 <div class="container">
 	<div class="row">
 	 	<div class="col-md-3 menu-bar">
@@ -62,16 +76,24 @@
 			 	</ul>	
 			</c:otherwise>
 		</c:choose>
-	 </div>
+	 </div><!-- #f9f9f9 -->
 <div class="col-md-9 second">
-	이름<br>
+	<div class="underline"><h3>수정</h3></div>
+	<div class="modifyinput">
+	<input class="w3-input" type="text" id="nick" name="nick" placeholder="닉네임 입력해주세요">
+<div class="kakaopassword">
+	<input class="w3-input" type="password" id="pass" name="pass" placeholder="패스워드를 입력해주세요">
+</div>
+	<input class="w3-input" type="text" id="favo" name="favo" placeholder="관심분야를 입력해주세요">
+	</div>
+	<!-- 이름<br>
 	<input type="text"><br>
 	닉네임<br>
 	<input type="text"><br>
 	관심분야<br>
-	<input type="text"><br>
+	<input type="text"><br>              pwd nick favorite
 	비밀번호<br>
-	<input type="password"><br><br>
+	<input type="password"><br><br> -->
 	<button class="btn">확인</button>
 </div>
 </div>
