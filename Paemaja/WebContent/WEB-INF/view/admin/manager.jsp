@@ -98,7 +98,7 @@ $(function(){
 			success:function(data){
 				console.log(data)
 					$.each(data,function(index, v) {
-						str+="<tr><td class='ctd1'>"+v.id+"</td><td class='ctd2'>"+v.score+"</td><td class='rep-content'>"+"&nbsp;"+v.content+"</td></tr>"
+						str+="<tr><td class='ctd1'>"+v.id+"</td><td class='ctd2'>"+v.score+"</td><td class='rep-content txtcen'>"+v.content+"</td></tr>"
 					})
 				str+="</table>"
 				$("#tab-comment").html(str);
@@ -164,7 +164,7 @@ function aaa(id, auth, nickname,seq){
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="comment">
-    	<div class="col-md-9" id="tab-comment">
+    	<div class="col-md-8" id="tab-comment">
 
     	사람들의 댓글을 관리
     	</div>
