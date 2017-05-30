@@ -45,6 +45,7 @@
 .detailimg {
 	opacity: 0.3;
 	max-height:200px;
+	min-height:200px;
 	max-width:300px;
 	width:100%;
 }
@@ -66,7 +67,7 @@
 			<div class="mbr-plan card text-xs-center back_img" >
 			
 				<c:if test='${empty tempShop.imgFile or  tempShop.imgFile eq ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}"><img src="images/no-image.png" class="detailimg img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}"><img src="images/noimage.jpg" class="detailimg img-responsive"></a>
 				</c:if>
 			
 				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ne ""}'>
@@ -80,8 +81,8 @@
 					<div class="card-text">
 						<div class="mbr-price">
 							<span class="mbr-price-value">★</span> <span
-								class="mbr-price-figure">${tempShop.name}</span><small
-								class="mbr-price-term">/${tempShop.addr}</small>
+								class="mbr-price-figure">${tempShop.name}</span><br><small
+								class="mbr-price-term">　/${tempShop.addr}</small>
 						</div>
 						<small class="mbr-plan-price-desc">${tempShop.tel}</small>
 					</div>

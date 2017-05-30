@@ -127,4 +127,13 @@ public class LoginController {
     	List<PMAUser> list=pMAUserSerivce.getAllInfo();
 		return list;
 	}
+    
+	@RequestMapping(value = "infochange.do", method = RequestMethod.GET)
+	public String infochange(HttpServletRequest request,PMAUser user,Model model) throws Exception {
+		pMAUserSerivce.infoChange(user);
+		request.getSession().setAttribute("login", user);
+		request.getSession().setMaxInactiveInterval(20 * 60);
+		logger.info("--------------------------------!"+user);
+		return "main.tiles";
+	}
 }

@@ -9,26 +9,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 
 <style>
-	table, td,  th{
-		border:1px solid;
-		background-color:white;
-	}
-	table {
-		width:100%;
-		color:black;
-	}
-	
+	table, td,  th{/* border:1px solid; */background-color:white;}
+	th{border-top:1px solid;}
+	table {width:100%;color:black; padding:8px; vertical-align:top;}
+	.btn1 {background-color:white;border:none;width:100%;color: black;}
+	a {color : black;} .detaillink:hover{color:gray;text-decoration:none;}
+	td{max-width:100%; border-bottom:1px solid #d6d4d4;}  tr:hover { background: #FCF; }
+	th {text-align:center; background:#f4f4ff; border-top:1px solid #d6d4d4; padding:8px; vertical-align:top;}
+	.shoptable td{padding:8px;}
 	.btn1 {
 		background-color:white;
 		border:none;
 		width:100%;
 		color: black;
 	}
-	
-	a {
-		color : black;
-	}
-	
 	th {text-align:center;}
 	.userdel{text-align:center;}
 	
@@ -41,6 +35,21 @@
 		max-width:500px;
 	}
 	.txtcen{text-align:center;}
+	
+	.wbtn{
+	background-color: white;
+    color: black;
+    border: none;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.wbtn:hover {background-color: #e7e7e7;border: 1px solid #e6fdff;}
 
 </style>
 <script>
@@ -73,7 +82,7 @@ $(function(){
 	})
 	
 	$("#shops").on("click", function(){
-		str="<table><tr><th>식당명</th><th>댓글 수</th><th>평 점</th><th>링크</th></tr>"
+		str="<table class='shoptable'><tr><th>식당명</th><th>댓글 수</th><th>평 점</th><th>링크</th></tr>"
 		$.ajax({
 			url:"shopconfig.do",
 			type:"post",
@@ -155,7 +164,7 @@ function aaa(id, auth, nickname,seq){
     	</div>
     	<div class="col-md-6" id="tab-userInfo">
     	<div id="infoText"></div>
-    	<div><button id="infoSubmit">등급변경</button></div>
+    	<div><button id="infoSubmit" class="wbtn">등급변경</button></div>
     	</div>
     </div>
     <div role="tabpanel" class="tab-pane" id="shop">

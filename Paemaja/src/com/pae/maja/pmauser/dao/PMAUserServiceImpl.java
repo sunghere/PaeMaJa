@@ -60,4 +60,9 @@ public class PMAUserServiceImpl implements PMAUserService {
 		pMAUserDAO.updateUserGrade(user);
 	}
 
+	@Override
+	public void infoChange(PMAUser user) {
+		pMAUserDAO.infoChange(user);
+	}
+
 }
