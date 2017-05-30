@@ -389,7 +389,7 @@
                     sHTML = sHTML + "</tbody></table></td></tr></tbody></table>";
                     $("#addrList").html("");
                     $("#addrList").html(sHTML);
-                    $("#bAddress").focus();
+                    $("#bAddress").focus(); 
                     $("#addrList").css("visibility", "visible");
                 }
             },
