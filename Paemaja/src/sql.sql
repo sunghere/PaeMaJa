@@ -30,7 +30,7 @@ SELECT SEQ ,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,IMGFILE,DEL
 		ORDER BY SEQ ASC
 		
 INSERT INTO PMA_SHOP VALUES(SEQ_PMA_SHOP.NEXTVAL,'식당3','경상남도 부산','02-1234-5678','도나쓰','등킨도나쓰',0,0,'noimage',0,'강알리 등킨도나쓰')
-INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 60,1, '20170519', 5, 0, 'noimage',0, 'nocontent');
+INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 1,1, '20170519', 5, 0, 'noimage',0, 'nocontent');
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 60,1, '20170519', 4, 0, 'noimage',0, 'nocontent');
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 60,1, '20170519', 3, 0, 'noimage',0, 'nocontent');
 
@@ -44,6 +44,65 @@ INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 62,1, '20170519', 5, 0,
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 62,1, '20170519', 4, 0, 'noimage',0, 'nocontent');
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 62,1, '20170519', 3, 0, 'noimage',0, 'nocontent');
 INSERT INTO PMA_COMMENT VALUES (seq_PMA_COMMENT.NEXTVAL, 62,1, '20170519', 2, 0, 'noimage',0, 'nocontent');
+
+create table pma_shop(
+	seq number primary key,
+	name varchar2(1000) not null,
+	addr varchar2(1000) not null,
+	tel varchar2(1000) not null,
+	category varchar2(100) not null,
+	menu varchar2(100) not null,
+	xpos number,
+	ypos number,
+	imgfile varchar2(1000),
+	del number default 0
+)
+create sequence SEQ_PMA_SHOP start with 1 increment by 1
+drop table pma_comment
+select * from pma_comment
+alter table pma_comment add replynum number
+alter table pma_shop add content varchar2(3000) not null
+create table pma_comment(
+	seq number primary key,
+	pseq number not null,
+	idseq number not null,
+	wdate varchar2(1000) default sysdate,
+	score number not null,
+	replynum number,
+	img varchar2(1000),
+	del number default 0,
+	content varchar2(3000) not null
+)
+create sequence seq_PMA_COMMENT start with 1 increment by 1
+
+alter table pma_comment ADD CONSTRAINT FK_comment_shops FOREIGN KEY (pseq)  
+REFERENCES pma_shop(seq)
+alter table pma_comment ADD CONSTRAINT FK_comment_shop_idseqs FOREIGN KEY (idseq)  
+REFERENCES pma_user(seq)
+
+create table pma_user(
+	seq number primary key,
+	id varchar2(1000) not null,
+	auth number default 1,
+	nickname varchar2(1000) not null,
+	pwd varchar2(1000) not null,
+	favorite varchar2(1000),
+	del number default 0
+)
+create sequence seq_PMA_USER start with 1 increment by 1
+
+
+create table forb(
+	seq number primary key,
+	id_seq number not null,
+	forbs number default 0,
+	shop_seq number not null
+)
+create sequence SEQ_FORB start with 1 increment by 1
+alter table forb ADD CONSTRAINT FK_comment_forb_idseq FOREIGN KEY (id_seq)  
+REFERENCES pma_user(seq)
+alter table forb ADD CONSTRAINT FK_forb_shop FOREIGN KEY (shop_seq)  
+REFERENCES pma_shop(seq)
 
 commit
 
