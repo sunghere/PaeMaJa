@@ -39,7 +39,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getMYComment" parameterType="java.lang.Integer" resultType="com.pae.maja.pmacomment.model.PMAComment">
-		SELECT * FROM PMA_COMMENT
+		SELECT C.SEQ ,C.PSEQ,C.IDSEQ,C.WDATE,C.SCORE,C.IMG,C.DEL,C.CONTENT, S.NAME
+		FROM PMA_COMMENT C
+		INNER JOIN PMA_SHOP S
+		ON C.PSEQ = S.SEQ
 		WHERE IDSEQ = #{idseq}
 	</select>
 

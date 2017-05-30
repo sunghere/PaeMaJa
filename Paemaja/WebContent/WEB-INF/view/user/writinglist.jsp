@@ -1,9 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <style>
 	#menu-head{font-size:25px; text-align:center; color:black; margin-bottom:10px;}
 	.menuT{color:red;display:block;padding:5px 5px;} .menuT:hover{background:#f7f7ff;color:black;}
 	#ㅎㅎ{margin-top:7px;border:1px solid black;}
+	table, td,  th{border:1px solid;background-color:white;}
+	table {width:100%;color:black;}
+	.btn1 {background-color:white;border:none;width:100%;color: black;}
+	a {color : black;}
+	td{max-width:100%;}
+	th {text-align:center;}
+	.userdel{text-align:center;}
 </style>
 <div class="container">
 	<div class="row">
@@ -16,6 +26,13 @@
 			 	<a class="menuT" href="writinglist.do" id="C">내가 쓴 글</a>
  			</div>
 	 	</div>
-	 <div class="col-md-9 mainContent">내용</div>
+	<div class="col-md-9 mainContent">
+	<table>
+	<tr><th>상호명</th><th>내용</th><th>평점</th></tr>
+		<c:forEach items="${mycomment}" var="list" varStatus="vs">
+			<tr><td>${list.name}</td><td>${list.content}</td><td>${list.score}</td></tr>
+		</c:forEach>
+	</table>
+	</div>
 	</div>
 </div>

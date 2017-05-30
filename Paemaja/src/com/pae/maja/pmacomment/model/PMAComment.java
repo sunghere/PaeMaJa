@@ -13,6 +13,13 @@ public class PMAComment implements Serializable{
 	private int del=1;
 	private String content;
 	private String id;
+	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public PMAComment() {
 		super();
 		// TODO Auto-generated constructor stub
