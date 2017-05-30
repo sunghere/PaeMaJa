@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/sccss.css" />
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript"
@@ -12,6 +13,22 @@
 
 
 <style>
+
+.wbtn{
+	background-color: white;
+    color: black;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.wbtn:hover {background-color: #e7e7e7;border: 1px solid #e6fdff;}
+
 .dislike{cursor:pointer;opacity:0.2;}
 .like{cursor:pointer;opacity:0.2;}
 #toast{ min-width: 250px;visibility: hidden;margin-left: -125px; left: 43%;height:58px; bottom: 30px; padding:15px;background-color:#333;color: #fff;top:555px;position:fixed; text-align: center; border-radius: 2px; z-index: 9999; font-size: 17px;}
@@ -91,8 +108,8 @@ animation: fadein 0.5s, fadeout 0.5s 1.0s;}
 			</div>
 			<c:if test="${!empty login.id or login.id eq ''}">
 			<div class="buttonHouse">
-				<button id="chang" class="btn">댓글쓰기</button>
-				<button class="btn">주문하기</button>
+				<button id="chang" class="wbtn">댓글쓰기</button>
+				<button class="wbtn">주문하기</button>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<img src="like2.png" alt="0" class="like">&nbsp;&nbsp;&nbsp;
 				<img src="dislike.png" alt="0" class="dislike">

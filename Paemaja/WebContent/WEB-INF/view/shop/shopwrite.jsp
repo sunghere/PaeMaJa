@@ -3,10 +3,28 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/ckeditor/ckeditor.js"></script>
+
 <style>
 .w3-input {margin-top:1%;margin-bottom:1%;width:62%;}
 #menu{margin-bottom:3%;}
 .blank-div{padding-top:5%;}
+
+.wbtn{
+	background-color: white;
+    color: black;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.wbtn:hover {background-color: #e7e7e7;border: 1px solid #e6fdff;}
+
+
 </style>
 <script>
 		
@@ -45,8 +63,8 @@
 	<input class="w3-input" type="text" id="mapAdd" name="addr" placeholder="주소를 입력해주세요" data-toggle="modal" data-target="#mapModal">
 	<input class="w3-input" type="text" id="tel" name="tel" placeholder="전화번호를 입력해주세요">
 	<input class="w3-input" type="text" id="category" name="category" placeholder="카테고리를 입력해주세요">
-	<input class="w3-input" type="text" id="menu" name="menu" placeholder="메뉴를 입력해주세요">
-
+	<input class="w3-input" type="text" id="menu" name="menu" placeholder="메뉴를 입력해주세요"> 	
+	
 	
 		<input type="hidden" id="shop_content" name="content" value="">
 <!-- 	<button type="button" class="btn black-control" id="mapAdd" data-toggle="modal" data-target="#mapModal">지도 추가
@@ -55,7 +73,7 @@
 	<textarea id='ckedtest'>
 
 	</textarea>
-	<button type="button" id="typetest"class="btn">글 작성</button>
+	<button type="button" id="typetest"class="wbtn" >글 작성</button>
 	
 		<div id="maps" class="mapps"></div>
 </form>
