@@ -35,4 +35,9 @@ public class ForbDAOImpl implements ForbDAO {
 		
 	}
 
+	@Override
+	public void infoChange(Forb forb) {
+		sqlSession.update(ns+"infoChange",forb);
+	}
+
 }

@@ -7,4 +7,5 @@ public interface ForbService {
 	Forb getForb(Forb forb);
 	void modifyForb(Forb forb);
 	void deleteForb(Forb forb);
+	void infoChange(Forb forb);
 }

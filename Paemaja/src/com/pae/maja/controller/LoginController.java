@@ -134,6 +134,6 @@ public class LoginController {
 		request.getSession().setAttribute("login", user);
 		request.getSession().setMaxInactiveInterval(20 * 60);
 		logger.info("--------------------------------!"+user);
-		return "main.tiles";
+		return "main.do";
 	}
 }

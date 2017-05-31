@@ -45,4 +45,8 @@
 		UPDATE PMA_USER SET AUTH=#{auth} WHERE SEQ=#{seq}
 	</update>
 	
+	<update id="infoChange" parameterType="com.pae.maja.pmauser.model.PMAUser">
+		UPDATE PMA_USER SET NICKNAME=#{nickname}, PWD=#{pwd}, FAVORITE=#{favorite} WHERE SEQ=#{seq}
+	</update>
+	
 </mapper>

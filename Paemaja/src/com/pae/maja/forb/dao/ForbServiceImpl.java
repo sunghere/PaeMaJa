@@ -34,4 +34,9 @@ public class ForbServiceImpl implements ForbService {
 		forbDAO.deleteForb(forb);		
 	}
 
+	@Override
+	public void infoChange(Forb forb) {
+		forbDAO.infoChange(forb);
+	}
+
 }
