@@ -56,13 +56,7 @@
             $("#login_pwd").focus();
         }
     });
-    //id저장
-    var user_id = $.cookie("user_id");
-    //alert(user_id);
-    if (user_id != null) {
-        $("#login_userid").val(user_id);
-        $("#login_chk_save_id").prop("checked", true);
-    }
+    
     $(".selectBt").click(function() {
 		var bt = this;
 		var selstr = $(this).attr("title");
