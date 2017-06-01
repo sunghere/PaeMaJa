@@ -559,3 +559,7 @@ padding-right: 20%;
     padding-bottom: 1px;
 }
 
+.line_none {
+	border-bottom: none;
+}
+

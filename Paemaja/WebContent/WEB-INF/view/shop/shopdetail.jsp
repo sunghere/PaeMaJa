@@ -157,16 +157,20 @@ to {
 .repHead-body {
 	max-width: 100%;
 }
-#ckedtest{ 
-width : 100%;
+
+#ckedtest {
+	width: 100%;
 }
+
 .modal-dialog {
-	background-color : #fff;
+	background-color: #fff;
 }
+
 .modal_content {
-	padding:10px 2%;
-	min-height : 400px;
+	padding: 10px 2%;
+	min-height: 400px;
 }
+
 #OK {
 	position: absolute;
 	bottom: 5px;
@@ -199,20 +203,19 @@ width : 100%;
 						class="btn btn-primary">댓글쓰기</button>
 					<button class="btn btn-primary">주문하기</button>
 
-					<img class='pull-right' src="like2.png" alt="0" class="like">
-					<img class='pull-right' src="dislike.png" alt="0" class="dislike">
+					<img class='pull-right like'  src="like2.png" alt="0" >
+					<img class='pull-right dislike' src="dislike.png" alt="0">
 				</div>
 			</c:if>
 
 			<c:if test="${empty login.id and login.id ne ''}">
-				<div>댓글 작성 및 주문은 로그인 후에 가능합니다.</div>
+				<div>댓글 작성 및 주문은 로그인 후에 가능합니다.${shopdetail.xpos}</div>
 			</c:if>
-			<c:if test="${!empty shopdetail.xpos or shopdetail.xpos eq ''}">
+			<c:if test="${!empty shopdetail.xpos or shopdetail.xpos ne ''}">
 				<div id="mymap" style='width: 300px; height: 280px;'></div>
 			</c:if>
 		</div>
 
-		<!--댓글 div-->
 		<div class="col-md-7 sidereply"></div>
 	</div>
 </div>
@@ -224,44 +227,46 @@ width : 100%;
 	<!-- Modal content -->
 	<div class="modal-dialog modal-md">
 		<div class="modal_content">
-		<span class="close">&times;</span>
-			<h2>댓글쓰기</h2> 
-				<br> 평점 &nbsp;:
-				<div class="skullbtn">
-					<img src="<%=request.getContextPath()%>/images/dislike.png"
-						class="img" id="img1" alt="1">
-				</div>
-				<div class="skullbtn">
-					<img src="<%=request.getContextPath()%>/images/dislike.png"
-						class="img" id="img2" alt="2">
-				</div>
-				<div class="skullbtn">
-					<img src="<%=request.getContextPath()%>/images/dislike.png"
-						class="img" id="img3" alt="3">
-				</div>
-				<div class="skullbtn">
-					<img src="<%=request.getContextPath()%>/images/dislike.png"
-						class="img" id="img4" alt="4">
-				</div>
-				<div class="skullbtn">
-					<img src="<%=request.getContextPath()%>/images/dislike.png"
-						class="img" id="img5" alt="5">
-				</div>
-				<span id="skull_score">0 점</span>
-				<br>
+			<span class="close" data-dismiss="modal">&times;</span>
+			<h2>댓글쓰기</h2>
+			<br> 평점 &nbsp;:
+			<div class="skullbtn">
+				<img src="<%=request.getContextPath()%>/images/dislike.png"
+					class="img" id="img1" alt="1">
+			</div>
+			<div class="skullbtn">
+				<img src="<%=request.getContextPath()%>/images/dislike.png"
+					class="img" id="img2" alt="2">
+			</div>
+			<div class="skullbtn">
+				<img src="<%=request.getContextPath()%>/images/dislike.png"
+					class="img" id="img3" alt="3">
+			</div>
+			<div class="skullbtn">
+				<img src="<%=request.getContextPath()%>/images/dislike.png"
+					class="img" id="img4" alt="4">
+			</div>
+			<div class="skullbtn">
+				<img src="<%=request.getContextPath()%>/images/dislike.png"
+					class="img" id="img5" alt="5">
+			</div>
+			<span id="skull_score">0 점</span> <br>
 
-				
-					<textarea id="ckedtest"></textarea>
-				<br>
-				<form action="comment.do" method="post">
 
-					<input type="hidden" id="score" name="score" value=""><br>
-					<input type="hidden" id="content" name="content" value="">
-					<button type="button" id="OK" class="btn btn-primary">확인</button>
-				</form>
+			<textarea id="ckedtest"></textarea>
+			<br>
+			<form action="comment.do" method="post">
+
+				<input type="hidden" id="score" name="score" value=""><br>
+				<input type="hidden" id="content" name="content" value="">
+				<button type="button" id="OK" class="btn btn-primary">확인</button>
+			</form>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript"
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
 <script>
 	$(function() {
 		var len;
@@ -359,7 +364,7 @@ width : 100%;
 					"forbs" : i,
 				},
 				success : function() {
-					
+
 				}
 			})
 		}
@@ -374,7 +379,7 @@ width : 100%;
 					"idseq" : $('#idseq').val()
 				},
 				success : function() {
-				
+
 				}
 			})
 		}
@@ -390,7 +395,7 @@ width : 100%;
 					"forbs" : i
 				},
 				success : function() {
-					
+
 				}
 			})
 		}
@@ -407,40 +412,38 @@ width : 100%;
 
 		function repReload() {
 			var str = "";
-			$
-					.ajax({
-						url : "detailrepl.do",
-						type : "post",
-						async : true,
-						data : {
-							"pseq" : $('#pseq').val()
-						},
-						success : function(data) {
-							$.each(data,
-							function(index, value) {
-								console.log(value.img)
-								str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict">'
+			$.ajax({
+				url : "detailrepl.do",
+				type : "post",
+				async : true,
+				data : {
+					"pseq" : $('#pseq').val()
+				},
+				success : function(data) {
+					$.each(data,function(index, value) {
+						console.log(value.img)
+						str += '<div class="col-md-12 repYeopAll"> <div class="col-md-3"> <div class="repYeop-pict">'
 
-								if (value.img != ""
-										&& value.img != null) {
-									str += ' <img class="yesmother" src="'+value.img+'">'
-								}
-
-								str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
-										+ value.content
-										+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p class="rep-id">아이디 :'
-										+ value.id
-										+ '</p> </div>'
-								str += '<div class="rep-profileSkull"> <p>해골 :'
-										+ value.score
-										+ '</p> </div> <div class="rep-profileDate"> <p>날짜 :'
-										+ value.wdate
-										+ '</p> </div> </div> </div> </div>'
-							})
-							$(".sidereply").html(str)
-							$(".yesmother").css("width", "115px")
-							$(".yesmother").css("height", "115px")
+						if (value.img != ""
+								&& value.img != null) {
+							str += ' <img class="yesmother" src="'+value.img+'">'
 						}
+
+						str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
+								+ value.content
+								+ '</div> </div> <div class="col-md-3"> <div class="rep-profile"> <p class="rep-id">아이디 :'
+								+ value.id
+								+ '</p> </div>';
+						str += '<div class="rep-profileSkull"> <p>해골 :'
+								+ value.score
+								+ '</p> </div> <div class="rep-profileDate"> <p>날짜 :'
+								+ value.wdate
+								+ '</p> </div> </div> </div> </div>';
+					})
+					$(".sidereply").html(str)
+					$(".yesmother").css("width", "115px")
+					$(".yesmother").css("height", "115px")
+				}
 					})
 		}
 
@@ -458,6 +461,11 @@ width : 100%;
 		$("#OK").click(function() {
 			var repContent = CKEDITOR.instances.ckedtest.getData();
 			var skullScore = imgAlt;
+			if (skullScore == 0 || skullScore == null || skullScore == '') {
+				showMsg("평가점수를 선택하세요");
+				return;
+			}
+
 			$("#score").attr("value", skullScore)
 			$("#content").attr("value", repContent)
 			$.ajax({
@@ -477,7 +485,9 @@ width : 100%;
 					} else if (data == "idfail") {
 						alert("로그인 ㄱㄱ")
 					} else if (data == "true") {
-						$(".changryeol").css("display", "none");
+						$('.close').click();
+						CKEDITOR.instances.ckedtest.setData('<p></p>');
+
 						repReload();
 					}
 				}
@@ -496,75 +506,55 @@ width : 100%;
 		}
 
 		init();
-		
+
 		/* 지도 */
 		var map;
-    var marker;
-    var infoWindow;
-    var maplist= new Array();
-    var maptaglist= new Array();
-    var mylat = "${shopdetail.xpos}";
-    var mylng = "${shopdetail.ypos}";
-    var htmlAddresses = [];
-  
-   
+		var marker;
+		var infoWindow;
+		var maplist = new Array();
+		var maptaglist = new Array();
+		var mylat = "${shopdetail.xpos}";
+		var mylng = "${shopdetail.ypos}";
+		var htmlAddresses = [];
 
-    var mapOptions = {
-        center: new naver.maps.LatLng(mylat, mylng),
-        zoom: 10,
-        scaleControl: false,
-        logoControl: false,
-        mapDataControl: false,
-        mapTypeControl: true,
-        zoomControl: true,
-        minZoom: 1
-    };
- 
-    mapinit = function (mapId) {
+		var mapOptions = {
+			center : new naver.maps.LatLng(mylat, mylng),
+			zoom : 10,
+			scaleControl : false,
+			logoControl : false,
+			mapDataControl : false,
+			mapTypeControl : true,
+			zoomControl : true,
+			minZoom : 1
+		};
 
-        mapOptions = {
-            center: new naver.maps.LatLng(mylat, mylng),
-            zoom: 8,
-            scaleControl: false,
-            logoControl: false,
-            mapDataControl: false,
-            mapTypeControl: true,
-            zoomControl: true,
-            minZoom: 1
-        };
- 		map = new naver.maps.Map(mapId, mapOptions);
- 	  
- 		maplist.push(map);
- 		
-        marker = new naver.maps.Marker({
-	            position: new naver.maps.LatLng(mylat, mylng),
-	            map: map
-	        });
-      
-        var mylatlng = new naver.maps.LatLng(mylat, mylng);
-        
+		mapinit = function(mapId) {
+			mapOptions = {
+				center : new naver.maps.LatLng(mylat, mylng),
+				zoom : 8,
+				scaleControl : false,
+				logoControl : false,
+				mapDataControl : false,
+				mapTypeControl : true,
+				zoomControl : true,
+				minZoom : 1
+			};
+			map = new naver.maps.Map(mapId, mapOptions);
 
-    
-        updateInfoWindow(mylatlng);
-    }
+			maplist.push(map);
 
-    
+			marker = new naver.maps.Marker({
+				position : new naver.maps.LatLng(mylat, mylng),
+				map : map
+			});
 
-    function updateInfoWindow(latlng) {
-        var utmk = naver.maps.TransCoord.fromLatLngToUTMK(latlng),    // 위/경도 -> UTMK
-            tm128 = naver.maps.TransCoord.fromUTMKToTM128(utmk),       // UTMK    -> TM128
-            naverCoord = naver.maps.TransCoord.fromTM128ToNaver(tm128),     // TM128   -> NAVER
-            latlngConv = naver.maps.LatLng(latlng);                         // 위/경도
+			var mylatlng = new naver.maps.LatLng(mylat, mylng);
 
-        var latVal = latlngConv.lat();
-        var lngVal = latlngConv.lng();
+		/* 	infowindow.open(map, marker); */
 
-        utmk.x = parseFloat(utmk.x.toFixed(1));
-        utmk.y = parseFloat(utmk.y.toFixed(1));
-
-       
-        infowindow.open(map, marker);
-//        infoWindow.open(map, latlng);
-    }
-	});
+		}
+		if(mylat != 0.0){
+			mapinit('mymap');
+		}
+});
 </script>
