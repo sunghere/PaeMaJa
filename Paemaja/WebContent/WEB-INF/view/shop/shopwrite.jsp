@@ -316,7 +316,7 @@
 
 	function selectLatLng(lat, lng) {
 		var sHTMLCODE = "" + lat + "/" + lng;
-		$("#scriptCode").html(sHTMLCODE);
+//		$("#scriptCode").html(sHTMLCODE);
 		$('#mapAdd').val($('#addrtf').val());
 		$('.loginexit').click();
 		mylat = lat;
