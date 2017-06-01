@@ -132,6 +132,7 @@ to {
 }
 
 .writing-info {
+	background:#fdfdfd;
 	min-height: 25%
 }
 
