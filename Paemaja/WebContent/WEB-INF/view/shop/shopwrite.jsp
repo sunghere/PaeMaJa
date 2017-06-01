@@ -254,38 +254,37 @@
 				position : mylatlng,
 				map : map
 			});
+			infowindow = new naver.maps.InfoWindow({
+				maxWidth : 140,
+				backgroundColor : "#ccc",
+				borderColor : "#ccc",
+				borderWidth : 5,
+				anchorColor : "#ccc",
+				content : ''
+			});
 			if (mapId != "mymap") {
 
 				naver.maps.Event.addListener(map, 'click', function(e) {
 					marker.setPosition(e.coord);
-					updateInfoWindow(e.coord);
+					updateInfoWindow(e.coord,1);
 					searchCoordinateToAddress(e.coord);
 				});
-				naver.maps.Event.addListener(marker, "click", function(e) {
-					if (infowindow.getMap()) {
-						infowindow.close();
-					} else {
-						updateInfoWindow(e.coord,1);
-						//                infowindow.open(map, marker);
-					}
-				});
+				
+				updateInfoWindow(mylatlng,1);
 			} else {
-				infowindow.open(map, marker);
+				/* infowindow.open(map, marker); */
+				
 			}
 		} else {
 			map = maplist[maptaglist.indexOf(mapId)];
+			map.setCenter(mylatlng); // 중심 좌표 이동
+			map.setZoom(11); // 줌 레벨 변경
+			marker.setPosition(latlng); // 마크 이동
 		}
 
-		infowindow = new naver.maps.InfoWindow({
-			maxWidth : 140,
-			backgroundColor : "#ccc",
-			borderColor : "#ccc",
-			borderWidth : 5,
-			anchorColor : "#ccc",
-			content : ''
-		});
+	
 
-		updateInfoWindow(mylatlng,0);
+		
 	}
 
 	function updateInfoWindow(latlng,sel) {
@@ -362,6 +361,7 @@
 		marker.setPosition(latlng); // 마크 이동
 		updateInfoWindow(latlng,1); // 정보창 표현
 		$("#bAddress").focus();
+		
 	}
 	$('#addrtf').click(function() {
 		NewZipCode5NumCheck();
