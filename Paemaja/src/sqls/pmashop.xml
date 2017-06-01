@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="writeShop" parameterType="com.pae.maja.pmashop.model.PMAShopDTO">
 		INSERT INTO PMA_SHOP(SEQ
 		,NAME, ADDR,TEL,CATEGORY,MENU,XPOS,YPOS,imgFile,DEL,CONTENT)
-		VALUES(SEQ_PMA_SHOP.NEXTVAL,#{name},#{addr},#{tel},#{category},#{menu},0,0,#{imgFile},0,#{content})
+		VALUES(SEQ_PMA_SHOP.NEXTVAL,#{name},#{addr},#{tel},#{category},#{menu},#{xpos},#{ypos},#{imgFile},0,#{content})
 	</insert>
 
 	<select id="getShopList" resultType="com.pae.maja.pmashop.model.PMAShopDTO">
