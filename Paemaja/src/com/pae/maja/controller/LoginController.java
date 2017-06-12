@@ -73,6 +73,7 @@ public class LoginController {
 		} else {
 			checkResult.setMessage("FAIL");
 		}
+		logger.info("Welcome LoginController getID! " +checkResult.getMessage());
 		return checkResult;
 	}//
 	@RequestMapping(value = "nickCheck.do", method = RequestMethod.POST)

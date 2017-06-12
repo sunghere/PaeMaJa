@@ -104,7 +104,7 @@
 <!--지도부분-->
 
 <script type="text/javascript"
-	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=1i78w7iQT3tYF8nVdzAU&submodules=panorama,geocoder"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
 	function NewZipCode5NumCheck() {
@@ -370,7 +370,7 @@
 			.click(
 					function() {
 						var sHTML = "";
-						var sUrl = "https://apis.daum.net/local/geo/addr2coord?apikey=1b98be2bf5ecb8fa9384650b0345cf83&output=json&page_size=30&q=";
+						var sUrl = "https://apis.daum.net/local/geo/addr2coord?apikey=c667c95837e03d151e89f86cc5e4d1b8&output=json&page_size=30&q=";
 						var sAddr = $("#addrtf").val();
 						if (sAddr.length == 0) {
 							alert("주소를 입력하세요");

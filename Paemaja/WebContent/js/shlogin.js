@@ -88,7 +88,7 @@
 
 	});	
     
-    Kakao.init('9722eb00c23ea017214101975e874dcf');
+    Kakao.init('f6429ae7d99cb6ad5a1b74baf8fff7dc');
     // 카카오 로그인 버튼을 생성합니다.
     Kakao.Auth.createLoginButton({
         container: '#kakao-login-btn',
@@ -130,7 +130,6 @@
                 Kakao.API.request({
                     url: '/v1/user/me',
                     success: function (res) {
-
 
                         if (res.kaccount_email_verified == "false") {
                             showMsg("이메일 인증이 안된 계정입니다.")
