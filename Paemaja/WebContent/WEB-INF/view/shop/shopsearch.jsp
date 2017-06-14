@@ -49,13 +49,12 @@
 			<div class="mbr-plan card text-xs-center back_img" >
 			
 				<c:if test='${empty tempShop.imgFile or  tempShop.imgFile eq ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="images/no-image.png" class="detailimg img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}"><img src="images/noimage.jpg" class="detailimg img-responsive"></a>
 				</c:if>
 			
 				<c:if test='${!empty tempShop.imgFile and tempShop.imgFile ne ""}'>
-					<a href="shopdetail.do?seq=${tempShop.seq}"><img src="${tempShop.imgFile}" class="detailimg img-responsive"></a>
+					<a href="shopdetail.do?seq=${tempShop.seq}&userseq=${login.seq}"><img src="${tempShop.imgFile}" class="detailimg img-responsive"></a>
 				</c:if>
-				
 				<div class="card-block txts_divs">
 					<div class="card-title">
 						<h3 class="mbr-plan-title">${tempShop.category}</h3>
@@ -64,8 +63,8 @@
 					<div class="card-text">
 						<div class="mbr-price">
 							<span class="mbr-price-value">★</span> <span
-								class="mbr-price-figure">${tempShop.name}</span><small
-								class="mbr-price-term">/${tempShop.addr}</small>
+								class="mbr-price-figure">${tempShop.name}</span><br><small
+								class="mbr-price-term">　/${tempShop.addr}</small>
 						</div>
 						<small class="mbr-plan-price-desc">${tempShop.tel}</small>
 					</div>

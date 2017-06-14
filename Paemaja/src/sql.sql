@@ -7,7 +7,7 @@ SELECT * FROM PMA_USER;
 
 SELECT * FROM FORB;
 
-delete from PMA_USER where seq = 42;
+delete from PMA_USER where seq = 41;
 delete from FORB;
 delete from PMA_COMMENT;
 delete from PMA_SHOP;

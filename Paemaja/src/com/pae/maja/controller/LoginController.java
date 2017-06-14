@@ -35,8 +35,12 @@ public class LoginController {
 			request.getSession().setAttribute("login", login);
 			request.getSession().setMaxInactiveInterval(20 * 60);
 			check.setMessage("SUCS");
-
-		} else {
+		} else if (login.getAuth() == 9) {
+			request.getSession().invalidate();
+			model.addAttribute("result", "이용이 정지된 아이디입니다.");
+			check.setMessage("FAIL");
+		}
+		else {
 			request.getSession().invalidate();
 			model.addAttribute("result", "아이디나 비밀번호를 확인해주세요");
 			check.setMessage("FAIL");

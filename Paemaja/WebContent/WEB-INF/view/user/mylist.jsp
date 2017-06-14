@@ -47,7 +47,7 @@
 	 <div class="col-md-9 mainContent">
 	 <h3>나의 맛집</h3><br><br>
 	 	<table class="">
-	 		<tr><th class="tableth" width="18%">카테고리</th><th class="tableth" width="62%">제목</th><th class="tableth" width="10%">구분</th><th class="tableth" width="10%">ㅇㅇ</th>
+	 		<tr><th class="tableth" width="18%">카테고리</th><th class="tableth" width="62%">제목</th><th class="tableth" width="10%">구분</th><th class="tableth" width="10%"></th>
 	 		</tr>
 	 		<c:forEach items="${mylist}" var="list" varStatus="vs">
 	 		<tr class="mouseovers">
@@ -64,7 +64,7 @@
 	 				</c:otherwise>
 	 			</c:choose>
 	
-	 			</td><td><button class="wbtn">d</button></td>
+	 			</td><td><button class="wbtn"></button></td>
 	 		</tr>
 	 		</c:forEach>
 	 	</table>

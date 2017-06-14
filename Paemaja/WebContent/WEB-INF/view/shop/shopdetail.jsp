@@ -132,7 +132,7 @@ to {
 }
 
 .writing-info {
-	background:#fdfdfd;
+	background:#f4f4f4;
 	min-height: 25%
 }
 
@@ -145,7 +145,7 @@ to {
 }
 
 .sidereply {
-	background: #fdfdfd;
+	background: #f4f4f4;
 	margin: 0 auto;
 	overflow-y: scroll;
 	height: 90%;
@@ -186,11 +186,12 @@ to {
 			<img src="<%=request.getContextPath()%>/${shopdetail.imgFile}"
 				class="img-rounded" id="detail_img">
 			<div class="">
-				<div class="writing-info1">${shopdetail.name}</div>
+				<div class="writing-info1"><h3>${shopdetail.name}</h3></div>
 				<div class="writing-info2">${shopdetail.category}</div>
 				<div class="writing-info3">${shopdetail.menu}</div>
+							
 				<div class="writing-info4">${shopdetail.content}</div>
-				<div class="writing-info5">${shopdetail.addr}</div>
+
 				<input type="hidden" id="pseq" name="pseq" value="${shopdetail.seq}">
 				<!-- 블랙리스트,즐겨찾기부분 -->
 
@@ -210,9 +211,12 @@ to {
 			</c:if>
 
 			<c:if test="${empty login.id and login.id ne ''}">
-				<div>댓글 작성 및 주문은 로그인 후에 가능합니다.${shopdetail.xpos}</div>
+				<div>댓글 작성 및 평가는 로그인 후에 가능합니다.</div>
+				<br>
 			</c:if>
 			<c:if test="${!empty shopdetail.xpos or shopdetail.xpos ne ''}">
+			
+				<div class="writing-info5"><h4>${shopdetail.addr}</h4></div>
 				<div id="mymap" style='width: 300px; height: 280px;'></div>
 			</c:if>
 		</div>
@@ -229,7 +233,7 @@ to {
 	<div class="modal-dialog modal-md">
 		<div class="modal_content">
 			<span class="close" data-dismiss="modal">&times;</span>
-			<h2>댓글쓰기</h2>
+			<h5>댓글쓰기</h5>
 			<br> 평점 &nbsp;:
 			<div class="skullbtn">
 				<img src="<%=request.getContextPath()%>/images/dislike.png"
@@ -267,7 +271,7 @@ to {
 </div>
 
 <script type="text/javascript"
-        src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=5KvZP2PadHIlORT_ptWd&submodules=panorama,geocoder"></script>
+        src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=1i78w7iQT3tYF8nVdzAU&submodules=panorama,geocoder"></script>
 <script>
 	$(function() {
 		var len;
@@ -283,6 +287,7 @@ to {
 						$(".dislike").css("opacity", "1");
 						$(".dislike").attr("alt", "2");
 						addForb(2);
+						$("#toast").attr("class", "show")
 					} else if ($(".dislike").attr("alt") == 2
 							&& $(".like").attr("alt") == 0) {
 						$(".dislike").css("opacity", "0.2");
@@ -295,6 +300,7 @@ to {
 						$(".like").css("opacity", "0.2");
 						$(".like").attr("alt", "0");
 						modifyForb(2);
+						$("#toast").attr("class", "show")
 					}
 				})
 
@@ -321,6 +327,7 @@ to {
 						$(".dislike").css("opacity", "0.2");
 						$(".dislike").attr("alt", "0");
 						modifyForb(1);
+						$("#toast").attr("class", "show")
 					}
 				})
 
@@ -428,6 +435,11 @@ to {
 						if (value.img != ""
 								&& value.img != null) {
 							str += ' <img class="yesmother" src="'+value.img+'">'
+						}
+						
+						else if(value.img == ""
+							|| value.img == null){
+							str += ' <img class="yesmother" src="images/noimage.jpg">'
 						}
 
 						str += '</div> </div> <div class="col-md-6"> <div class="repHead-body">'
