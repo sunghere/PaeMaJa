@@ -31,7 +31,7 @@ public class LoginController {
 		PMAUser login = pMAUserSerivce.login(user);
 		AjaxCheck check = new AjaxCheck();
 		logger.info("Welcome LoginController loginAf!---- " + login);
-		if (login != null && !login.getId().equals("")) {
+		if (login != null && !login.getId().equals("") && login.getAuth() != 9) {
 			request.getSession().setAttribute("login", login);
 			request.getSession().setMaxInactiveInterval(20 * 60);
 			check.setMessage("SUCS");

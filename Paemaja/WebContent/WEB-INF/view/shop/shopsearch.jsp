@@ -27,6 +27,7 @@
 .detailimg {
 	opacity: 0.3;
 	max-height:200px;
+	min-height:200px;
 	max-width:300px;
 	width:100%;
 }

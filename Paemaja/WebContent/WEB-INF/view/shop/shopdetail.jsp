@@ -288,6 +288,9 @@ to {
 						$(".dislike").attr("alt", "2");
 						addForb(2);
 						$("#toast").attr("class", "show")
+						setTimeout(function() {
+							$("#toast").removeClass("show");
+						}, 1500);
 					} else if ($(".dislike").attr("alt") == 2
 							&& $(".like").attr("alt") == 0) {
 						$(".dislike").css("opacity", "0.2");
@@ -301,6 +304,9 @@ to {
 						$(".like").attr("alt", "0");
 						modifyForb(2);
 						$("#toast").attr("class", "show")
+						setTimeout(function() {
+							$("#toast").removeClass("show");
+						}, 1500);
 					}
 				})
 
@@ -328,6 +334,9 @@ to {
 						$(".dislike").attr("alt", "0");
 						modifyForb(1);
 						$("#toast").attr("class", "show")
+						setTimeout(function() {
+							$("#toast").removeClass("show");
+						}, 1500);
 					}
 				})
 
