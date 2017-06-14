@@ -38,7 +38,7 @@ public class LoginController {
 		} else if (login.getAuth() == 9) {
 			request.getSession().invalidate();
 			model.addAttribute("result", "이용이 정지된 아이디입니다.");
-			check.setMessage("FAIL");
+			check.setMessage("STOP");
 		}
 		else {
 			request.getSession().invalidate();

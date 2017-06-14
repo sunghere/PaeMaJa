@@ -22,7 +22,13 @@
                         if (msg.message == "SUCS") {
                             $(".loginexit").click();
                             location.href = "this.do";
-                        } else {
+                        } 
+                        else if(msg.message == "STOP"){
+                        	$('#loginErrmsg').html("<div class='help-tip'><p>정지 당한 계정입니다.</p></div>").css({
+                                "color": "red"
+                            });
+                        }
+                        else {
                             $('#loginErrmsg').html("<div class='help-tip'><p>아이디 혹은 비밀번호를<br>확인해주세요.</p></div>").css({
                                 "color": "red"
                             });
